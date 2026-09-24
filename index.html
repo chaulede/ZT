@@ -1,0 +1,2049 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title id="pageTitle">Chinese Stroke Order Worksheet Generator | 汉字笔顺描红字帖生成器</title>
+  <!-- 核心依赖库 -->
+  <script src="https://cdn.jsdelivr.net/npm/hanzi-writer@3.5/dist/hanzi-writer.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/pinyin-pro@3.19.6/dist/index.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/opencc-js@1.0.5/dist/umd/full.js"></script>
+  <style>
+    * {
+      box-sizing: border-box;
+      -webkit-print-color-adjust: exact !important;
+      print-color-adjust: exact !important;
+      color-adjust: exact !important;
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+      background-color: #f0f3f8;
+      margin: 0;
+      padding: 24px;
+      color: #333;
+      min-height: 100vh;
+    }
+    .container {
+      max-width: 1040px;
+      margin: 0 auto;
+    }
+
+    .control-panel {
+      background: #ffffff;
+      padding: 20px 24px;
+      border-radius: 12px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+      margin-bottom: 24px;
+    }
+    .panel-title {
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 16px;
+      color: #1e293b;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    /* HSK 级别选择与双向词汇栏 */
+    .hsk-toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      background: #f8fafc;
+      padding: 12px 14px;
+      border-radius: 8px;
+      border: 1px solid #e2e8f0;
+      margin-bottom: 16px;
+      align-items: center;
+    }
+    .hsk-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
+      color: #475569;
+    }
+    .hsk-item label {
+      font-weight: 700;
+      white-space: nowrap;
+    }
+    .hsk-item select {
+      padding: 6px 10px;
+      border: 1.2px solid #cbd5e1;
+      border-radius: 6px;
+      font-size: 13px;
+      outline: none;
+      background: #ffffff;
+      cursor: pointer;
+      max-width: 100%;
+    }
+    .hsk-item select:focus {
+      border-color: #2563eb;
+    }
+
+    .input-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: flex-end;
+    }
+    .input-field {
+      flex: 1 1 150px;
+    }
+    .input-field.wide {
+      flex: 2 1 200px;
+    }
+    .input-field label {
+      display: block;
+      font-size: 12px;
+      font-weight: 700;
+      color: #64748b;
+      margin-bottom: 4px;
+    }
+    .input-field label span {
+      font-weight: normal;
+      color: #94a3b8;
+    }
+    .input-field input {
+      width: 100%;
+      padding: 9px 12px;
+      border: 1.5px solid #e2e8f0;
+      border-radius: 6px;
+      font-size: 14px;
+      outline: none;
+    }
+    .input-field input:focus {
+      border-color: #3b82f6;
+      box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+    }
+    .btn {
+      padding: 10px 15px;
+      font-size: 13px;
+      font-weight: 600;
+      border-radius: 6px;
+      border: none;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+      height: 38px;
+      white-space: nowrap;
+      transition: all 0.2s;
+    }
+    .btn-add { background: #2563eb; color: #fff; }
+    .btn-add:hover { background: #1d4ed8; }
+    .btn-download { background: #059669; color: #fff; }
+    .btn-download:hover { background: #047857; }
+    .btn-stroke-page { background: #7c3aed; color: #fff; }
+    .btn-stroke-page:hover { background: #6d28d9; }
+    .btn-trad-add { 
+      background: linear-gradient(135deg, #d97706, #b45309); 
+      color: #fff; 
+    }
+    .btn-trad-add:hover { background: linear-gradient(135deg, #b45309, #92400e); }
+
+    .status-hint {
+      font-size: 12px;
+      color: #64748b;
+      margin-top: 10px;
+    }
+
+    /* 字帖展示区 */
+    .worksheet {
+      background: #ffffff;
+      padding: 36px 40px;
+      border-radius: 12px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+      min-height: 500px;
+    }
+    .empty-state {
+      text-align: center;
+      padding: 60px 0;
+      color: #94a3b8;
+    }
+    .word-block {
+      position: relative;
+      margin-bottom: 28px;
+    }
+    .btn-delete {
+      position: absolute;
+      top: 0;
+      right: 0;
+      background: #fee2e2;
+      color: #ef4444;
+      border: 1px solid #fecaca;
+      border-radius: 6px;
+      padding: 4px 10px;
+      font-size: 12px;
+      cursor: pointer;
+    }
+    .btn-delete:hover { background: #ef4444; color: #fff; }
+
+    .word-header {
+      display: flex;
+      align-items: baseline;
+      gap: 16px;
+      margin-bottom: 8px;
+      padding-right: 80px;
+    }
+    .word-chinese {
+      font-family: "Kaiti", "STKaiti", "KaiTi_GB2312", "楷体", serif;
+      font-size: 26px;
+      font-weight: bold;
+      color: #0f172a;
+      letter-spacing: 2px;
+    }
+    .word-pinyin {
+      color: #e11d48 !important;
+      font-size: 18px;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+    }
+    .word-meaning {
+      color: #475569;
+      font-size: 16px;
+    }
+    .trad-tag {
+      font-size: 12px;
+      background: #fef3c7;
+      color: #92400e;
+      border: 1px solid #fde68a;
+      padding: 1px 6px;
+      border-radius: 4px;
+      font-weight: bold;
+    }
+
+    /* 笔顺分解区 */
+    .stroke-rows {
+      margin-bottom: 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .stroke-sequence-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+      min-height: 28px;
+    }
+    .stroke-svg-item {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .stroke-svg-item svg { overflow: visible; }
+
+    .anim-play-btn {
+      margin-left: 8px;
+      padding: 3px 10px;
+      font-size: 12px;
+      font-weight: 600;
+      background: linear-gradient(135deg, #2563eb, #1d4ed8);
+      color: #ffffff;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    /* 米字格网格结构：15列全宽自适应，字放大 */
+    .grid-container {
+      border: 1.2px solid #475569;
+      margin-bottom: 6px;
+      background-color: #ffffff;
+    }
+    .grid-row {
+      display: grid;
+      grid-template-columns: repeat(15, 1fr);
+      border-bottom: 1.2px solid #475569;
+    }
+    .grid-row:last-child {
+      border-bottom: none;
+    }
+    .mi-grid {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      border-right: 1.2px solid #475569;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #ffffff;
+    }
+    .mi-grid:last-child {
+      border-right: none;
+    }
+    .grid-svg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+    }
+    .grid-svg line {
+      stroke: #cbd5e1 !important;
+      stroke-width: 1;
+      stroke-dasharray: 2 2;
+    }
+    .grid-char {
+      position: relative;
+      font-family: "Kaiti", "STKaiti", "KaiTi_GB2312", "楷体", serif;
+      font-size: 38px;
+      line-height: 1;
+      user-select: none;
+      z-index: 2;
+    }
+    .char-black { color: #0f172a !important; }
+    .char-trace { color: #cbd5e1 !important; }
+    .char-trace-red { color: #f87171 !important; }
+
+    /* 中央大屏动画演示模态框 */
+    .big-anim-modal {
+      position: fixed;
+      top: 0; left: 0; width: 100vw; height: 100vh;
+      background: rgba(15, 23, 42, 0.75);
+      backdrop-filter: blur(8px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 10000;
+    }
+    .big-anim-card {
+      background: #ffffff;
+      padding: 28px;
+      border-radius: 20px;
+      text-align: center;
+      width: 90%;
+      max-width: 400px;
+      position: relative;
+    }
+    .big-anim-close {
+      position: absolute;
+      top: 14px; right: 16px;
+      background: none;
+      border: none;
+      font-size: 24px;
+      color: #94a3b8;
+      cursor: pointer;
+    }
+    .big-anim-title {
+      font-size: 18px;
+      font-weight: 700;
+      color: #1e293b;
+      margin-bottom: 16px;
+    }
+    .big-anim-stage-wrapper {
+      position: relative;
+      width: 260px;
+      height: 260px;
+      margin: 0 auto 18px;
+      background: #ffffff;
+      border: 2px solid #475569;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    .big-anim-stage-wrapper .grid-svg line {
+      stroke: #cbd5e1 !important;
+      stroke-width: 1.5;
+      stroke-dasharray: 4 4;
+    }
+    .big-anim-ctrl-btn {
+      padding: 8px 18px;
+      font-size: 14px;
+      font-weight: 600;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      background: #2563eb;
+      color: #fff;
+    }
+
+    /* 笔画练习表格 */
+    .stroke-practice-header {
+      text-align: center;
+      margin-bottom: 24px;
+      padding-bottom: 12px;
+      border-bottom: 2px solid #7c3aed;
+    }
+    .stroke-practice-title {
+      font-size: 24px;
+      font-weight: bold;
+      color: #1e293b;
+    }
+    .stroke-item-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 12px;
+      padding-bottom: 8px;
+      border-bottom: 1px dashed #e2e8f0;
+    }
+    .stroke-info-card {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      width: 240px;
+      flex-shrink: 0;
+    }
+    .stroke-badge-id {
+      background: #7c3aed;
+      color: #fff;
+      font-size: 12px;
+      font-weight: bold;
+      padding: 2px 7px;
+      border-radius: 4px;
+    }
+    .stroke-grid-wrapper { flex-grow: 1; }
+    .stroke-grid-row {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      border: 1.2px solid #475569;
+    }
+
+    /* 打印配置 */
+    @media print {
+      body { background: #fff !important; padding: 0 !important; }
+      .control-panel, .btn-delete, .anim-play-btn, .big-anim-modal { display: none !important; }
+      .worksheet { box-shadow: none !important; padding: 0 !important; max-width: 100% !important; }
+      .word-block, .stroke-item-row { page-break-inside: avoid; }
+      @page { size: A4 portrait; margin: 12mm 10mm; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 1. 中央大屏动画演示模态框 -->
+  <div class="big-anim-modal" id="bigAnimModal" onclick="if(event.target===this) closeBigAnimation()">
+    <div class="big-anim-card">
+      <button class="big-anim-close" onclick="closeBigAnimation()">✕</button>
+      <div class="big-anim-title" id="animModalTitle">笔画顺序演示 / Stroke Order Animation</div>
+      <div class="big-anim-stage-wrapper">
+        <svg class="grid-svg" viewBox="0 0 100 100" preserveAspectRatio="none">
+          <line x1="0" y1="0" x2="100" y2="100"></line>
+          <line x1="100" y1="0" x2="0" y2="100"></line>
+          <line x1="0" y1="50" x2="100" y2="50"></line>
+          <line x1="50" y1="0" x2="50" y2="100"></line>
+        </svg>
+        <div id="bigAnimTarget"></div>
+      </div>
+      <button class="big-anim-ctrl-btn" id="animReplayBtn" onclick="replayBigAnimation()">🔄 重播 / Replay</button>
+    </div>
+  </div>
+
+  <!-- 2. 字帖主应用容器 -->
+  <div class="container">
+    <div class="control-panel">
+      <div class="panel-title">
+        <span id="mainTitle">✍️ 汉字笔顺描红字帖生成器 | Hanzi Worksheet Generator</span>
+        <button class="btn" style="background: #475569; color: #fff; height: 32px; font-size: 12px;" onclick="toggleLanguage()">🌐 中文 / English</button>
+      </div>
+
+      <!-- HSK 级别选择与双向词汇栏 -->
+      <div class="hsk-toolbar">
+        <div class="hsk-item">
+          <label id="lblHsk">📚 HSK Level / 等级:</label>
+          <select id="hskLevelSelect" onchange="onHskLevelChange()">
+            <option value="1" selected>HSK 1</option>
+            <option value="2">HSK 2</option>
+            <option value="3">HSK 3</option>
+            <option value="4-1">HSK 4-1</option>
+          </select>
+        </div>
+        <div class="hsk-item" style="flex: 1 1 300px;">
+          <label id="lblSelectWord">🔍 Select Word / 快速选词:</label>
+          <select id="hskWordSelect" style="width: 100%; max-width: 480px;" onchange="onHskWordSelect(this.value)">
+            <option value="">-- Choose from HSK list --</option>
+          </select>
+        </div>
+        <div class="hsk-item">
+          <label id="lblMode">👶 模式 / Mode:</label>
+          <select id="kidsModeSelect" onchange="renderAllWords()">
+            <option value="standard">标准模式 (Standard)</option>
+            <option value="kids" selected>少儿描红 (Kids Trace)</option>
+          </select>
+        </div>
+      </div>
+      
+      <div class="input-group">
+        <div class="input-field">
+          <label id="lblHanzi">汉字 / Chinese <span>(独立手动输入)</span></label>
+          <input type="text" id="inputWord" placeholder="e.g. 中国 or 水" value="中国" oninput="onChineseInput()">
+        </div>
+        <div class="input-field">
+          <label id="lblPinyin">拼音 / Pinyin <span>(自动/手动输入)</span></label>
+          <input type="text" id="inputPinyin" placeholder="e.g. zhōng guó" value="zhōng guó" oninput="onPinyinInput()">
+        </div>
+        <div class="input-field wide">
+          <label id="lblEnglish">英文 / English <span>(独立手动输入)</span></label>
+          <input type="text" id="inputMeaning" placeholder="e.g. China, water, hello..." value="China">
+        </div>
+        <button class="btn btn-add" id="btnAddSimp" onclick="handleAddWord(false)">➕ 添加简体 / Simplified</button>
+        <button class="btn btn-trad-add" id="btnAddTrad" onclick="handleAddWord(true)" title="Convert to Traditional characters">🀄 生成繁体 / Traditional</button>
+        <button class="btn btn-download" id="btnDownload" onclick="window.print()">📥 下载 PDF / Print</button>
+        <button class="btn btn-stroke-page" id="btnStrokePage" onclick="renderStrokePracticeSheet()">📋 32 笔画练习 / 32 Strokes</button>
+      </div>
+
+      <div class="status-hint" id="statusHint">
+        <span>💡 <b>Tip</b>: 汉字和英文框完全支持手动自由输入；拼音框支持输入汉字后自动填充，也允许随时手动修改。</span>
+      </div>
+    </div>
+
+    <div class="worksheet" id="worksheet"></div>
+  </div>
+
+  <script>
+    let bigWriterInstance = null;
+    let s2tConverter = window.OpenCC ? OpenCC.Converter({ from: 'cn', to: 'tw' }) : null;
+    let currentLang = 'zh'; 
+    let isUserTypingPinyin = false; 
+
+    const I18N = {
+      zh: {
+        pageTitle: "Chinese Stroke Order Worksheet Generator | 汉字笔顺描红字帖生成器",
+        mainTitle: "✍️ 汉字笔顺描红字帖生成器 | Hanzi Worksheet Generator",
+        lblHsk: "📚 HSK Level / 等级:",
+        lblSelectWord: "🔍 Select Word / 快速选词:",
+        lblMode: "👶 模式 / Mode:",
+        lblHanzi: "汉字 / Chinese <span>(独立手动输入)</span>",
+        lblPinyin: "拼音 / Pinyin <span>(自动/手动输入)</span>",
+        lblEnglish: "英文 / English <span>(独立手动输入)</span>",
+        btnAddSimp: "➕ 添加简体 / Simplified",
+        btnAddTrad: "🀄 生成繁体 / Traditional",
+        btnDownload: "📥 下载 PDF / Print",
+        btnStrokePage: "📋 32 笔画练习 / 32 Strokes",
+        statusHint: "💡 <b>Tip</b>: 汉字和英文框完全支持手动自由输入；拼音框支持输入汉字后自动填充，也允许随时手动修改。",
+        emptyState: "字帖中暂无词条，请在上方添加。",
+        deleteBtn: "✕ 删除",
+        strokeLabel: "笔顺:",
+        animBtn: "▶ 动态演示",
+        animTitle: "笔画顺序演示 / Stroke Order Animation",
+        replayBtn: "🔄 重播 / Replay",
+        strokePracticeTitle: "32 Standard Chinese Strokes Practice | 常用汉字笔画名称与描红练习表"
+      },
+      en: {
+        pageTitle: "Chinese Stroke Order Worksheet Generator",
+        mainTitle: "✍️ Chinese Stroke Order Worksheet Generator",
+        lblHsk: "📚 HSK Level:",
+        lblSelectWord: "🔍 Select Word:",
+        lblMode: "👶 Mode:",
+        lblHanzi: "Chinese <span>(Independent input)</span>",
+        lblPinyin: "Pinyin <span>(Auto/Manual)</span>",
+        lblEnglish: "English <span>(Independent input)</span>",
+        btnAddSimp: "➕ Add Simplified",
+        btnAddTrad: "🀄 Add Traditional",
+        btnDownload: "📥 Print / PDF",
+        btnStrokePage: "📋 32 Strokes Practice",
+        statusHint: "💡 <b>Tip</b>: Chinese and English fields are fully independent. Pinyin auto-fills on typing Chinese, but can be manually edited.",
+        emptyState: "Worksheet is empty. Type a word or choose from HSK list above.",
+        deleteBtn: "✕ Delete",
+        strokeLabel: "Strokes:",
+        animBtn: "▶ Animate",
+        animTitle: "Stroke Order Animation",
+        replayBtn: "🔄 Replay",
+        strokePracticeTitle: "32 Standard Chinese Strokes Practice"
+      }
+    };
+
+    function toggleLanguage() {
+      currentLang = currentLang === 'zh' ? 'en' : 'zh';
+      updateUIStrings();
+      renderAllWords();
+    }
+
+    function updateUIStrings() {
+      const t = I18N[currentLang];
+      document.getElementById('pageTitle').innerText = t.pageTitle;
+      document.getElementById('mainTitle').innerHTML = t.mainTitle;
+      document.getElementById('lblHsk').innerHTML = t.lblHsk;
+      document.getElementById('lblSelectWord').innerHTML = t.lblSelectWord;
+      document.getElementById('lblMode').innerHTML = t.lblMode;
+      document.getElementById('lblHanzi').innerHTML = t.lblHanzi;
+      document.getElementById('lblPinyin').innerHTML = t.lblPinyin;
+      document.getElementById('lblEnglish').innerHTML = t.lblEnglish;
+      document.getElementById('btnAddSimp').innerHTML = t.btnAddSimp;
+      document.getElementById('btnAddTrad').innerHTML = t.btnAddTrad;
+      document.getElementById('btnDownload').innerHTML = t.btnDownload;
+      document.getElementById('btnStrokePage').innerHTML = t.btnStrokePage;
+      document.getElementById('statusHint').innerHTML = t.statusHint;
+      document.getElementById('animModalTitle').innerText = t.animTitle;
+      document.getElementById('animReplayBtn').innerText = t.replayBtn;
+    }
+
+    // 内置官方分类词汇表 (基于 HSK1.txt, HSK2.txt, HSK3.txt, HSK4-1.txt)[cite: 4, 5, 6, 7]
+    const HSK_DICTIONARY = {
+      1: [
+        { zh: "你好", py: "nǐ hǎo", en: "hello" },
+        { zh: "大家", py: "dàjiā", en: "everybody" },
+        { zh: "好", py: "hǎo", en: "good; fine" },
+        { zh: "学生", py: "xuésheng", en: "student" },
+        { zh: "们", py: "men", en: "" },
+        { zh: "老师", py: "lǎoshī", en: "teacher" },
+        { zh: "您", py: "nín", en: "you" },
+        { zh: "你们", py: "nǐmen", en: "you" },
+        { zh: "谢谢", py: "xièxie", en: "thank you" },
+        { zh: "不客气", py: "bú kèqi", en: "you're welcome" },
+        { zh: "同学", py: "tóngxué", en: "classmate" },
+        { zh: "再见", py: "zàijiàn", en: "goodbye" },
+        { zh: "请问", py: "qǐngwèn", en: "excuse me" },
+        { zh: "你", py: "nǐ", en: "you" },
+        { zh: "叫", py: "jiào", en: "be called as" },
+        { zh: "什么", py: "shénme", en: "what" },
+        { zh: "名字", py: "míngzi", en: "name" },
+        { zh: "我", py: "wǒ", en: "I; me" },
+        { zh: "不", py: "bù", en: "not; no" },
+        { zh: "是", py: "shì", en: "be" },
+        { zh: "对不起", py: "duìbuqǐ", en: "sorry" },
+        { zh: "没关系", py: "méi guānxi", en: "never mind" },
+        { zh: "没事", py: "méishì", en: "it doesn't matter" },
+        { zh: "很", py: "hěn", en: "very" },
+        { zh: "高兴", py: "gāoxìng", en: "glad; happy" },
+        { zh: "认识", py: "rènshi", en: "know" },
+        { zh: "也", py: "yě", en: "also; too" },
+        { zh: "人", py: "rén", en: "human; person" },
+        { zh: "的", py: "de", en: "" },
+        { zh: "这", py: "zhè", en: "this" },
+        { zh: "谁", py: "shéi", en: "who" },
+        { zh: "女朋友", py: "nǚpéngyou", en: "girlfriend" },
+        { zh: "哪", py: "nǎ", en: "which" },
+        { zh: "国", py: "guó", en: "country" },
+        { zh: "她", py: "tā", en: "she; her" },
+        { zh: "喂", py: "wèi", en: "hello; hey" },
+        { zh: "姐姐", py: "jiějie", en: "elder sister" },
+        { zh: "工作", py: "gōngzuò", en: "job / work" },
+        { zh: "还", py: "hái", en: "still" },
+        { zh: "忙", py: "máng", en: "busy" },
+        { zh: "吗", py: "ma", en: "" },
+        { zh: "对", py: "duì", en: "right" },
+        { zh: "太", py: "tài", en: "too; excessively" },
+        { zh: "我们", py: "wǒmen", en: "we; us" },
+        { zh: "想", py: "xiǎng", en: "miss" },
+        { zh: "有", py: "yǒu", en: "have" },
+        { zh: "多少", py: "duōshao", en: "how many/much" },
+        { zh: "个", py: "gè", en: "" },
+        { zh: "哥哥", py: "gēge", en: "elder brother" },
+        { zh: "呢", py: "ne", en: "" },
+        { zh: "没有", py: "méiyǒu", en: "not have" },
+        { zh: "家", py: "jiā", en: "family" },
+        { zh: "几", py: "jǐ", en: "how many" },
+        { zh: "口", py: "kǒu", en: "for family members" },
+        { zh: "爸爸", py: "bàba", en: "father" },
+        { zh: "妈妈", py: "māma", en: "mother" },
+        { zh: "妹妹", py: "mèimei", en: "younger sister" },
+        { zh: "和", py: "hé", en: "and" },
+        { zh: "儿子", py: "érzi", en: "son" },
+        { zh: "孩子", py: "háizi", en: "children" },
+        { zh: "女儿", py: "nǚ'ér", en: "daughter" },
+        { zh: "岁", py: "suì", en: "year" },
+        { zh: "他", py: "tā", en: "he; him" },
+        { zh: "今年", py: "jīnnián", en: "this year" },
+        { zh: "多", py: "duō", en: "how" },
+        { zh: "大", py: "dà", en: "old" },
+        { zh: "今天", py: "jīntiān", en: "today" },
+        { zh: "号", py: "hào", en: "date" },
+        { zh: "月", py: "yuè", en: "month" },
+        { zh: "日", py: "rì", en: "day" },
+        { zh: "星期", py: "xīngqī", en: "week" },
+        { zh: "星期日", py: "xīngqīrì", en: "Sunday" },
+        { zh: "星期天", py: "xīngqītiān", en: "Sunday" },
+        { zh: "休息", py: "xiūxi", en: "have a rest" },
+        { zh: "会", py: "huì", en: "can; be able to" },
+        { zh: "做饭", py: "zuòfàn", en: "cook" },
+        { zh: "做", py: "zuò", en: "make; produce" },
+        { zh: "面条儿", py: "miàntiáor", en: "noodles" },
+        { zh: "饺子", py: "jiǎozi", en: "jiaozi" },
+        { zh: "一些", py: "yìxiē", en: "some; a few" },
+        { zh: "菜", py: "cài", en: "dish; course" },
+        { zh: "下班", py: "xiàbān", en: "get off work" },
+        { zh: "新", py: "xīn", en: "new" },
+        { zh: "电脑", py: "diànnǎo", en: "computer" },
+        { zh: "真", py: "zhēn", en: "really; truly" },
+        { zh: "好看", py: "hǎokàn", en: "good-looking; nice" },
+        { zh: "喜欢", py: "xǐhuan", en: "like" },
+        { zh: "它", py: "tā", en: "it" },
+        { zh: "手机", py: "shǒujī", en: "cell phone" },
+        { zh: "电话", py: "diànhuà", en: "telephone" },
+        { zh: "明天", py: "míngtiān", en: "tomorrow" },
+        { zh: "去", py: "qù", en: "go to" },
+        { zh: "哪儿", py: "nǎr", en: "where" },
+        { zh: "超市", py: "chāoshì", en: "supermarket" },
+        { zh: "买", py: "mǎi", en: "buy" },
+        { zh: "东西", py: "dōngxi", en: "thing" },
+        { zh: "些", py: "xiē", en: "some" },
+        { zh: "牛奶", py: "niúnǎi", en: "milk" },
+        { zh: "吃", py: "chī", en: "eat" },
+        { zh: "晚饭", py: "wǎnfàn", en: "dinner" },
+        { zh: "那边", py: "nàbiān", en: "there" },
+        { zh: "包子", py: "bāozi", en: "steamed stuffed bun" },
+        { zh: "非常", py: "fēicháng", en: "very" },
+        { zh: "好吃", py: "hǎochī", en: "delicious" },
+        { zh: "米饭", py: "mǐfàn", en: "rice" },
+        { zh: "怎么", py: "zěnme", en: "how" },
+        { zh: "坐", py: "zuò", en: "take; travel by" },
+        { zh: "出租车", py: "chūzūchē", en: "taxi" },
+        { zh: "现在", py: "xiànzài", en: "now" },
+        { zh: "点", py: "diǎn", en: "o'clock" },
+        { zh: "早上", py: "zǎoshang", en: "morning" },
+        { zh: "上午", py: "shàngwǔ", en: "morning" },
+        { zh: "分", py: "fēn", en: "minute" },
+        { zh: "课", py: "kè", en: "class" },
+        { zh: "下午", py: "xiàwǔ", en: "afternoon" },
+        { zh: "见", py: "jiàn", en: "meet" },
+        { zh: "吧", py: "ba", en: "" },
+        { zh: "电影院", py: "diànyǐngyuàn", en: "cinema" },
+        { zh: "看", py: "kàn", en: "watch; see" },
+        { zh: "电影", py: "diànyǐng", en: "movie" },
+        { zh: "事", py: "shì", en: "thing" },
+        { zh: "上课", py: "shàngkè", en: "attend a class" },
+        { zh: "半", py: "bàn", en: "half" },
+        { zh: "下课", py: "xiàkè", en: "dismiss a class" },
+        { zh: "在", py: "zài", en: "be at" },
+        { zh: "里", py: "lǐ", en: "inside" },
+        { zh: "晚上", py: "wǎnshang", en: "evening" },
+        { zh: "医院", py: "yīyuàn", en: "hospital" },
+        { zh: "上班", py: "shàngbān", en: "go to work" },
+        { zh: "店", py: "diàn", en: "shop" },
+        { zh: "后", py: "hòu", en: "after" },
+        { zh: "房间", py: "fángjiān", en: "room" },
+        { zh: "外", py: "wài", en: "outside" },
+        { zh: "只", py: "zhī", en: "for animals" },
+        { zh: "小", py: "xiǎo", en: "small" },
+        { zh: "猫", py: "māo", en: "cat" },
+        { zh: "没", py: "méi", en: "not" },
+        { zh: "看见", py: "kànjiàn", en: "see" },
+        { zh: "桌子", py: "zhuōzi", en: "table" },
+        { zh: "漂亮", py: "piàoliang", en: "pretty" },
+        { zh: "学校", py: "xuéxiào", en: "school" },
+        { zh: "书店", py: "shūdiàn", en: "bookstore" },
+        { zh: "前", py: "qián", en: "front" },
+        { zh: "能", py: "néng", en: "can" },
+        { zh: "到", py: "dào", en: "arrive" },
+        { zh: "午饭", py: "wǔfàn", en: "lunch" },
+        { zh: "饭", py: "fàn", en: "meal" },
+        { zh: "病人", py: "bìngrén", en: "patient" },
+        { zh: "医生", py: "yīshēng", en: "doctor" },
+        { zh: "前边", py: "qiánbiān", en: "front" },
+        { zh: "边", py: "biān", en: "side" },
+        { zh: "那个", py: "nège", en: "that" },
+        { zh: "外边", py: "wàibiān", en: "outside" },
+        { zh: "椅子", py: "yǐzi", en: "chair" },
+        { zh: "上", py: "shàng", en: "up" },
+        { zh: "本", py: "běn", en: "for books" },
+        { zh: "书", py: "shū", en: "book" },
+        { zh: "那", py: "nà", en: "that" },
+        { zh: "第", py: "dì", en: "" },
+        { zh: "学习", py: "xuéxí", en: "study" },
+        { zh: "白天", py: "báitiān", en: "daytime" },
+        { zh: "读书", py: "dúshū", en: "read a book" },
+        { zh: "朋友", py: "péngyou", en: "friend" },
+        { zh: "唱", py: "chàng", en: "sing" },
+        { zh: "歌", py: "gē", en: "song" },
+        { zh: "好听", py: "hǎotīng", en: "pleasant" },
+        { zh: "电视", py: "diànshì", en: "television" },
+        { zh: "狗", py: "gǒu", en: "dog" },
+        { zh: "玩", py: "wán", en: "play" },
+        { zh: "杯子", py: "bēizi", en: "cup" },
+        { zh: "售货员", py: "shòuhuòyuán", en: "shop assistant" },
+        { zh: "这边", py: "zhèbiān", en: "here" },
+        { zh: "钱", py: "qián", en: "money" },
+        { zh: "这些", py: "zhèxiē", en: "these" },
+        { zh: "块", py: "kuài", en: "" },
+        { zh: "那些", py: "nàxiē", en: "those" },
+        { zh: "这儿", py: "zhèr", en: "here" },
+        { zh: "水果", py: "shuǐguǒ", en: "fruit" },
+        { zh: "少", py: "shǎo", en: "few" },
+        { zh: "斤", py: "jīn", en: "" },
+        { zh: "苹果", py: "píngguǒ", en: "apple" },
+        { zh: "便宜", py: "piányi", en: "cheap" },
+        { zh: "商店", py: "shāngdiàn", en: "store" },
+        { zh: "衣服", py: "yīfu", en: "clothes" },
+        { zh: "件", py: "jiàn", en: "piece" },
+        { zh: "元", py: "yuán", en: "yuan" },
+        { zh: "怎么样", py: "zěnmeyàng", en: "how" },
+        { zh: "贵", py: "guì", en: "expensive" },
+        { zh: "穿", py: "chuān", en: "wear" },
+        { zh: "女", py: "nǚ", en: "female" },
+        { zh: "男", py: "nán", en: "male" },
+        { zh: "那儿", py: "nàr", en: "there" },
+        { zh: "时候", py: "shíhou", en: "time" },
+        { zh: "饭店", py: "fàndiàn", en: "restaurant" },
+        { zh: "知道", py: "zhīdào", en: "know" },
+        { zh: "正在", py: "zhèngzài", en: "in process" },
+        { zh: "找", py: "zhǎo", en: "look for" },
+        { zh: "开车", py: "kāichē", en: "drive" },
+        { zh: "车", py: "chē", en: "vehicle" },
+        { zh: "读", py: "dú", en: "study" },
+        { zh: "大学", py: "dàxué", en: "university" },
+        { zh: "大学生", py: "dàxuéshēng", en: "college student" },
+        { zh: "学", py: "xué", en: "study" },
+        { zh: "医", py: "yī", en: "medicine" },
+        { zh: "弟弟", py: "dìdi", en: "younger brother" },
+        { zh: "起床", py: "qǐchuáng", en: "get up" },
+        { zh: "睡觉", py: "shuìjiào", en: "sleep" },
+        { zh: "睡", py: "shuì", en: "sleep" },
+        { zh: "那里", py: "nàlǐ", en: "there" },
+        { zh: "哪里", py: "nǎlǐ", en: "where" },
+        { zh: "昨天", py: "zuótiān", en: "yesterday" },
+        { zh: "问", py: "wèn", en: "ask" },
+        { zh: "说", py: "shuō", en: "speak" },
+        { zh: "要", py: "yào", en: "want" },
+        { zh: "小朋友", py: "xiǎopéngyou", en: "child" },
+        { zh: "天气", py: "tiānqì", en: "weather" },
+        { zh: "这里", py: "zhèlǐ", en: "here" },
+        { zh: "天", py: "tiān", en: "weather" },
+        { zh: "下雨", py: "xiàyǔ", en: "rain" },
+        { zh: "雨", py: "yǔ", en: "rain" },
+        { zh: "有点儿", py: "yǒudiǎnr", en: "a bit" },
+        { zh: "觉得", py: "juéde", en: "feel" },
+        { zh: "冷", py: "lěng", en: "cold" },
+        { zh: "雪", py: "xuě", en: "snow" },
+        { zh: "来", py: "lái", en: "come" },
+        { zh: "公司", py: "gōngsī", en: "company" },
+        { zh: "生病", py: "shēngbìng", en: "fall ill" },
+        { zh: "看病", py: "kànbìng", en: "see a doctor" },
+        { zh: "病", py: "bìng", en: "ill" },
+        { zh: "一点儿", py: "yìdiǎnr", en: "some" },
+        { zh: "药", py: "yào", en: "medicine" },
+        { zh: "回", py: "huí", en: "return" },
+        { zh: "再", py: "zài", en: "then" },
+        { zh: "喝", py: "hē", en: "drink" },
+        { zh: "热", py: "rè", en: "hot" },
+        { zh: "水", py: "shuǐ", en: "water" },
+        { zh: "可以", py: "kěyǐ", en: "can" },
+        { zh: "问题", py: "wèntí", en: "problem" },
+        { zh: "卖", py: "mài", en: "sell" },
+        { zh: "打电话", py: "dǎ diànhuà", en: "call" },
+        { zh: "一下", py: "yíxià", en: "once" },
+        { zh: "服务员", py: "fúwùyuán", en: "waiter" },
+        { zh: "女士", py: "nǚshì", en: "lady" },
+        { zh: "请", py: "qǐng", en: "please" },
+        { zh: "给", py: "gěi", en: "give" },
+        { zh: "杯", py: "bēi", en: "cup" },
+        { zh: "早饭", py: "zǎofàn", en: "breakfast" },
+        { zh: "这个", py: "zhège", en: "this" },
+        { zh: "面包", py: "miànbāo", en: "bread" },
+        { zh: "鸡蛋", py: "jīdàn", en: "egg" },
+        { zh: "先生", py: "xiānsheng", en: "sir" },
+        { zh: "一半", py: "yíbàn", en: "half" },
+        { zh: "茶", py: "chá", en: "tea" },
+        { zh: "火车", py: "huǒchē", en: "train" },
+        { zh: "中午", py: "zhōngwǔ", en: "noon" },
+        { zh: "开", py: "kāi", en: "depart" },
+        { zh: "有些", py: "yǒuxiē", en: "some" },
+        { zh: "有的", py: "yǒude", en: "some" },
+        { zh: "写", py: "xiě", en: "write" },
+        { zh: "都", py: "dōu", en: "all" },
+        { zh: "听见", py: "tīngjiàn", en: "hear" },
+        { zh: "不要", py: "búyào", en: "don't" },
+        { zh: "说话", py: "shuōhuà", en: "speak" },
+        { zh: "听", py: "tīng", en: "listen" },
+        { zh: "哪些", py: "nǎxiē", en: "which" },
+        { zh: "字", py: "zì", en: "word" },
+        { zh: "明年", py: "míngnián", en: "next year" },
+        { zh: "中学", py: "zhōngxué", en: "middle school" },
+        { zh: "小学", py: "xiǎoxué", en: "primary school" },
+        { zh: "中学生", py: "zhōngxuéshēng", en: "middle school student" },
+        { zh: "小学生", py: "xiǎoxuéshēng", en: "pupil" },
+        { zh: "上学", py: "shàngxué", en: "go to school" },
+        { zh: "他们", py: "tāmen", en: "they" },
+        { zh: "她们", py: "tāmen", en: "they" },
+        { zh: "它们", py: "tāmen", en: "they" },
+        { zh: "晚", py: "wǎn", en: "late" },
+        { zh: "汉语", py: "hànyǔ", en: "Chinese" },
+        { zh: "汉字", py: "hànzì", en: "Chinese character" },
+        { zh: "爱", py: "ài", en: "love" },
+        { zh: "哪个", py: "nǎge", en: "which" },
+        { zh: "去年", py: "qùnián", en: "last year" },
+        { zh: "男朋友", py: "nánpéngyou", en: "boyfriend" },
+        { zh: "年", py: "nián", en: "year" },
+        { zh: "好玩儿", py: "hǎowánr", en: "fun" },
+        { zh: "飞机", py: "fēijī", en: "plane" },
+        { zh: "小时", py: "xiǎoshí", en: "hour" },
+        { zh: "家人", py: "jiārén", en: "family" },
+        { zh: "机场", py: "jīchǎng", en: "airport" },
+        { zh: "接", py: "jiē", en: "meet" },
+        { zh: "住", py: "zhù", en: "live" },
+        { zh: "早", py: "zǎo", en: "early" }
+      ],
+      2: [
+        { zh: "还是", py: "háishì", en: "had better" },
+        { zh: "接", py: "jiē", en: "meet" },
+        { zh: "让", py: "ràng", en: "let" },
+        { zh: "给", py: "gěi", en: "to" },
+        { zh: "就", py: "jiù", en: "exactly" },
+        { zh: "次", py: "cì", en: "time" },
+        { zh: "旅游", py: "lǚyóu", en: "travel" },
+        { zh: "帮忙", py: "bāngmáng", en: "help" },
+        { zh: "不好意思", py: "bùhǎoyìsi", en: "embarrassed" },
+        { zh: "已经", py: "yǐjīng", en: "already" },
+        { zh: "介绍", py: "jièshào", en: "introduce" },
+        { zh: "有时", py: "yǒushí", en: "sometimes" },
+        { zh: "懂", py: "dǒng", en: "understand" },
+        { zh: "意思", py: "yìsi", en: "meaning" },
+        { zh: "北京烤鸭", py: "Běijīng kǎoyā", en: "Peking Duck" },
+        { zh: "公交车", py: "gōngjiāochē", en: "bus" },
+        { zh: "但", py: "dàn", en: "but" },
+        { zh: "车站", py: "chēzhàn", en: "station" },
+        { zh: "远", py: "yuǎn", en: "far" },
+        { zh: "打车", py: "dǎchē", en: "taxi" },
+        { zh: "万", py: "wàn", en: "ten thousand" },
+        { zh: "名", py: "míng", en: "name" },
+        { zh: "网上", py: "wǎngshàng", en: "online" },
+        { zh: "外国", py: "wàiguó", en: "foreign" },
+        { zh: "间", py: "jiān", en: "" },
+        { zh: "教室", py: "jiàoshì", en: "classroom" },
+        { zh: "票", py: "piào", en: "ticket" },
+        { zh: "别", py: "bié", en: "don't" },
+        { zh: "过来", py: "guòlái", en: "come here" },
+        { zh: "北京大学", py: "Běijīng Dàxué", en: "Peking University" },
+        { zh: "回来", py: "huílái", en: "come back" },
+        { zh: "这么", py: "zhème", en: "so" },
+        { zh: "完", py: "wán", en: "end" },
+        { zh: "一起", py: "yìqǐ", en: "together" },
+        { zh: "出去", py: "chūqù", en: "go out" },
+        { zh: "洗", py: "xǐ", en: "wash" },
+        { zh: "自己", py: "zìjǐ", en: "oneself" },
+        { zh: "拿", py: "ná", en: "take" },
+        { zh: "手", py: "shǒu", en: "hand" },
+        { zh: "为什么", py: "wèishénme", en: "why" },
+        { zh: "不错", py: "búcuò", en: "not bad" },
+        { zh: "送", py: "sòng", en: "give" },
+        { zh: "回去", py: "huíqù", en: "return" },
+        { zh: "每", py: "měi", en: "each" },
+        { zh: "累", py: "lèi", en: "tired" },
+        { zh: "商场", py: "shāngchǎng", en: "department store" },
+        { zh: "进去", py: "jìnqù", en: "go in" },
+        { zh: "条", py: "tiáo", en: "" },
+        { zh: "裤子", py: "kùzi", en: "pants" },
+        { zh: "白色", py: "báisè", en: "white" },
+        { zh: "因为", py: "yīnwèi", en: "because" },
+        { zh: "试", py: "shì", en: "try" },
+        { zh: "红色", py: "hóngsè", en: "red" },
+        { zh: "所以", py: "suǒyǐ", en: "so" },
+        { zh: "书包", py: "shūbāo", en: "schoolbag" },
+        { zh: "过去", py: "guòqù", en: "pass" },
+        { zh: "绿色", py: "lǜsè", en: "green" },
+        { zh: "黑色", py: "hēisè", en: "black" },
+        { zh: "更", py: "gèng", en: "more" },
+        { zh: "颜色", py: "yánsè", en: "color" },
+        { zh: "快", py: "kuài", en: "fast" },
+        { zh: "下来", py: "xiàlái", en: "come down" },
+        { zh: "上来", py: "shànglái", en: "come up" },
+        { zh: "上去", py: "shàngqù", en: "go up" },
+        { zh: "下面", py: "xiàmiàn", en: "downstairs" },
+        { zh: "等", py: "děng", en: "wait" },
+        { zh: "一会儿", py: "yíhuìr", en: "soon" },
+        { zh: "下去", py: "xiàqù", en: "go down" },
+        { zh: "进来", py: "jìnlái", en: "come in" },
+        { zh: "爷爷", py: "yéye", en: "grandfather" },
+        { zh: "奶奶", py: "nǎinai", en: "grandmother" },
+        { zh: "礼物", py: "lǐwù", en: "gift" },
+        { zh: "准备", py: "zhǔnbèi", en: "prepare" },
+        { zh: "奶茶", py: "nǎichá", en: "bubble tea" },
+        { zh: "跟", py: "gēn", en: "with" },
+        { zh: "走", py: "zǒu", en: "walk" },
+        { zh: "酒店", py: "jiǔdiàn", en: "hotel" },
+        { zh: "生日", py: "shēngrì", en: "birthday" },
+        { zh: "忘", py: "wàng", en: "forget" },
+        { zh: "画", py: "huà", en: "draw" },
+        { zh: "画笔", py: "huàbǐ", en: "paintbrush" },
+        { zh: "蛋糕", py: "dàngāo", en: "cake" },
+        { zh: "快乐", py: "kuàilè", en: "happy" },
+        { zh: "打开", py: "dǎkāi", en: "open" },
+        { zh: "长", py: "cháng", en: "long" },
+        { zh: "鱼", py: "yú", en: "fish" },
+        { zh: "肉", py: "ròu", en: "meat" },
+        { zh: "过", py: "guò", en: "spend" },
+        { zh: "地", py: "de", en: "" },
+        { zh: "床", py: "chuáng", en: "bed" },
+        { zh: "舒服", py: "shūfu", en: "comfortable" },
+        { zh: "从", py: "cóng", en: "from" },
+        { zh: "往", py: "wǎng", en: "towards" },
+        { zh: "跑", py: "pǎo", en: "run" },
+        { zh: "打", py: "dǎ", en: "play" },
+        { zh: "篮球", py: "lánqiú", en: "basketball" },
+        { zh: "运动", py: "yùndòng", en: "sports" },
+        { zh: "踢", py: "tī", en: "kick" },
+        { zh: "足球", py: "zúqiú", en: "soccer" },
+        { zh: "球", py: "qiú", en: "ball" },
+        { zh: "得", py: "de", en: "" },
+        { zh: "跑步", py: "pǎobù", en: "run" },
+        { zh: "游泳", py: "yóuyǒng", en: "swim" },
+        { zh: "游", py: "yóu", en: "swim" },
+        { zh: "爱好", py: "àihào", en: "hobby" },
+        { zh: "开始", py: "kāishǐ", en: "start" },
+        { zh: "手表", py: "shǒubiǎo", en: "watch" },
+        { zh: "左边", py: "zuǒbiān", en: "left" },
+        { zh: "左", py: "zuǒ", en: "left" },
+        { zh: "比", py: "bǐ", en: "than" },
+        { zh: "右边", py: "yòubian", en: "right" },
+        { zh: "右", py: "yòu", en: "right" },
+        { zh: "记得", py: "jìde", en: "remember" },
+        { zh: "爱情片", py: "àiqíngpiàn", en: "romantic movie" },
+        { zh: "有意思", py: "yǒuyìsi", en: "interesting" },
+        { zh: "点", py: "diǎn", en: "select" },
+        { zh: "虽然", py: "suīrán", en: "although" },
+        { zh: "但是", py: "dànshì", en: "but" },
+        { zh: "花", py: "huā", en: "spend" },
+        { zh: "妻子", py: "qīzi", en: "wife" },
+        { zh: "丈夫", py: "zhàngfu", en: "husband" },
+        { zh: "饭馆", py: "fànguǎn", en: "restaurant" },
+        { zh: "坏", py: "huài", en: "bad" },
+        { zh: "旁边", py: "pángbiān", en: "side" },
+        { zh: "男孩儿", py: "nánháir", en: "boy" },
+        { zh: "这样", py: "zhèyàng", en: "this" },
+        { zh: "个子", py: "gèzi", en: "height" },
+        { zh: "那么", py: "nàme", en: "so" },
+        { zh: "高", py: "gāo", en: "tall" },
+        { zh: "门口", py: "ménkǒu", en: "doorway" },
+        { zh: "咖啡", py: "kāfēi", en: "coffee" },
+        { zh: "离", py: "lí", en: "from" },
+        { zh: "近", py: "jìn", en: "close" },
+        { zh: "走路", py: "zǒulù", en: "walk" },
+        { zh: "周", py: "zhōu", en: "week" },
+        { zh: "开学", py: "kāixué", en: "begin" },
+        { zh: "门", py: "mén", en: "door" },
+        { zh: "后面", py: "hòumiàn", en: "back" },
+        { zh: "笔", py: "bǐ", en: "pen" },
+        { zh: "帮", py: "bāng", en: "help" },
+        { zh: "考试", py: "kǎoshì", en: "examination" },
+        { zh: "词", py: "cí", en: "word" },
+        { zh: "本子", py: "běnzi", en: "notebook" },
+        { zh: "错", py: "cuò", en: "wrong" },
+        { zh: "题", py: "tí", en: "question" },
+        { zh: "考", py: "kǎo", en: "examine" },
+        { zh: "快要", py: "kuàiyào", en: "about to" },
+        { zh: "笑", py: "xiào", en: "smile" },
+        { zh: "头", py: "tóu", en: "head" },
+        { zh: "疼", py: "téng", en: "hurt" },
+        { zh: "经常", py: "jīngcháng", en: "often" },
+        { zh: "动", py: "dòng", en: "move" },
+        { zh: "着", py: "zhe", en: "" },
+        { zh: "路上", py: "lùshang", en: "road" },
+        { zh: "慢", py: "màn", en: "slow" },
+        { zh: "进", py: "jìn", en: "into" },
+        { zh: "药", py: "yào", en: "medicine" },
+        { zh: "身体", py: "shēntǐ", en: "body" },
+        { zh: "时", py: "shí", en: "time" },
+        { zh: "最", py: "zuì", en: "most" },
+        { zh: "药店", py: "yàodiàn", en: "pharmacy" },
+        { zh: "事情", py: "shìqing", en: "affair" },
+        { zh: "晴", py: "qíng", en: "sunny" },
+        { zh: "正", py: "zhèng", en: "" },
+        { zh: "外面", py: "wàimiàn", en: "outside" },
+        { zh: "阴", py: "yīn", en: "cloudy" },
+        { zh: "从小", py: "cóngxiǎo", en: "since childhood" },
+        { zh: "地铁", py: "dìtiě", en: "subway" },
+        { zh: "楼", py: "lóu", en: "building" },
+        { zh: "站", py: "zhàn", en: "station" },
+        { zh: "小时候", py: "xiǎoshíhòu", en: "childhood" },
+        { zh: "好", py: "hǎo", en: "quite" },
+        { zh: "新年", py: "xīnnián", en: "New Year" },
+        { zh: "教", py: "jiāo", en: "teach" },
+        { zh: "希望", py: "xīwàng", en: "hope" },
+        { zh: "上面", py: "shàngmiàn", en: "above" },
+        { zh: "洗手间", py: "xǐshǒujiān", en: "restroom" },
+        { zh: "里面", py: "lǐmiàn", en: "inside" },
+        { zh: "可能", py: "kěnéng", en: "probably" },
+        { zh: "上网", py: "shàngwǎng", en: "go online" },
+        { zh: "那样", py: "nàyàng", en: "so that" },
+        { zh: "告诉", py: "gàosu", en: "tell" },
+        { zh: "班", py: "bān", en: "class" },
+        { zh: "包", py: "bāo", en: "bag" },
+        { zh: "过年", py: "guònián", en: "celebrate New Year" },
+        { zh: "没意思", py: "méiyìsi", en: "boring" },
+        { zh: "位", py: "wèi", en: "" },
+        { zh: "前面", py: "qiánmiàn", en: "front" },
+        { zh: "房子", py: "fángzi", en: "house" },
+        { zh: "小孩儿", py: "xiǎoháir", en: "child" },
+        { zh: "女孩儿", py: "nǚháir", en: "girl" },
+        { zh: "姓", py: "xìng", en: "surname" },
+        { zh: "眼睛", py: "yǎnjing", en: "eye" },
+        { zh: "跳舞", py: "tiàowǔ", en: "dance" },
+        { zh: "姓名", py: "xìngmíng", en: "name" },
+        { zh: "出国", py: "chūguó", en: "go abroad" },
+        { zh: "门票", py: "ménpiào", en: "entrance ticket" },
+        { zh: "高中", py: "gāozhōng", en: "high school" },
+        { zh: "出门", py: "chūmén", en: "leave home" },
+        { zh: "路", py: "lù", en: "road" },
+        { zh: "机场", py: "jīchǎng", en: "airport" },
+        { zh: "机票", py: "jīpiào", en: "air ticket" },
+        { zh: "飞", py: "fēi", en: "fly" }
+      ],
+      3: [
+        { zh: "以为", py: "yǐwéi", en: "think" },
+        { zh: "像", py: "xiàng", en: "be like" },
+        { zh: "长", py: "zhǎng", en: "grow" },
+        { zh: "身高", py: "shēngāo", en: "height" },
+        { zh: "米", py: "mǐ", en: "meter" },
+        { zh: "瘦", py: "shòu", en: "thin" },
+        { zh: "行李", py: "xínglǐ", en: "luggage" },
+        { zh: "丢", py: "diū", en: "lose" },
+        { zh: "箱子", py: "xiāngzi", en: "case" },
+        { zh: "号码", py: "hàomǎ", en: "number" },
+        { zh: "好像", py: "hǎoxiàng", en: "seemingly" },
+        { zh: "重要", py: "zhòngyào", en: "important" },
+        { zh: "着急", py: "zháojí", en: "worried" },
+        { zh: "护照", py: "hùzhào", en: "passport" },
+        { zh: "服务台", py: "fúwùtái", en: "service desk" },
+        { zh: "应该", py: "yīnggāi", en: "should" },
+        { zh: "站", py: "zhàn", en: "stand" },
+        { zh: "中间", py: "zhōngjiān", en: "middle" },
+        { zh: "短", py: "duǎn", en: "short" },
+        { zh: "头发", py: "tóufa", en: "hair" },
+        { zh: "年轻", py: "niánqīng", en: "young" },
+        { zh: "发现", py: "fāxiàn", en: "discover" },
+        { zh: "帮助", py: "bāngzhù", en: "help" },
+        { zh: "不见", py: "bújiàn", en: "be lost" },
+        { zh: "照片", py: "zhàopiàn", en: "photo" },
+        { zh: "带", py: "dài", en: "bring" },
+        { zh: "菜单", py: "càidān", en: "menu" },
+        { zh: "又", py: "yòu", en: "and" },
+        { zh: "饿", py: "è", en: "hungry" },
+        { zh: "渴", py: "kě", en: "thirsty" },
+        { zh: "客气", py: "kèqi", en: "polite" },
+        { zh: "饮料", py: "yǐnliào", en: "drink" },
+        { zh: "好久", py: "hǎojiǔ", en: "for a long time" },
+        { zh: "服务", py: "fúwù", en: "serve" },
+        { zh: "员", py: "yuán", en: "" },
+        { zh: "双", py: "shuāng", en: "pair" },
+        { zh: "筷子", py: "kuàizi", en: "chopsticks" },
+        { zh: "勺子", py: "sháozi", en: "spoon" },
+        { zh: "碗", py: "wǎn", en: "bowl" },
+        { zh: "马上", py: "mǎshàng", en: "immediately" },
+        { zh: "热情", py: "rèqíng", en: "warm" },
+        { zh: "尝", py: "cháng", en: "taste" },
+        { zh: "记", py: "jì", en: "remember" },
+        { zh: "用", py: "yòng", en: "use" },
+        { zh: "鸡", py: "jī", en: "chicken" },
+        { zh: "选", py: "xuǎn", en: "choose" },
+        { zh: "外卖", py: "wàimài", en: "takeout" },
+        { zh: "不用", py: "búyòng", en: "need not" },
+        { zh: "方便", py: "fāngbiàn", en: "convenient" },
+        { zh: "只", py: "zhǐ", en: "only" },
+        { zh: "方便面", py: "fāngbiànmiàn", en: "instant noodles" },
+        { zh: "简单", py: "jiǎndān", en: "simple" },
+        { zh: "初中", py: "chūzhōng", en: "middle school" },
+        { zh: "咱们", py: "zánmen", en: "we" },
+        { zh: "换", py: "huàn", en: "change" },
+        { zh: "房子", py: "fángzi", en: "house" },
+        { zh: "小区", py: "xiǎoqū", en: "residential complex" },
+        { zh: "环境", py: "huánjìng", en: "environment" },
+        { zh: "挺", py: "tǐng", en: "quite" },
+        { zh: "空调", py: "kōngtiáo", en: "air conditioner" },
+        { zh: "洗衣机", py: "xǐyījī", en: "washing machine" },
+        { zh: "层", py: "céng", en: "floor" },
+        { zh: "花园", py: "huāyuán", en: "garden" },
+        { zh: "灯", py: "dēng", en: "light" },
+        { zh: "关", py: "guān", en: "turn off" },
+        { zh: "冰箱", py: "bīngxiāng", en: "refrigerator" },
+        { zh: "卫生间", py: "wèishēngjiān", en: "bathroom" },
+        { zh: "打扫", py: "dǎsǎo", en: "clean" },
+        { zh: "搬家", py: "bānjiā", en: "move" },
+        { zh: "办", py: "bàn", en: "do" },
+        { zh: "信用卡", py: "xìnyòngkǎ", en: "credit card" },
+        { zh: "还", py: "huán", en: "return" },
+        { zh: "听说", py: "tīngshuō", en: "hear about" },
+        { zh: "银行", py: "yínháng", en: "bank" },
+        { zh: "才", py: "cái", en: "not until" },
+        { zh: "纸", py: "zhǐ", en: "paper" },
+        { zh: "搬", py: "bān", en: "move" },
+        { zh: "需要", py: "xūyào", en: "need" },
+        { zh: "假期", py: "jiàqī", en: "vacation" },
+        { zh: "海", py: "hǎi", en: "sea" },
+        { zh: "草原", py: "cǎoyuán", en: "grassland" },
+        { zh: "主意", py: "zhǔyi", en: "idea" },
+        { zh: "骑", py: "qí", en: "ride" },
+        { zh: "马", py: "mǎ", en: "horse" },
+        { zh: "羊", py: "yáng", en: "sheep" },
+        { zh: "月亮", py: "yuèliang", en: "moon" },
+        { zh: "一定", py: "yídìng", en: "certainly" },
+        { zh: "刻", py: "kè", en: "quarter" },
+        { zh: "起飞", py: "qǐfēi", en: "take off" },
+        { zh: "宾馆", py: "bīnguǎn", en: "hotel" },
+        { zh: "特别", py: "tèbié", en: "special" },
+        { zh: "别的", py: "biéde", en: "other" },
+        { zh: "一样", py: "yīyàng", en: "the same" },
+        { zh: "牛", py: "niú", en: "cattle" },
+        { zh: "相机", py: "xiàngjī", en: "camera" },
+        { zh: "欢迎", py: "huānyíng", en: "welcome" },
+        { zh: "司机", py: "sījī", en: "driver" },
+        { zh: "晚点", py: "wǎndiǎn", en: "be late" },
+        { zh: "久", py: "jiǔ", en: "long" },
+        { zh: "除了", py: "chúle", en: "except" },
+        { zh: "以外", py: "yǐwài", en: "except" },
+        { zh: "先", py: "xiān", en: "first" },
+        { zh: "一直", py: "yìzhí", en: "all along" },
+        { zh: "干净", py: "gānjìng", en: "clean" },
+        { zh: "满意", py: "mǎnyì", en: "satisfied" },
+        { zh: "总是", py: "zǒngshì", en: "always" },
+        { zh: "终于", py: "zhōngyú", en: "finally" },
+        { zh: "爬", py: "pá", en: "climb" },
+        { zh: "山", py: "shān", en: "mountain" },
+        { zh: "锻炼", py: "duànliàn", en: "exercise" },
+        { zh: "照", py: "zhào", en: "take a picture" },
+        { zh: "鞋", py: "xié", en: "shoe" },
+        { zh: "大衣", py: "dàyī", en: "overcoat" },
+        { zh: "拍照", py: "pāizhào", en: "take a picture" },
+        { zh: "感兴趣", py: "gǎn xīngqù", en: "be interested in" },
+        { zh: "照相", py: "zhàoxiàng", en: "take a picture" },
+        { zh: "难", py: "nán", en: "hard" },
+        { zh: "难看", py: "nánkàn", en: "ugly" },
+        { zh: "比较", py: "bǐjiào", en: "compare" },
+        { zh: "水平", py: "shuǐpíng", en: "level" },
+        { zh: "太阳", py: "tàiyáng", en: "sun" },
+        { zh: "树", py: "shù", en: "tree" },
+        { zh: "干", py: "gàn", en: "do" },
+        { zh: "电", py: "diàn", en: "electricity" },
+        { zh: "收到", py: "shōudào", en: "receive" },
+        { zh: "封", py: "fēng", en: "" },
+        { zh: "音乐", py: "yīnyuè", en: "music" },
+        { zh: "兴趣", py: "xīngqù", en: "interest" },
+        { zh: "会", py: "huì", en: "party" },
+        { zh: "邮件", py: "yóujiàn", en: "email" },
+        { zh: "难过", py: "nánguò", en: "sad" },
+        { zh: "结束", py: "jiéshù", en: "finish" },
+        { zh: "哈哈", py: "hāhā", en: "haha" },
+        { zh: "该", py: "gāi", en: "should" },
+        { zh: "打算", py: "dǎsuàn", en: "plan" },
+        { zh: "高铁", py: "gāotiě", en: "high-speed train" },
+        { zh: "行", py: "xíng", en: "ok" },
+        { zh: "路口", py: "lùkǒu", en: "intersection" },
+        { zh: "小心", py: "xiǎoxīn", en: "careful" },
+        { zh: "迟到", py: "chídào", en: "be late" },
+        { zh: "红绿灯", py: "hónglǜdēng", en: "traffic lights" },
+        { zh: "后来", py: "hòulái", en: "afterward" },
+        { zh: "急", py: "jí", en: "urgent" },
+        { zh: "如果", py: "rúguǒ", en: "if" },
+        { zh: "以前", py: "yǐqián", en: "before" },
+        { zh: "耳机", py: "ěrjī", en: "earphone" },
+        { zh: "充电宝", py: "chōngdiànbǎo", en: "power bank" },
+        { zh: "常用", py: "chángyòng", en: "commonly used" },
+        { zh: "越", py: "yuè", en: "the more" },
+        { zh: "分开", py: "fēnkāi", en: "separate" },
+        { zh: "检查", py: "jiǎnchá", en: "check" },
+        { zh: "刷", py: "shuā", en: "scan" },
+        { zh: "检票", py: "jiǎnpiào", en: "check tickets" },
+        { zh: "电梯", py: "diàntī", en: "elevator" },
+        { zh: "放假", py: "fàngjià", en: "vacation" },
+        { zh: "安静", py: "ānjìng", en: "quiet" },
+        { zh: "选择", py: "xuǎnzé", en: "choose" },
+        { zh: "必须", py: "bìxū", en: "must" },
+        { zh: "沙发", py: "shāfā", en: "sofa" },
+        { zh: "辆", py: "liàng", en: "" },
+        { zh: "自行车", py: "zìxíngchē", en: "bicycle" },
+        { zh: "旧", py: "jiù", en: "old" },
+        { zh: "矮", py: "ǎi", en: "short" },
+        { zh: "试", py: "shì", en: "try" },
+        { zh: "黄色", py: "huángsè", en: "yellow" },
+        { zh: "短裤", py: "duǎnkù", en: "shorts" },
+        { zh: "大小", py: "dàxiǎo", en: "size" },
+        { zh: "合适", py: "héshì", en: "suitable" },
+        { zh: "裙子", py: "qúnzi", en: "skirt" },
+        { zh: "更", py: "gèng", en: "more" },
+        { zh: "决定", py: "juédìng", en: "decide" },
+        { zh: "西瓜", py: "xīguā", en: "watermelon" },
+        { zh: "新鲜", py: "xīnxiān", en: "fresh" },
+        { zh: "甜", py: "tián", en: "sweet" },
+        { zh: "公斤", py: "gōngjīn", en: "kilogram" },
+        { zh: "冰", py: "bīng", en: "ice" },
+        { zh: "极", py: "jí", en: "extremely" },
+        { zh: "斤", py: "jīn", en: "" },
+        { zh: "香蕉", py: "xiāngjiāo", en: "banana" },
+        { zh: "一共", py: "yígòng", en: "in all" },
+        { zh: "毛", py: "máo", en: "" },
+        { zh: "结婚", py: "jiéhūn", en: "marry" },
+        { zh: "声", py: "shēng", en: "" },
+        { zh: "开机", py: "kāijī", en: "power on" },
+        { zh: "不但", py: "búdàn", en: "not only" },
+        { zh: "而且", py: "érqiě", en: "but also" },
+        { zh: "最近", py: "zuìjìn", en: "recently" },
+        { zh: "常", py: "cháng", en: "often" },
+        { zh: "体育馆", py: "tǐyùguǎn", en: "gymnasium" },
+        { zh: "习惯", py: "xíguàn", en: "habit" },
+        { zh: "胖", py: "pàng", en: "fat" },
+        { zh: "健康", py: "jiànkāng", en: "healthy" },
+        { zh: "以后", py: "yǐhòu", en: "after" },
+        { zh: "羽毛球", py: "yǔmáoqiú", en: "badminton" },
+        { zh: "耳朵", py: "ěrduo", en: "ear" },
+        { zh: "感冒", py: "gǎnmào", en: "cold" },
+        { zh: "发烧", py: "fāshāo", en: "fever" },
+        { zh: "低", py: "dī", en: "low" },
+        { zh: "关心", py: "guānxīn", en: "care" },
+        { zh: "注意", py: "zhùyì", en: "attention" },
+        { zh: "突然", py: "tūrán", en: "sudden" },
+        { zh: "住院", py: "zhùyuàn", en: "hospitalized" },
+        { zh: "担心", py: "dānxīn", en: "worry" },
+        { zh: "腿", py: "tuǐ", en: "leg" },
+        { zh: "病人", py: "bìngrén", en: "patient" },
+        { zh: "差不多", py: "chàbuduō", en: "almost" },
+        { zh: "得", py: "děi", en: "have to" },
+        { zh: "开心", py: "kāixīn", en: "happy" },
+        { zh: "出院", py: "chūyuàn", en: "leave hospital" },
+        { zh: "方法", py: "fāngfǎ", en: "method" },
+        { zh: "开", py: "kāi", en: "prescribe" },
+        { zh: "其他", py: "qítā", en: "other" },
+        { zh: "种", py: "zhǒng", en: "kind" },
+        { zh: "心里", py: "xīnlǐ", en: "heart" },
+        { zh: "校园", py: "xiàoyuán", en: "campus" },
+        { zh: "卡", py: "kǎ", en: "card" },
+        { zh: "球场", py: "qiúchǎng", en: "court" },
+        { zh: "为了", py: "wèile", en: "for" },
+        { zh: "运动会", py: "yùndònghuì", en: "sports meet" },
+        { zh: "男生", py: "nánshēng", en: "boy" },
+        { zh: "练", py: "liàn", en: "practice" },
+        { zh: "参加", py: "cānjiā", en: "join" },
+        { zh: "网球", py: "wǎngqiú", en: "tennis" },
+        { zh: "比赛", py: "bǐsài", en: "match" },
+        { zh: "练习", py: "liànxí", en: "practice" },
+        { zh: "好多", py: "hǎoduō", en: "a lot" },
+        { zh: "几乎", py: "jīhū", en: "almost" },
+        { zh: "只是", py: "zhǐshì", en: "just" },
+        { zh: "啤酒", py: "píjiǔ", en: "beer" },
+        { zh: "回", py: "huí", en: "" },
+        { zh: "紧张", py: "jǐnzhāng", en: "nervous" },
+        { zh: "得分", py: "défēn", en: "score" },
+        { zh: "主要", py: "zhǔyào", en: "main" },
+        { zh: "受到", py: "shòudào", en: "receive" },
+        { zh: "影响", py: "yǐngxiǎng", en: "affect" },
+        { zh: "体育", py: "tǐyù", en: "sports" },
+        { zh: "世界", py: "shìjiè", en: "world" },
+        { zh: "运动员", py: "yùndòngyuán", en: "athlete" },
+        { zh: "得到", py: "dédào", en: "get" },
+        { zh: "成绩", py: "chéngjì", en: "achievement" },
+        { zh: "数学", py: "shùxué", en: "math" },
+        { zh: "认真", py: "rènzhēn", en: "serious" },
+        { zh: "笔记", py: "bǐjì", en: "notes" },
+        { zh: "清楚", py: "qīngchu", en: "clear" },
+        { zh: "黑板", py: "hēibǎn", en: "blackboard" },
+        { zh: "把", py: "bǎ", en: "" },
+        { zh: "作业", py: "zuòyè", en: "homework" },
+        { zh: "遍", py: "biàn", en: "" },
+        { zh: "提高", py: "tígāo", en: "improve" },
+        { zh: "还是", py: "háishì", en: "or" },
+        { zh: "或者", py: "huòzhě", en: "or" },
+        { zh: "看来", py: "kànlái", en: "it seems" },
+        { zh: "没办法", py: "méi bànfǎ", en: "no way" },
+        { zh: "解决", py: "jiějué", en: "solve" },
+        { zh: "问题", py: "wèntí", en: "problem" },
+        { zh: "对", py: "duì", en: "to" },
+        { zh: "来说", py: "láishuō", en: "as for" },
+        { zh: "季节", py: "jìjié", en: "season" },
+        { zh: "变化", py: "biànhuà", en: "change" },
+        { zh: "块", py: "kuài", en: "fast" },
+        { zh: "气温", py: "qìwēn", en: "temperature" },
+        { zh: "度", py: "dù", en: "degree" },
+        { zh: "刮风", py: "guāfēng", en: "blow wind" },
+        { zh: "风", py: "fēng", en: "wind" },
+        { zh: "经常", py: "jīngcháng", en: "often" },
+        { zh: "蓝天", py: "lántiān", en: "blue sky" },
+        { zh: "朵", py: "duǒ", en: "" },
+        { zh: "白云", py: "báiyún", en: "white cloud" },
+        { zh: "太阳", py: "tàiyáng", en: "sun" },
+        { zh: "暖和", py: "nuǎnhuo", en: "warm" },
+        { zh: "舒服", py: "shūfu", en: "comfortable" },
+        { zh: "伞", py: "sǎn", en: "umbrella" },
+        { zh: "邻居", py: "línjū", en: "neighbor" },
+        { zh: "来自", py: "láizì", en: "come from" },
+        { zh: "英国", py: "Yīngguó", en: "UK" },
+        { zh: "见面", py: "jiànmiàn", en: "meet" },
+        { zh: "欢迎", py: "huānyíng", en: "welcome" },
+        { zh: "了解", py: "liǎojiě", en: "understand" },
+        { zh: "热情", py: "rèqíng", en: "warm" },
+        { zh: "聊", py: "liáo", en: "chat" },
+        { zh: "声音", py: "shēngyīn", en: "sound" },
+        { zh: "音乐", py: "yīnyuè", en: "music" },
+        { zh: "动听", py: "dòngtīng", en: "pleasant" },
+        { zh: "借", py: "jiè", en: "borrow" },
+        { zh: "别人", py: "biérén", en: "others" },
+        { zh: "走", py: "zǒu", en: "walk" },
+        { zh: "电子邮件", py: "diànzǐ yóujiàn", en: "email" },
+        { zh: "回答", py: "huídá", en: "reply" },
+        { zh: "完", py: "wán", en: "finish" },
+        { zh: "哭", py: "kū", en: "cry" },
+        { zh: "忘", py: "wàng", en: "forget" },
+        { zh: "语法", py: "yǔfǎ", en: "grammar" },
+        { zh: "题", py: "tí", en: "question" },
+        { zh: "半", py: "bàn", en: "half" },
+        { zh: "南京", py: "Nánjīng", en: "Nanjing" },
+        { zh: "本地人", py: "běndìrén", en: "local" },
+        { zh: "地方", py: "dìfang", en: "place" },
+        { zh: "历史", py: "lìshǐ", en: "history" },
+        { zh: "文化", py: "wénhuà", en: "culture" },
+        { zh: "导游", py: "dǎoyóu", en: "tour guide" },
+        { zh: "介绍", py: "jièshào", en: "introduce" },
+        { zh: "决定", py: "juédìng", en: "decide" },
+        { zh: "熊猫", py: "xióngmāo", en: "panda" },
+        { zh: "出国", py: "chūguó", en: "go abroad" },
+        { zh: "动物园", py: "dòngwùyuán", en: "zoo" },
+        { zh: "动物", py: "dòngwù", en: "animal" },
+        { zh: "聪明", py: "cōngming", en: "smart" },
+        { zh: "可爱", py: "kě'ài", en: "cute" },
+        { zh: "黑白", py: "hēibái", en: "black and white" },
+        { zh: "颜色", py: "yánsè", en: "color" },
+        { zh: "世界", py: "shìjiè", en: "world" },
+        { zh: "关于", py: "guānyú", en: "about" },
+        { zh: "认真", py: "rènzhēn", en: "earnest" },
+        { zh: "经理", py: "jīnglǐ", en: "manager" },
+        { zh: "办公室", py: "bàngōngshì", en: "office" },
+        { zh: "严肃", py: "yánsù", en: "serious" },
+        { zh: "经验", py: "jīngyàn", en: "experience" },
+        { zh: "只有", py: "zhǐyǒu", en: "only if" },
+        { zh: "才", py: "cái", en: "only then" },
+        { zh: "包", py: "bāo", en: "wrap" },
+        { zh: "饺子", py: "jiǎozi", en: "dumplings" },
+        { zh: "刚才", py: "gāngcái", en: "just now" },
+        { zh: "刚刚", py: "gānggāng", en: "just" },
+        { zh: "只要", py: "zhǐyào", en: "as long as" },
+        { zh: "玫瑰", py: "méiguī", en: "rose" },
+        { zh: "节日", py: "jiérì", en: "festival" },
+        { zh: "幸福", py: "xìngfú", en: "happy" }
+      ],
+      "4-1": [
+        { zh: "签证", py: "qiānzhèng", en: "visa" },
+        { zh: "入学", py: "rùxué", en: "enter a school" },
+        { zh: "通知", py: "tōngzhī", en: "notice" },
+        { zh: "证件", py: "zhèngjiàn", en: "papers" },
+        { zh: "材料", py: "cáiliào", en: "material" },
+        { zh: "证", py: "zhèng", en: "certificate" },
+        { zh: "任何", py: "rènhé", en: "any" },
+        { zh: "食堂", py: "shítáng", en: "dining hall" },
+        { zh: "座", py: "zuò", en: "" },
+        { zh: "申请", py: "shēnqǐng", en: "apply for" },
+        { zh: "奖学金", py: "jiǎoxuéjīn", en: "scholarship" },
+        { zh: "压力", py: "yālì", en: "pressure" },
+        { zh: "表现", py: "biǎoxiàn", en: "perform" },
+        { zh: "获得", py: "huòdé", en: "obtain" },
+        { zh: "加油", py: "jiāyóu", en: "cheer" },
+        { zh: "随着", py: "suízhe", en: "along with" },
+        { zh: "课程", py: "kèchéng", en: "course" },
+        { zh: "专业", py: "zhuānyè", en: "major" },
+        { zh: "本科", py: "běnkē", en: "undergraduate" },
+        { zh: "硕士", py: "shuòshì", en: "master" },
+        { zh: "研究生", py: "yánjiūshēng", en: "graduate student" },
+        { zh: "博士", py: "bóshì", en: "doctor" },
+        { zh: "研究", py: "yánjiū", en: "research" },
+        { zh: "活动", py: "huódòng", en: "activity" },
+        { zh: "通过", py: "tōngguò", en: "pass" },
+        { zh: "交流", py: "jiāoliú", en: "exchange" },
+        { zh: "适应", py: "shìyìng", en: "adapt to" },
+        { zh: "将来", py: "jiānglái", en: "future" },
+        { zh: "当", py: "dāng", en: "work as" },
+        { zh: "教育", py: "jiàoyù", en: "education" },
+        { zh: "国际", py: "guójì", en: "international" },
+        { zh: "贸易", py: "màoyì", en: "trade" },
+        { zh: "方面", py: "fāngmiàn", en: "aspect" },
+        { zh: "教师", py: "jiàoshī", en: "teacher" },
+        { zh: "知识", py: "zhīshi", en: "knowledge" },
+        { zh: "成为", py: "chéngwéi", en: "become" },
+        { zh: "另", py: "lìng", en: "other" },
+        { zh: "房东", py: "fángdōng", en: "landlord" },
+        { zh: "出租", py: "chūzū", en: "rent out" },
+        { zh: "房租", py: "fángzū", en: "house rent" },
+        { zh: "收拾", py: "shōushi", en: "tidy up" },
+        { zh: "租", py: "zū", en: "rent" },
+        { zh: "嗯", py: "èn", en: "mhm" },
+        { zh: "亮", py: "liàng", en: "bright" },
+        { zh: "就是", py: "jiùshì", en: "just" },
+        { zh: "种", py: "zhǒng", en: "plant" },
+        { zh: "周围", py: "zhōuwéi", en: "surroundings" },
+        { zh: "不过", py: "búguò", en: "however" },
+        { zh: "毕业", py: "bìyè", en: "graduate" },
+        { zh: "恐怕", py: "kǒngpà", en: "perhaps" },
+        { zh: "热闹", py: "rènào", en: "bustling" },
+        { zh: "入住", py: "rùzhù", en: "move into" },
+        { zh: "日记", py: "rìjì", en: "diary" },
+        { zh: "顺利", py: "shùnlì", en: "smooth" },
+        { zh: "并", py: "bìng", en: "actually" },
+        { zh: "客厅", py: "kètīng", en: "living room" },
+        { zh: "台", py: "tái", en: "" },
+        { zh: "厨房", py: "chúfáng", en: "kitchen" },
+        { zh: "平常", py: "píngcháng", en: "usual" },
+        { zh: "基本上", py: "jīběnshang", en: "basically" },
+        { zh: "整个", py: "zhěnggè", en: "whole" },
+        { zh: "毛巾", py: "máojīn", en: "towel" },
+        { zh: "建议", py: "jiànyì", en: "suggest" },
+        { zh: "查看", py: "chákàn", en: "check" },
+        { zh: "信息", py: "xìnxī", en: "information" },
+        { zh: "查找", py: "cházhǎo", en: "look for" },
+        { zh: "接着", py: "jiēzhe", en: "then" },
+        { zh: "同时", py: "tóngshí", en: "simultaneously" },
+        { zh: "位置", py: "wèizhi", en: "location" },
+        { zh: "价格", py: "jiàgé", en: "price" },
+        { zh: "理想", py: "lǐxiǎng", en: "ideal" },
+        { zh: "由于", py: "yóuyú", en: "because" },
+        { zh: "工资", py: "gōngzī", en: "salary" },
+        { zh: "感", py: "gǎn", en: "sense" },
+        { zh: "十字路口", py: "shízì lùkǒu", en: "crossroads" },
+        { zh: "直接", py: "zhíjiē", en: "direct" },
+        { zh: "转", py: "zhuǎn", en: "turn" },
+        { zh: "正好", py: "zhènghǎo", en: "coincidentally" },
+        { zh: "熟悉", py: "shúxī", en: "familiar" },
+        { zh: "正", py: "zhèng", en: "straight" },
+        { zh: "目的地", py: "mùdìdì", en: "destination" },
+        { zh: "下载", py: "xiàzǎi", en: "download" },
+        { zh: "进行", py: "jìnxíng", en: "conduct" },
+        { zh: "支付", py: "zhīfù", en: "pay" },
+        { zh: "软件", py: "ruǎnjiàn", en: "software" },
+        { zh: "扫码", py: "sǎomǎ", en: "scan code" },
+        { zh: "结账", py: "jiézhàng", en: "settle bill" },
+        { zh: "购物", py: "gòuwù", en: "shopping" },
+        { zh: "订", py: "dìng", en: "order" },
+        { zh: "快递", py: "kuàidì", en: "express" },
+        { zh: "现金", py: "xiànjīn", en: "cash" },
+        { zh: "网购", py: "wǎnggòu", en: "online shopping" },
+        { zh: "寄", py: "jì", en: "send" },
+        { zh: "等", py: "děng", en: "etc" },
+        { zh: "货", py: "huò", en: "goods" },
+        { zh: "甚至", py: "shènzhì", en: "even" },
+        { zh: "改变", py: "gǎibiàn", en: "change" },
+        { zh: "手指", py: "shǒuzhǐ", en: "finger" },
+        { zh: "乱", py: "luàn", en: "messy" },
+        { zh: "管", py: "guǎn", en: "control" },
+        { zh: "提供", py: "tígōng", en: "provide" },
+        { zh: "身份证", py: "shēnfènzhèng", en: "ID card" },
+        { zh: "个人", py: "gèrén", en: "individual" },
+        { zh: "技术", py: "jìshù", en: "technology" },
+        { zh: "能否", py: "néngfǒu", en: "whether" },
+        { zh: "保护", py: "bǎohù", en: "protect" },
+        { zh: "于是", py: "yúshì", en: "so" },
+        { zh: "密码", py: "mìmǎ", en: "password" },
+        { zh: "随便", py: "suíbiàn", en: "careless" },
+        { zh: "法律", py: "fǎlǜ", en: "law" },
+        { zh: "手段", py: "shǒuduàn", en: "means" },
+        { zh: "保证", py: "bǎozhèng", en: "ensure" },
+        { zh: "网络", py: "wǎngluò", en: "network" },
+        { zh: "啊", py: "a", en: "ah" },
+        { zh: "停", py: "tíng", en: "stop" },
+        { zh: "交", py: "jiāo", en: "hand over" },
+        { zh: "费", py: "fèi", en: "fee" },
+        { zh: "信号", py: "xìnhào", en: "signal" },
+        { zh: "感谢", py: "gǎnxiè", en: "thank" },
+        { zh: "联系", py: "liánxì", en: "contact" },
+        { zh: "方式", py: "fāngshì", en: "way" },
+        { zh: "客气", py: "kèqi", en: "polite" },
+        { zh: "剩", py: "shèng", en: "left over" },
+        { zh: "提", py: "tí", en: "carry" },
+        { zh: "重", py: "zhòng", en: "heavy" },
+        { zh: "算", py: "suàn", en: "count" },
+        { zh: "袋子", py: "dàizi", en: "bag" },
+        { zh: "再说", py: "zàishuō", en: "what's more" },
+        { zh: "之间", py: "zhījiān", en: "between" },
+        { zh: "互相", py: "hùxiāng", en: "mutually" },
+        { zh: "辛苦", py: "xīnkǔ", en: "hard" },
+        { zh: "出行", py: "chūxíng", en: "journey" },
+        { zh: "距离", py: "jùlí", en: "distance" },
+        { zh: "往往", py: "wǎngwǎng", en: "often" },
+        { zh: "既", py: "jì", en: "as well as" },
+        { zh: "速度", py: "sùdù", en: "speed" },
+        { zh: "充电", py: "chōngdiàn", en: "charge" },
+        { zh: "流行", py: "liúxíng", en: "popular" },
+        { zh: "省", py: "shěng", en: "save" },
+        { zh: "电动车", py: "diàndòngchē", en: "e-bike" },
+        { zh: "力气", py: "lìqi", en: "strength" },
+        { zh: "乘客", py: "chéngkè", en: "passenger" },
+        { zh: "购买", py: "gòumǎi", en: "buy" },
+        { zh: "食物", py: "shíwù", en: "food" },
+        { zh: "免费", py: "miǎnfèi", en: "free" },
+        { zh: "早餐", py: "zǎocān", en: "breakfast" },
+        { zh: "来得及", py: "láidejí", en: "have time" },
+        { zh: "鲜花", py: "xiānhuā", en: "flower" },
+        { zh: "顺便", py: "shùnbiàn", en: "in passing" },
+        { zh: "心情", py: "xīnqíng", en: "mood" },
+        { zh: "更加", py: "gèngjiā", en: "more" },
+        { zh: "愉快", py: "yúkuài", en: "joyful" },
+        { zh: "至少", py: "zhìshǎo", en: "at least" },
+        { zh: "中餐", py: "zhōngcān", en: "Chinese meal" },
+        { zh: "专门", py: "zhuānmén", en: "special" },
+        { zh: "煮", py: "zhǔ", en: "boil" },
+        { zh: "油", py: "yóu", en: "oil" },
+        { zh: "道", py: "dào", en: "" },
+        { zh: "熟", py: "shú", en: "cooked" },
+        { zh: "倒", py: "dào", en: "pour" },
+        { zh: "辣椒", py: "làjiāo", en: "chili" },
+        { zh: "辣", py: "là", en: "spicy" },
+        { zh: "敢", py: "gǎn", en: "dare" },
+        { zh: "肚子", py: "dùzi", en: "belly" },
+        { zh: "相同", py: "xiāngtóng", en: "same" },
+        { zh: "顺序", py: "shùnxù", en: "order" },
+        { zh: "够", py: "gòu", en: "enough" },
+        { zh: "不够", py: "búgòu", en: "not enough" },
+        { zh: "达到", py: "dádào", en: "reach" },
+        { zh: "聚", py: "jù", en: "gather" },
+        { zh: "午餐", py: "wǔcān", en: "lunch" },
+        { zh: "咸", py: "xián", en: "salty" },
+        { zh: "凉", py: "liáng", en: "cool" },
+        { zh: "酸", py: "suān", en: "sour" },
+        { zh: "汤", py: "tāng", en: "soup" },
+        { zh: "各", py: "gè", en: "each" },
+        { zh: "付", py: "fù", en: "pay" },
+        { zh: "聚餐", py: "jùcān", en: "dine together" },
+        { zh: "随意", py: "suíyì", en: "as one pleases" },
+        { zh: "正式", py: "zhèngshì", en: "formal" },
+        { zh: "普通", py: "pǔtōng", en: "ordinary" },
+        { zh: "重视", py: "zhòngshì", en: "importance" },
+        { zh: "座位", py: "zuòwèi", en: "seat" },
+        { zh: "安排", py: "ānpái", en: "arrange" },
+        { zh: "按照", py: "ànzhào", en: "according to" },
+        { zh: "年龄", py: "niánlíng", en: "age" },
+        { zh: "面对", py: "miànduì", en: "face" },
+        { zh: "主人", py: "zhǔrén", en: "host" },
+        { zh: "尊重", py: "zūnzhòng", en: "respect" },
+        { zh: "咳嗽", py: "késou", en: "cough" },
+        { zh: "咳", py: "ké", en: "cough" },
+        { zh: "厉害", py: "lìhai", en: "severe" },
+        { zh: "严重", py: "yánzhòng", en: "serious" },
+        { zh: "赶快", py: "gǎnkuài", en: "immediately" },
+        { zh: "陪", py: "péi", en: "accompany" },
+        { zh: "翻译", py: "fānyì", en: "translate" },
+        { zh: "护士", py: "hùshi", en: "nurse" },
+        { zh: "表", py: "biǎo", en: "form" },
+        { zh: "性别", py: "xìngbié", en: "sex" },
+        { zh: "国籍", py: "guójí", en: "nationality" },
+        { zh: "家庭", py: "jiātíng", en: "family" },
+        { zh: "地址", py: "dìzhǐ", en: "address" },
+        { zh: "挂号", py: "guàhào", en: "register" },
+        { zh: "排队", py: "páiduì", en: "line up" },
+        { zh: "大厅", py: "dàtīng", en: "hall" },
+        { zh: "偶尔", py: "ǒu'ěr", en: "occasionally" },
+        { zh: "身", py: "shēn", en: "body" },
+        { zh: "性", py: "xìng", en: "" },
+        { zh: "体温", py: "tǐwēn", en: "temperature" },
+        { zh: "降", py: "jiàng", en: "fall" },
+        { zh: "低", py: "dī", en: "low" },
+        { zh: "光", py: "guāng", en: "only" },
+        { zh: "难受", py: "nánshòu", en: "uncomfortable" },
+        { zh: "打针", py: "dǎzhēn", en: "injection" },
+        { zh: "有效", py: "yǒuxiào", en: "effective" },
+        { zh: "按时", py: "ànshí", en: "on time" },
+        { zh: "醒", py: "xǐng", en: "wake up" },
+        { zh: "感觉", py: "gǎnjué", en: "feel" },
+        { zh: "通", py: "tōng", en: "know" },
+        { zh: "部", py: "bù", en: "department" },
+        { zh: "收费", py: "shōufèi", en: "charge" },
+        { zh: "过程", py: "guòchéng", en: "process" },
+        { zh: "治疗", py: "zhìliáo", en: "treat" },
+        { zh: "步", py: "bù", en: "step" },
+        { zh: "情况", py: "qíngkuàng", en: "condition" },
+        { zh: "打扰", py: "dǎrǎo", en: "bother" },
+        { zh: "市场", py: "shìchǎng", en: "market" },
+        { zh: "调查", py: "diàochá", en: "survey" },
+        { zh: "计划", py: "jìhuà", en: "plan" },
+        { zh: "内容", py: "nèiróng", en: "content" },
+        { zh: "改", py: "gǎi", en: "change" },
+        { zh: "细心", py: "xìxīn", en: "careful" },
+        { zh: "客户", py: "kèhù", en: "customer" },
+        { zh: "真正", py: "zhēnzhèng", en: "real" },
+        { zh: "想法", py: "xiǎngfǎ", en: "idea" },
+        { zh: "任务", py: "rènwu", en: "task" },
+        { zh: "及时", py: "jíshí", en: "promptly" },
+        { zh: "出差", py: "chūchāi", en: "business trip" },
+        { zh: "经验", py: "jīngyàn", en: "experience" },
+        { zh: "采访", py: "cǎifǎng", en: "interview" },
+        { zh: "产品", py: "chǎnpǐn", en: "product" },
+        { zh: "看法", py: "kànfǎ", en: "opinion" },
+        { zh: "提前", py: "tíqián", en: "in advance" },
+        { zh: "便于", py: "biànyú", en: "convenient" },
+        { zh: "既然", py: "jìrán", en: "since" },
+        { zh: "谈", py: "tán", en: "talk" },
+        { zh: "笔", py: "bǐ", en: "" },
+        { zh: "生意", py: "shēngyi", en: "business" },
+        { zh: "困难", py: "kùnnan", en: "difficulty" },
+        { zh: "实际", py: "shíjì", en: "actual" },
+        { zh: "效果", py: "xiàoguǒ", en: "effect" },
+        { zh: "点", py: "diǎn", en: "point" },
+        { zh: "优点", py: "yōudiǎn", en: "advantage" },
+        { zh: "缺点", py: "quēdiǎn", en: "disadvantage" },
+        { zh: "份", py: "fèn", en: "" },
+        { zh: "积累", py: "jīlěi", en: "accumulate" },
+        { zh: "管理", py: "guǎnlǐ", en: "manage" },
+        { zh: "基础", py: "jīchǔ", en: "foundation" },
+        { zh: "使", py: "shǐ", en: "make" },
+        { zh: "能力", py: "nénglì", en: "ability" },
+        { zh: "进入", py: "jìnrù", en: "enter" },
+        { zh: "今后", py: "jīnhòu", en: "future" },
+        { zh: "社会", py: "shèhuì", en: "society" },
+        { zh: "紧张", py: "jǐnzhāng", en: "nervous" },
+        { zh: "放松", py: "fàngsōng", en: "relax" },
+        { zh: "呀", py: "ya", en: "" },
+        { zh: "不管", py: "bùguǎn", en: "no matter" },
+        { zh: "郊区", py: "jiāoqū", en: "suburbs" },
+        { zh: "游玩", py: "yóuwán", en: "sightseeing" },
+        { zh: "主意", py: "zhǔyi", en: "idea" },
+        { zh: "外出", py: "wàichū", en: "go out" },
+        { zh: "戴", py: "dài", en: "wear" },
+        { zh: "帽子", py: "màozi", en: "hat" },
+        { zh: "项目", py: "xiàngmù", en: "project" },
+        { zh: "加班", py: "jiābān", en: "work overtime" },
+        { zh: "熬夜", py: "áoyè", en: "stay up late" },
+        { zh: "否则", py: "fǒuzé", en: "otherwise" },
+        { zh: "失去", py: "shīqù", en: "lose" },
+        { zh: "值得", py: "zhíde", en: "worth" },
+        { zh: "暂停", py: "zàntíng", en: "suspend" },
+        { zh: "之后", py: "zhīhòu", en: "after" },
+        { zh: "风景", py: "fēngjǐng", en: "scenery" },
+        { zh: "效率", py: "xiàolǜ", en: "efficiency" },
+        { zh: "与", py: "yǔ", en: "with" },
+        { zh: "下降", py: "xiàjiàng", en: "decline" },
+        { zh: "相比", py: "xiāngbǐ", en: "compare" },
+        { zh: "因此", py: "yīncǐ", en: "therefore" },
+        { zh: "提醒", py: "tíxǐng", en: "remind" },
+        { zh: "大自然", py: "dàzìrán", en: "nature" },
+        { zh: "美丽", py: "měilì", en: "beautiful" },
+        { zh: "景色", py: "jǐngsè", en: "scenery" },
+        { zh: "首都", py: "shǒudū", en: "capital" },
+        { zh: "市区", py: "shìqū", en: "urban district" },
+        { zh: "乘坐", py: "chéngzuò", en: "take" },
+        { zh: "眼前", py: "yǎnqián", en: "before one's eyes" },
+        { zh: "美景", py: "měijǐng", en: "beautiful scenery" },
+        { zh: "参观", py: "cānguān", en: "visit" },
+        { zh: "景点", py: "jǐngdiǎn", en: "scenic site" },
+        { zh: "实际上", py: "shíjìshàng", en: "actually" },
+        { zh: "刚好", py: "gānghǎo", en: "just right" },
+        { zh: "尽管", py: "jǐnguǎn", en: "although" },
+        { zh: "此", py: "cǐ", en: "this" },
+        { zh: "从来", py: "cónglái", en: "always" },
+        { zh: "怎么着", py: "zěnmezhe", en: "how" },
+        { zh: "有的是", py: "yǒudeshì", en: "plenty of" },
+        { zh: "而", py: "ér", en: "whereas" },
+        { zh: "再次", py: "zàicì", en: "again" }
+      ]
+    };
+
+    // 常用 32 笔画
+    const STROKE_DATA_LIST = [
+      { id: 1, name: "点", en: "Dot", char: "丶", example: "主" },
+      { id: 2, name: "横", en: "Horizontal", char: "一", example: "三" },
+      { id: 3, name: "竖", en: "Vertical", char: "丨", example: "十" },
+      { id: 4, name: "撇", en: "Left-falling", char: "丿", example: "八" },
+      { id: 5, name: "捺", en: "Right-falling", char: "乀", example: "人" },
+      { id: 6, name: "提", en: "Rising", char: "㇀", example: "打" },
+      { id: 7, name: "撇点", en: "Throw-dot", char: "𡿨", example: "女" },
+      { id: 8, name: "竖提", en: "Vertical-rising", char: "𠄌", example: "长" },
+      { id: 9, name: "横折提", en: "H-turning-rising", char: "⻊", example: "说" },
+      { id: 10, name: "弯钩", en: "Curved hook", char: "㇁", example: "了" },
+      { id: 11, name: "竖钩", en: "Vertical hook", char: "亅", example: "小" },
+      { id: 12, name: "竖弯钩", en: "V-curved hook", char: "乚", example: "孔" },
+      { id: 13, name: "斜钩", en: "Slanted hook", char: "㇂", example: "我" },
+      { id: 14, name: "卧钩", en: "Flat hook", char: "㇃", example: "心" },
+      { id: 15, name: "横钩", en: "Horizontal hook", char: "乛", example: "写" },
+      { id: 16, name: "横折钩", en: "H-turning hook", char: "𠃌", example: "力" },
+      { id: 17, name: "横折弯钩", en: "H-turn-bend-hook", char: "乙", example: "九" },
+      { id: 18, name: "横撇弯钩", en: "H-throw-bend-hook", char: "阝", example: "邓" },
+      { id: 19, name: "横折折折钩", en: "H-triple-turn-hook", char: "𠄎", example: "奶" },
+      { id: 20, name: "竖折折钩", en: "V-double-turn-hook", char: "丂", example: "与" },
+      { id: 21, name: "竖弯", en: "Vertical bend", char: "𠃊", example: "西" },
+      { id: 22, name: "横折弯", en: "H-turning bend", char: "⺄", example: "没" },
+      { id: 23, name: "横折", en: "Horizontal turning", char: "𠃍", example: "口" },
+      { id: 24, name: "竖折", en: "Vertical turning", char: "𠃊", example: "山" },
+      { id: 25, name: "撇折", en: "Throw turning", char: "𡿨", example: "云" },
+      { id: 26, name: "横撇", en: "Horizontal throw", char: "㇇", example: "水" },
+      { id: 27, name: "横折折撇", en: "H-double-turn-throw", char: "㇋", example: "及" },
+      { id: 28, name: "竖折撇", en: "V-turn-throw", char: "ㄣ", example: "专" },
+      { id: 29, name: "横折斜钩", en: "H-turn-slant-hook", char: "⻈", example: "风" },
+      { id: 30, name: "竖折折", en: "Vertical double turn", char: "𠃑", example: "鼎" },
+      { id: 31, name: "横折折", en: "H double turn", char: "㇅", example: "凹" },
+      { id: 32, name: "横折折折", en: "H triple turn", char: "㇎", example: "凸" }
+    ];
+
+    let wordList = [
+      { id: 1, word: "中国", pinyin: "zhōng guó", meaning: "China", isTraditional: false }
+    ];
+
+    window.onload = () => {
+      populateHskWordSelect("1");
+      renderAllWords();
+    };
+
+    // --- HSK 词库选择逻辑 ---
+    function populateHskWordSelect(level) {
+      const select = document.getElementById("hskWordSelect");
+      select.innerHTML = '<option value="">-- Choose from HSK list / 从列表选词 --</option>';
+      const list = HSK_DICTIONARY[level] || [];
+      list.forEach(item => {
+        const opt = document.createElement("option");
+        opt.value = JSON.stringify(item);
+        opt.innerText = `${item.zh} (${item.py}) - ${item.en}`;
+        select.appendChild(opt);
+      });
+    }
+
+    function onHskLevelChange() {
+      const level = document.getElementById("hskLevelSelect").value;
+      populateHskWordSelect(level);
+    }
+
+    function onHskWordSelect(valueStr) {
+      if (!valueStr) return;
+      try {
+        const item = JSON.parse(valueStr);
+        document.getElementById("inputWord").value = item.zh;
+        document.getElementById("inputPinyin").value = item.py;
+        document.getElementById("inputMeaning").value = item.en;
+        isUserTypingPinyin = true; 
+      } catch (e) {}
+    }
+
+    // --- 独立手动输入控制（拼音支持自动填充与手动修改，中文与英文完全独立） ---
+    function onPinyinInput() {
+      isUserTypingPinyin = true; 
+    }
+
+    function onChineseInput() {
+      const text = document.getElementById('inputWord').value.trim();
+      if (!text) {
+        document.getElementById('inputPinyin').value = '';
+        isUserTypingPinyin = false;
+        return;
+      }
+
+      if (window.pinyinPro && !isUserTypingPinyin) {
+        try {
+          document.getElementById('inputPinyin').value = window.pinyinPro.pinyin(text, { toneType: 'symbol', type: 'string' });
+        } catch (e) {}
+      }
+    }
+
+    function onEnglishInput() {
+      // 英文输入框保持独立手动输入，不进行自动反查
+    }
+
+    // --- 字帖添加与渲染 ---
+    function handleAddWord(asTraditional = false) {
+      let word = document.getElementById('inputWord').value.trim();
+      let pinyin = document.getElementById('inputPinyin').value.trim();
+      let meaning = document.getElementById('inputMeaning').value.trim();
+      if (!word) {
+        alert("Please enter Chinese characters! / 请输入汉字！");
+        return;
+      }
+
+      if (asTraditional && s2tConverter) {
+        word = s2tConverter(word);
+        if (window.pinyinPro && !isUserTypingPinyin) {
+          pinyin = window.pinyinPro.pinyin(word, { toneType: 'symbol', type: 'string' });
+        }
+      }
+
+      wordList.push({ id: Date.now(), word, pinyin, meaning, isTraditional: asTraditional });
+      renderAllWords();
+
+      document.getElementById('inputWord').value = '';
+      document.getElementById('inputPinyin').value = '';
+      document.getElementById('inputMeaning').value = '';
+      isUserTypingPinyin = false;
+      document.getElementById('inputWord').focus();
+    }
+
+    function deleteWord(id) {
+      wordList = wordList.filter(item => item.id !== id);
+      renderAllWords();
+    }
+
+    function renderAllWords() {
+      const worksheet = document.getElementById('worksheet');
+      worksheet.innerHTML = '';
+
+      if (wordList.length === 0) {
+        worksheet.innerHTML = `<div class="empty-state"><p style="font-size: 36px;">📝</p><p>${I18N[currentLang].emptyState}</p></div>`;
+        return;
+      }
+
+      wordList.forEach(item => renderSingleWordBlock(item, worksheet));
+    }
+
+    function renderSingleWordBlock(item, container) {
+      const block = document.createElement('div');
+      block.className = 'word-block';
+      block.id = `word-${item.id}`;
+
+      let tradBadge = item.isTraditional ? '<span class="trad-tag">繁體 Traditional</span>' : '';
+
+      let headerHTML = `
+        <button class="btn-delete" onclick="deleteWord(${item.id})" title="Delete / 删除">${I18N[currentLang].deleteBtn}</button>
+        <div class="word-header">
+          <span class="word-chinese">${item.word}</span>
+          ${tradBadge}
+          <span class="word-pinyin">${item.pinyin}</span>
+          <span class="word-meaning">${item.meaning}</span>
+        </div>
+      `;
+
+      const strokeContainer = document.createElement('div');
+      strokeContainer.className = 'stroke-rows';
+
+      const chars = item.word.split('').filter(c => /[\u4e00-\u9fa5]/.test(c));
+      const activeChars = chars.length > 0 ? chars : item.word.split('');
+
+      const isKidsMode = document.getElementById('kidsModeSelect').value === 'kids';
+      const totalCols = 15;
+
+      let gridHTML = '';
+
+      activeChars.forEach(char => {
+        gridHTML += `<div class="grid-container"><div class="grid-row" style="grid-template-columns: repeat(${totalCols}, 1fr);">`;
+        for (let i = 0; i < totalCols; i++) {
+          let content = '';
+          if (isKidsMode) {
+            if (i < 12) {
+              let charClass = (i === 0) ? "char-black" : "char-trace-red";
+              content = `<span class="grid-char ${charClass}">${char}</span>`;
+            }
+          } else {
+            if (i === 0) {
+              content = `<span class="grid-char char-black">${char}</span>`;
+            } else if (i >= 1 && i <= 4) {
+              content = `<span class="grid-char char-trace">${char}</span>`;
+            }
+          }
+          gridHTML += createGridCell(content);
+        }
+        gridHTML += `</div></div>`;
+      });
+
+      block.innerHTML = headerHTML;
+      block.appendChild(strokeContainer);
+      block.insertAdjacentHTML('beforeend', gridHTML);
+      container.appendChild(block);
+
+      for (let index = 0; index < activeChars.length; index++) {
+        renderStrokeSequenceWithCenterDemo(activeChars[index], strokeContainer);
+      }
+    }
+
+    function createGridCell(content) {
+      return `
+        <div class="mi-grid">
+          <svg class="grid-svg" viewBox="0 0 100 100" preserveAspectRatio="none">
+            <line x1="0" y1="0" x2="100" y2="100"></line>
+            <line x1="100" y1="0" x2="0" y2="100"></line>
+            <line x1="0" y1="50" x2="100" y2="50"></line>
+            <line x1="50" y1="0" x2="50" y2="100"></line>
+          </svg>
+          ${content}
+        </div>
+      `;
+    }
+
+    // 常用 32 笔画练习表
+    function renderStrokePracticeSheet() {
+      const worksheet = document.getElementById('worksheet');
+      let headerHTML = `
+        <div class="stroke-practice-header">
+          <div class="stroke-practice-title">${I18N[currentLang].strokePracticeTitle}</div>
+        </div>
+      `;
+
+      let tableHTML = '<div>';
+      STROKE_DATA_LIST.forEach(item => {
+        let gridCellsHTML = '';
+        for (let i = 0; i < 12; i++) {
+          let content = (i === 0) ? `<span class="grid-char char-black">${item.char}</span>` : `<span class="grid-char char-trace">${item.char}</span>`;
+          gridCellsHTML += createGridCell(content);
+        }
+        tableHTML += `
+          <div class="stroke-item-row">
+            <div class="stroke-info-card">
+              <span class="stroke-badge-id">${item.id}</span>
+              <span><b>${item.name}</b> (${item.en}) <br><small style="color:#64748b;">Example: ${item.example}</small></span>
+            </div>
+            <div class="stroke-grid-wrapper"><div class="stroke-grid-row">${gridCellsHTML}</div></div>
+          </div>
+        `;
+      });
+      tableHTML += '</div>';
+      worksheet.innerHTML = headerHTML + tableHTML;
+    }
+
+    async function loadCharStrokesData(char) {
+      const encoded = encodeURIComponent(char);
+      const urls = [
+        `https://cdn.jsdelivr.net/npm/hanzi-writer-data@2.0/${encoded}.json`,
+        `https://unpkg.com/hanzi-writer-data@2.0/${encoded}.json`
+      ];
+      for (const url of urls) {
+        try {
+          const res = await fetch(url);
+          if (res.ok) {
+            const data = await res.json();
+            if (data && data.strokes) return data.strokes;
+          }
+        } catch (e) {}
+      }
+      return null;
+    }
+
+    function openBigAnimation(char) {
+      const modal = document.getElementById('bigAnimModal');
+      document.getElementById('animModalTitle').innerText = `【${char}】${I18N[currentLang].animTitle}`;
+      document.getElementById('bigAnimTarget').innerHTML = '';
+      modal.style.display = 'flex';
+
+      if (window.HanziWriter) {
+        bigWriterInstance = HanziWriter.create('bigAnimTarget', char, {
+          width: 230, height: 230, padding: 10, strokeColor: '#e11d48', outlineColor: '#cbd5e1', showOutline: true
+        });
+        bigWriterInstance.animateCharacter();
+      }
+    }
+
+    function replayBigAnimation() {
+      if (bigWriterInstance) bigWriterInstance.animateCharacter();
+    }
+
+    function closeBigAnimation() {
+      document.getElementById('bigAnimModal').style.display = 'none';
+      document.getElementById('bigAnimTarget').innerHTML = '';
+      bigWriterInstance = null;
+    }
+
+    async function renderStrokeSequenceWithCenterDemo(char, container) {
+      const row = document.createElement('div');
+      const seqLabel = document.createElement('span');
+      seqLabel.style.fontSize = '12px';
+      seqLabel.style.color = '#64748b';
+      seqLabel.style.fontWeight = '600';
+      seqLabel.style.marginRight = '4px';
+      seqLabel.innerText = `【${char}】${I18N[currentLang].strokeLabel}`;
+      row.appendChild(seqLabel);
+      row.className = 'stroke-sequence-row';
+      container.appendChild(row);
+
+      const strokes = await loadCharStrokesData(char);
+      if (strokes && strokes.length > 0) {
+        for (let i = 0; i < strokes.length; i++) {
+          const itemBox = document.createElement('div');
+          itemBox.className = 'stroke-svg-item';
+          const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+          svg.setAttribute('viewBox', '0 0 1024 1024');
+          svg.setAttribute('width', '20');
+          svg.setAttribute('height', '20');
+          const group = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+          group.setAttribute('transform', 'scale(1, -1) translate(0, -900)');
+
+          for (let s = 0; s <= i; s++) {
+            const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+            path.setAttribute('d', strokes[s]);
+            path.setAttribute('fill', (s === i) ? '#e11d48' : '#1e293b');
+            group.appendChild(path);
+          }
+          svg.appendChild(group);
+          itemBox.appendChild(svg);
+          row.appendChild(itemBox);
+        }
+
+        const animBtn = document.createElement('button');
+        animBtn.className = 'anim-play-btn';
+        animBtn.innerHTML = I18N[currentLang].animBtn;
+        animBtn.onclick = () => openBigAnimation(char);
+        row.appendChild(animBtn);
+      }
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,462 @@
+{
+  "title": "estcV2-4",
+  "level": "estcV2-4",
+  "words": [
+    {
+      "zh": "去年",
+      "py": "",
+      "en": "last year",
+      "lesson": "Lesson 1"
+    },
+    {
+      "zh": "明天",
+      "py": "",
+      "en": "next year",
+      "lesson": "Lesson 1"
+    },
+    {
+      "zh": "星期日",
+      "py": "",
+      "en": "Sunday",
+      "lesson": "Lesson 1"
+    },
+    {
+      "zh": "星期天",
+      "py": "",
+      "en": "Sunday",
+      "lesson": "Lesson 1"
+    },
+    {
+      "zh": "手机",
+      "py": "",
+      "en": "mobile phone",
+      "lesson": "Lesson 2"
+    },
+    {
+      "zh": "号码",
+      "py": "",
+      "en": "number",
+      "lesson": "Lesson 2"
+    },
+    {
+      "zh": "多少",
+      "py": "",
+      "en": "how many; how much",
+      "lesson": "Lesson 2"
+    },
+    {
+      "zh": "电话",
+      "py": "",
+      "en": "telephone",
+      "lesson": "Lesson 2"
+    },
+    {
+      "zh": "打电话",
+      "py": "",
+      "en": "make a phone call",
+      "lesson": "Lesson 2"
+    },
+    {
+      "zh": "斤",
+      "py": "",
+      "en": "jin (1/2 kilogramme)",
+      "lesson": "Lesson 3"
+    },
+    {
+      "zh": "百",
+      "py": "",
+      "en": "hundred",
+      "lesson": "Lesson 3"
+    },
+    {
+      "zh": "块",
+      "py": "",
+      "en": "a measure word",
+      "lesson": "Lesson 3"
+    },
+    {
+      "zh": "长大",
+      "py": "",
+      "en": "grow up",
+      "lesson": "Lesson 4"
+    },
+    {
+      "zh": "路",
+      "py": "",
+      "en": "road; street",
+      "lesson": "Lesson 4"
+    },
+    {
+      "zh": "室",
+      "py": "",
+      "en": "room",
+      "lesson": "Lesson 4"
+    },
+    {
+      "zh": "爷爷",
+      "py": "",
+      "en": "father's father",
+      "lesson": "Lesson 5"
+    },
+    {
+      "zh": "奶奶",
+      "py": "",
+      "en": "father's mother",
+      "lesson": "Lesson 5"
+    },
+    {
+      "zh": "美国人",
+      "py": "",
+      "en": "American (people)",
+      "lesson": "Lesson 5"
+    },
+    {
+      "zh": "法国人",
+      "py": "",
+      "en": "French (people)",
+      "lesson": "Lesson 5"
+    },
+    {
+      "zh": "法语",
+      "py": "",
+      "en": "French (language)",
+      "lesson": "Lesson 5"
+    },
+    {
+      "zh": "外公",
+      "py": "",
+      "en": "mother's father",
+      "lesson": "Lesson 5"
+    },
+    {
+      "zh": "外婆",
+      "py": "",
+      "en": "mother's mother",
+      "lesson": "Lesson 5"
+    },
+    {
+      "zh": "收拾",
+      "py": "",
+      "en": "tidy up",
+      "lesson": "Lesson 6"
+    },
+    {
+      "zh": "扫地",
+      "py": "",
+      "en": "sweep the floor",
+      "lesson": "Lesson 6"
+    },
+    {
+      "zh": "洗衣服",
+      "py": "",
+      "en": "wash clothes",
+      "lesson": "Lesson 6"
+    },
+    {
+      "zh": "孩子",
+      "py": "",
+      "en": "child",
+      "lesson": "Lesson 6"
+    },
+    {
+      "zh": "教学楼",
+      "py": "",
+      "en": "teaching building",
+      "lesson": "Lesson 7"
+    },
+    {
+      "zh": "图书馆",
+      "py": "",
+      "en": "library",
+      "lesson": "Lesson 7"
+    },
+    {
+      "zh": "礼堂",
+      "py": "",
+      "en": "assembly hall",
+      "lesson": "Lesson 7"
+    },
+    {
+      "zh": "操场",
+      "py": "",
+      "en": "sports ground",
+      "lesson": "Lesson 7"
+    },
+    {
+      "zh": "数学",
+      "py": "",
+      "en": "maths",
+      "lesson": "Lesson 8"
+    },
+    {
+      "zh": "美术",
+      "py": "",
+      "en": "art",
+      "lesson": "Lesson 8"
+    },
+    {
+      "zh": "音乐",
+      "py": "",
+      "en": "music",
+      "lesson": "Lesson 8"
+    },
+    {
+      "zh": "体育",
+      "py": "",
+      "en": "P.E.",
+      "lesson": "Lesson 8"
+    },
+    {
+      "zh": "电脑",
+      "py": "",
+      "en": "computer",
+      "lesson": "Lesson 8"
+    },
+    {
+      "zh": "公园",
+      "py": "",
+      "en": "park",
+      "lesson": "Lesson 9"
+    },
+    {
+      "zh": "在海边",
+      "py": "",
+      "en": "at the seaside",
+      "lesson": "Lesson 9"
+    },
+    {
+      "zh": "在海里",
+      "py": "",
+      "en": "in the sea",
+      "lesson": "Lesson 9"
+    },
+    {
+      "zh": "玩沙子",
+      "py": "",
+      "en": "play with the sand",
+      "lesson": "Lesson 9"
+    },
+    {
+      "zh": "吃东西",
+      "py": "",
+      "en": "eat something",
+      "lesson": "Lesson 9"
+    },
+    {
+      "zh": "牛排",
+      "py": "",
+      "en": "steak",
+      "lesson": "Lesson 10"
+    },
+    {
+      "zh": "薯条",
+      "py": "",
+      "en": "French fries",
+      "lesson": "Lesson 10"
+    },
+    {
+      "zh": "热狗",
+      "py": "",
+      "en": "hot dog",
+      "lesson": "Lesson 10"
+    },
+    {
+      "zh": "三明治",
+      "py": "",
+      "en": "sandwich",
+      "lesson": "Lesson 10"
+    },
+    {
+      "zh": "汽水",
+      "py": "",
+      "en": "fizzy drink",
+      "lesson": "Lesson 10"
+    },
+    {
+      "zh": "要",
+      "py": "",
+      "en": "should; want",
+      "lesson": "Lesson 10"
+    },
+    {
+      "zh": "不要",
+      "py": "",
+      "en": "don't",
+      "lesson": "Lesson 10"
+    },
+    {
+      "zh": "薯片",
+      "py": "",
+      "en": "chips",
+      "lesson": "Lesson 11"
+    },
+    {
+      "zh": "巧克力",
+      "py": "",
+      "en": "chocolate",
+      "lesson": "Lesson 11"
+    },
+    {
+      "zh": "糖果",
+      "py": "",
+      "en": "candy",
+      "lesson": "Lesson 11"
+    },
+    {
+      "zh": "冰淇淋",
+      "py": "",
+      "en": "ice cream",
+      "lesson": "Lesson 11"
+    },
+    {
+      "zh": "下雪",
+      "py": "",
+      "en": "snow",
+      "lesson": "Lesson 12"
+    },
+    {
+      "zh": "下雨",
+      "py": "",
+      "en": "rain",
+      "lesson": "Lesson 12"
+    },
+    {
+      "zh": "晴天",
+      "py": "",
+      "en": "sunny day",
+      "lesson": "Lesson 12"
+    },
+    {
+      "zh": "多云",
+      "py": "",
+      "en": "cloudy",
+      "lesson": "Lesson 12"
+    },
+    {
+      "zh": "雨衣",
+      "py": "",
+      "en": "raincoat",
+      "lesson": "Lesson 12"
+    },
+    {
+      "zh": "雨鞋",
+      "py": "",
+      "en": "rainshoes",
+      "lesson": "Lesson 12"
+    },
+    {
+      "zh": "短裤",
+      "py": "",
+      "en": "shorts",
+      "lesson": "Lesson 12"
+    },
+    {
+      "zh": "车库",
+      "py": "",
+      "en": "garage",
+      "lesson": "Lesson 13"
+    },
+    {
+      "zh": "种",
+      "py": "",
+      "en": "grow",
+      "lesson": "Lesson 13"
+    },
+    {
+      "zh": "种菜",
+      "py": "",
+      "en": "grow vegetables",
+      "lesson": "Lesson 13"
+    },
+    {
+      "zh": "黄瓜",
+      "py": "",
+      "en": "cucumber",
+      "lesson": "Lesson 13"
+    },
+    {
+      "zh": "胡萝卜",
+      "py": "",
+      "en": "carrot",
+      "lesson": "Lesson 13"
+    },
+    {
+      "zh": "西红柿",
+      "py": "",
+      "en": "tomato",
+      "lesson": "Lesson 13"
+    },
+    {
+      "zh": "西蓝花",
+      "py": "",
+      "en": "broccoli",
+      "lesson": "Lesson 13"
+    },
+    {
+      "zh": "动物园",
+      "py": "",
+      "en": "zoo",
+      "lesson": "Lesson 14"
+    },
+    {
+      "zh": "老虎",
+      "py": "",
+      "en": "tiger",
+      "lesson": "Lesson 14"
+    },
+    {
+      "zh": "大象",
+      "py": "",
+      "en": "elephant",
+      "lesson": "Lesson 14"
+    },
+    {
+      "zh": "猴子",
+      "py": "",
+      "en": "monkey",
+      "lesson": "Lesson 14"
+    },
+    {
+      "zh": "熊猫",
+      "py": "",
+      "en": "panda",
+      "lesson": "Lesson 14"
+    },
+    {
+      "zh": "竹子",
+      "py": "",
+      "en": "bamboo",
+      "lesson": "Lesson 14"
+    },
+    {
+      "zh": "商场",
+      "py": "",
+      "en": "shopping mall",
+      "lesson": "Lesson 15"
+    },
+    {
+      "zh": "书店",
+      "py": "",
+      "en": "bookstore",
+      "lesson": "Lesson 15"
+    },
+    {
+      "zh": "饭店",
+      "py": "",
+      "en": "restaurant",
+      "lesson": "Lesson 15"
+    },
+    {
+      "zh": "游乐场",
+      "py": "",
+      "en": "playground",
+      "lesson": "Lesson 15"
+    },
+    {
+      "zh": "滑冰场",
+      "py": "",
+      "en": "skating rink",
+      "lesson": "Lesson 15"
+    }
+  ]
+}

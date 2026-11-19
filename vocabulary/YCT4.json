@@ -1,0 +1,474 @@
+{
+  "title": "YCT4",
+  "level": "YCT4",
+  "words": [
+    {
+      "zh": "手机",
+      "py": "",
+      "en": "mobile phone",
+      "lesson": "Lesson 1"
+    },
+    {
+      "zh": "电脑",
+      "py": "",
+      "en": "computer",
+      "lesson": "Lesson 1"
+    },
+    {
+      "zh": "零",
+      "py": "",
+      "en": "zero",
+      "lesson": "Lesson 1"
+    },
+    {
+      "zh": "上网",
+      "py": "",
+      "en": "go online",
+      "lesson": "Lesson 1"
+    },
+    {
+      "zh": "百",
+      "py": "",
+      "en": "hundred",
+      "lesson": "Lesson 1"
+    },
+    {
+      "zh": "千",
+      "py": "",
+      "en": "thousand",
+      "lesson": "Lesson 1"
+    },
+    {
+      "zh": "少",
+      "py": "",
+      "en": "less",
+      "lesson": "Lesson 1"
+    },
+    {
+      "zh": "时间",
+      "py": "",
+      "en": "time",
+      "lesson": "Lesson 2"
+    },
+    {
+      "zh": "半",
+      "py": "",
+      "en": "half",
+      "lesson": "Lesson 2"
+    },
+    {
+      "zh": "难",
+      "py": "",
+      "en": "difficult",
+      "lesson": "Lesson 2"
+    },
+    {
+      "zh": "小时",
+      "py": "",
+      "en": "hour",
+      "lesson": "Lesson 2"
+    },
+    {
+      "zh": "题",
+      "py": "",
+      "en": "question",
+      "lesson": "Lesson 2"
+    },
+    {
+      "zh": "懂",
+      "py": "",
+      "en": "to understand",
+      "lesson": "Lesson 2"
+    },
+    {
+      "zh": "读",
+      "py": "",
+      "en": "to read",
+      "lesson": "Lesson 2"
+    },
+    {
+      "zh": "中午",
+      "py": "",
+      "en": "noon",
+      "lesson": "Lesson 3"
+    },
+    {
+      "zh": "卖",
+      "py": "",
+      "en": "to sell",
+      "lesson": "Lesson 3"
+    },
+    {
+      "zh": "开",
+      "py": "",
+      "en": "open / drive",
+      "lesson": "Lesson 3"
+    },
+    {
+      "zh": "关",
+      "py": "",
+      "en": "close",
+      "lesson": "Lesson 3"
+    },
+    {
+      "zh": "完",
+      "py": "",
+      "en": "over, finished",
+      "lesson": "Lesson 3"
+    },
+    {
+      "zh": "就",
+      "py": "",
+      "en": "as early as, just",
+      "lesson": "Lesson 3"
+    },
+    {
+      "zh": "门",
+      "py": "",
+      "en": "door",
+      "lesson": "Lesson 3"
+    },
+    {
+      "zh": "杯子",
+      "py": "",
+      "en": "cup, glass, mug",
+      "lesson": "Lesson 3"
+    },
+    {
+      "zh": "身体",
+      "py": "",
+      "en": "body, health",
+      "lesson": "Lesson 4"
+    },
+    {
+      "zh": "舒服",
+      "py": "",
+      "en": "comfortable",
+      "lesson": "Lesson 4"
+    },
+    {
+      "zh": "生病",
+      "py": "",
+      "en": "sick",
+      "lesson": "Lesson 4"
+    },
+    {
+      "zh": "感冒",
+      "py": "",
+      "en": "have a cold",
+      "lesson": "Lesson 4"
+    },
+    {
+      "zh": "休息",
+      "py": "",
+      "en": "have a rest",
+      "lesson": "Lesson 4"
+    },
+    {
+      "zh": "疼",
+      "py": "",
+      "en": "hurt, ache",
+      "lesson": "Lesson 4"
+    },
+    {
+      "zh": "药",
+      "py": "",
+      "en": "medicine",
+      "lesson": "Lesson 4"
+    },
+    {
+      "zh": "一点儿",
+      "py": "",
+      "en": "a little, a bit",
+      "lesson": "Lesson 4"
+    },
+    {
+      "zh": "鱼",
+      "py": "",
+      "en": "fish",
+      "lesson": "Lesson 5"
+    },
+    {
+      "zh": "菜",
+      "py": "",
+      "en": "a dish of cooked food",
+      "lesson": "Lesson 5"
+    },
+    {
+      "zh": "进",
+      "py": "",
+      "en": "come in, go in",
+      "lesson": "Lesson 5"
+    },
+    {
+      "zh": "果汁",
+      "py": "",
+      "en": "juice",
+      "lesson": "Lesson 5"
+    },
+    {
+      "zh": "洗澡",
+      "py": "",
+      "en": "take a shower or bath",
+      "lesson": "Lesson 5"
+    },
+    {
+      "zh": "它",
+      "py": "",
+      "en": "it",
+      "lesson": "Lesson 5"
+    },
+    {
+      "zh": "教室",
+      "py": "",
+      "en": "classroom",
+      "lesson": "Lesson 6"
+    },
+    {
+      "zh": "走",
+      "py": "",
+      "en": "go",
+      "lesson": "Lesson 6"
+    },
+    {
+      "zh": "过",
+      "py": "",
+      "en": "used after a verb to indicate past experience",
+      "lesson": "Lesson 6"
+    },
+    {
+      "zh": "前",
+      "py": "",
+      "en": "front",
+      "lesson": "Lesson 6"
+    },
+    {
+      "zh": "左",
+      "py": "",
+      "en": "left",
+      "lesson": "Lesson 6"
+    },
+    {
+      "zh": "右",
+      "py": "",
+      "en": "right",
+      "lesson": "Lesson 6"
+    },
+    {
+      "zh": "后",
+      "py": "",
+      "en": "behind",
+      "lesson": "Lesson 6"
+    },
+    {
+      "zh": "动物园",
+      "py": "",
+      "en": "zoo",
+      "lesson": "Lesson 7"
+    },
+    {
+      "zh": "公共汽车",
+      "py": "",
+      "en": "bus",
+      "lesson": "Lesson 7"
+    },
+    {
+      "zh": "路",
+      "py": "",
+      "en": "road",
+      "lesson": "Lesson 7"
+    },
+    {
+      "zh": "远",
+      "py": "",
+      "en": "far",
+      "lesson": "Lesson 7"
+    },
+    {
+      "zh": "近",
+      "py": "",
+      "en": "near",
+      "lesson": "Lesson 7"
+    },
+    {
+      "zh": "旁边",
+      "py": "",
+      "en": "beside",
+      "lesson": "Lesson 7"
+    },
+    {
+      "zh": "条",
+      "py": "",
+      "en": "a measure word",
+      "lesson": "Lesson 7"
+    },
+    {
+      "zh": "车站",
+      "py": "",
+      "en": "bus stop",
+      "lesson": "Lesson 7"
+    },
+    {
+      "zh": "开",
+      "py": "",
+      "en": "drive",
+      "lesson": "Lesson 7"
+    },
+    {
+      "zh": "对",
+      "py": "",
+      "en": "right",
+      "lesson": "Lesson 7"
+    },
+    {
+      "zh": "雨伞",
+      "py": "",
+      "en": "umbrella",
+      "lesson": "Lesson 8"
+    },
+    {
+      "zh": "拿",
+      "py": "",
+      "en": "take",
+      "lesson": "Lesson 8"
+    },
+    {
+      "zh": "蓝",
+      "py": "",
+      "en": "blue",
+      "lesson": "Lesson 8"
+    },
+    {
+      "zh": "慢",
+      "py": "",
+      "en": "slow",
+      "lesson": "Lesson 8"
+    },
+    {
+      "zh": "迟到",
+      "py": "",
+      "en": "late",
+      "lesson": "Lesson 8"
+    },
+    {
+      "zh": "坏",
+      "py": "",
+      "en": "bad, broken",
+      "lesson": "Lesson 8"
+    },
+    {
+      "zh": "飞机",
+      "py": "",
+      "en": "plane",
+      "lesson": "Lesson 9"
+    },
+    {
+      "zh": "时候",
+      "py": "",
+      "en": "time",
+      "lesson": "Lesson 9"
+    },
+    {
+      "zh": "去年",
+      "py": "",
+      "en": "last year",
+      "lesson": "Lesson 9"
+    },
+    {
+      "zh": "次",
+      "py": "",
+      "en": "time",
+      "lesson": "Lesson 9"
+    },
+    {
+      "zh": "累",
+      "py": "",
+      "en": "tired",
+      "lesson": "Lesson 9"
+    },
+    {
+      "zh": "电影",
+      "py": "",
+      "en": "film, movie",
+      "lesson": "Lesson 10"
+    },
+    {
+      "zh": "为什么",
+      "py": "",
+      "en": "why",
+      "lesson": "Lesson 10"
+    },
+    {
+      "zh": "忙",
+      "py": "",
+      "en": "busy",
+      "lesson": "Lesson 10"
+    },
+    {
+      "zh": "事情",
+      "py": "",
+      "en": "thing",
+      "lesson": "Lesson 10"
+    },
+    {
+      "zh": "意思",
+      "py": "",
+      "en": "meaning",
+      "lesson": "Lesson 10"
+    },
+    {
+      "zh": "因为……所以……",
+      "py": "",
+      "en": "because... (so)...",
+      "lesson": "Lesson 10"
+    },
+    {
+      "zh": "裙子",
+      "py": "",
+      "en": "dress, skirt",
+      "lesson": "Lesson 11"
+    },
+    {
+      "zh": "裤子",
+      "py": "",
+      "en": "trousers",
+      "lesson": "Lesson 11"
+    },
+    {
+      "zh": "白",
+      "py": "",
+      "en": "white",
+      "lesson": "Lesson 11"
+    },
+    {
+      "zh": "黑",
+      "py": "",
+      "en": "black",
+      "lesson": "Lesson 11"
+    },
+    {
+      "zh": "长",
+      "py": "",
+      "en": "grow",
+      "lesson": "Lesson 11"
+    },
+    {
+      "zh": "出生",
+      "py": "",
+      "en": "birth",
+      "lesson": "Lesson 11"
+    },
+    {
+      "zh": "件",
+      "py": "",
+      "en": "a measure word",
+      "lesson": "Lesson 11"
+    },
+    {
+      "zh": "可爱",
+      "py": "",
+      "en": "cute, lovely",
+      "lesson": "Lesson 11"
+    }
+  ]
+}

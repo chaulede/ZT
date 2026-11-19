@@ -1,0 +1,1266 @@
+{
+  "title": "HSK2",
+  "level": "HSK2",
+  "words": [
+    {
+      "zh": "还是",
+      "py": "",
+      "en": "had better",
+      "lesson": "Lesson 1"
+    },
+    {
+      "zh": "接",
+      "py": "",
+      "en": "meet; welcome; receive",
+      "lesson": "Lesson 1"
+    },
+    {
+      "zh": "让",
+      "py": "",
+      "en": "let; allow",
+      "lesson": "Lesson 1"
+    },
+    {
+      "zh": "给",
+      "py": "",
+      "en": "(used to introduce the recipient of an action) to; for",
+      "lesson": "Lesson 1"
+    },
+    {
+      "zh": "就",
+      "py": "",
+      "en": "exactly; precisely",
+      "lesson": "Lesson 1"
+    },
+    {
+      "zh": "次",
+      "py": "",
+      "en": "(indicating how many times or which time something happens) time; occurrence",
+      "lesson": "Lesson 1"
+    },
+    {
+      "zh": "旅游",
+      "py": "",
+      "en": "travel; make a tour",
+      "lesson": "Lesson 1"
+    },
+    {
+      "zh": "帮忙",
+      "py": "",
+      "en": "help",
+      "lesson": "Lesson 1"
+    },
+    {
+      "zh": "不好意思",
+      "py": "",
+      "en": "find it embarrassing (to do sth)",
+      "lesson": "Lesson 1"
+    },
+    {
+      "zh": "已经",
+      "py": "",
+      "en": "already",
+      "lesson": "Lesson 1"
+    },
+    {
+      "zh": "那",
+      "py": "",
+      "en": "then",
+      "lesson": "Lesson 1"
+    },
+    {
+      "zh": "介绍",
+      "py": "",
+      "en": "introduce",
+      "lesson": "Lesson 1"
+    },
+    {
+      "zh": "有时",
+      "py": "",
+      "en": "sometimes",
+      "lesson": "Lesson 1"
+    },
+    {
+      "zh": "懂",
+      "py": "",
+      "en": "understand; know",
+      "lesson": "Lesson 1"
+    },
+    {
+      "zh": "意思",
+      "py": "",
+      "en": "meaning; idea",
+      "lesson": "Lesson 1"
+    },
+    {
+      "zh": "北京烤鸭",
+      "py": "",
+      "en": "Peking Duck",
+      "lesson": "Lesson 1"
+    },
+    {
+      "zh": "公交车",
+      "py": "",
+      "en": "bus",
+      "lesson": "Lesson 2"
+    },
+    {
+      "zh": "但",
+      "py": "",
+      "en": "but; yet",
+      "lesson": "Lesson 2"
+    },
+    {
+      "zh": "车站",
+      "py": "",
+      "en": "stop; station",
+      "lesson": "Lesson 2"
+    },
+    {
+      "zh": "远",
+      "py": "",
+      "en": "far away",
+      "lesson": "Lesson 2"
+    },
+    {
+      "zh": "打车",
+      "py": "",
+      "en": "take/hail a taxi",
+      "lesson": "Lesson 2"
+    },
+    {
+      "zh": "还是",
+      "py": "",
+      "en": "had better",
+      "lesson": "Lesson 2"
+    },
+    {
+      "zh": "万",
+      "py": "",
+      "en": "ten thousand",
+      "lesson": "Lesson 2"
+    },
+    {
+      "zh": "名",
+      "py": "",
+      "en": "name",
+      "lesson": "Lesson 2"
+    },
+    {
+      "zh": "网上",
+      "py": "",
+      "en": "online",
+      "lesson": "Lesson 2"
+    },
+    {
+      "zh": "外国",
+      "py": "",
+      "en": "foreign country",
+      "lesson": "Lesson 2"
+    },
+    {
+      "zh": "间",
+      "py": "",
+      "en": "used of smallest units of housing",
+      "lesson": "Lesson 2"
+    },
+    {
+      "zh": "教室",
+      "py": "",
+      "en": "classroom",
+      "lesson": "Lesson 2"
+    },
+    {
+      "zh": "票",
+      "py": "",
+      "en": "ticket",
+      "lesson": "Lesson 2"
+    },
+    {
+      "zh": "别",
+      "py": "",
+      "en": "don't; had better not",
+      "lesson": "Lesson 2"
+    },
+    {
+      "zh": "过来",
+      "py": "",
+      "en": "come here",
+      "lesson": "Lesson 2"
+    },
+    {
+      "zh": "北京大学",
+      "py": "",
+      "en": "Peking University",
+      "lesson": "Lesson 2"
+    },
+    {
+      "zh": "回来",
+      "py": "",
+      "en": "come back",
+      "lesson": "Lesson 3"
+    },
+    {
+      "zh": "这么",
+      "py": "",
+      "en": "so",
+      "lesson": "Lesson 3"
+    },
+    {
+      "zh": "完",
+      "py": "",
+      "en": "end; complete",
+      "lesson": "Lesson 3"
+    },
+    {
+      "zh": "一起",
+      "py": "",
+      "en": "together",
+      "lesson": "Lesson 3"
+    },
+    {
+      "zh": "出去",
+      "py": "",
+      "en": "go/get out",
+      "lesson": "Lesson 3"
+    },
+    {
+      "zh": "洗",
+      "py": "",
+      "en": "wash",
+      "lesson": "Lesson 3"
+    },
+    {
+      "zh": "自己",
+      "py": "",
+      "en": "oneself",
+      "lesson": "Lesson 3"
+    },
+    {
+      "zh": "拿",
+      "py": "",
+      "en": "take; hold",
+      "lesson": "Lesson 3"
+    },
+    {
+      "zh": "手",
+      "py": "",
+      "en": "hand",
+      "lesson": "Lesson 3"
+    },
+    {
+      "zh": "为什么",
+      "py": "",
+      "en": "why",
+      "lesson": "Lesson 3"
+    },
+    {
+      "zh": "不错",
+      "py": "",
+      "en": "not bad; pretty good",
+      "lesson": "Lesson 3"
+    },
+    {
+      "zh": "送",
+      "py": "",
+      "en": "accompany sb to his destination; give (as a gift)",
+      "lesson": "Lesson 3"
+    },
+    {
+      "zh": "回去",
+      "py": "",
+      "en": "return; go back",
+      "lesson": "Lesson 3"
+    },
+    {
+      "zh": "每",
+      "py": "",
+      "en": "each; every",
+      "lesson": "Lesson 3"
+    },
+    {
+      "zh": "累",
+      "py": "",
+      "en": "tired; weary",
+      "lesson": "Lesson 3"
+    },
+    {
+      "zh": "过",
+      "py": "",
+      "en": "",
+      "lesson": "Lesson 4"
+    },
+    {
+      "zh": "商场",
+      "py": "",
+      "en": "department store",
+      "lesson": "Lesson 4"
+    },
+    {
+      "zh": "进去",
+      "py": "",
+      "en": "go/get in",
+      "lesson": "Lesson 4"
+    },
+    {
+      "zh": "条",
+      "py": "",
+      "en": "for long, narrow, or thin things",
+      "lesson": "Lesson 4"
+    },
+    {
+      "zh": "裤子",
+      "py": "",
+      "en": "trousers; pants",
+      "lesson": "Lesson 4"
+    },
+    {
+      "zh": "白色",
+      "py": "",
+      "en": "white",
+      "lesson": "Lesson 4"
+    },
+    {
+      "zh": "因为",
+      "py": "",
+      "en": "because",
+      "lesson": "Lesson 4"
+    },
+    {
+      "zh": "试",
+      "py": "",
+      "en": "try",
+      "lesson": "Lesson 4"
+    },
+    {
+      "zh": "红色",
+      "py": "",
+      "en": "red",
+      "lesson": "Lesson 4"
+    },
+    {
+      "zh": "所以",
+      "py": "",
+      "en": "so; therefore",
+      "lesson": "Lesson 4"
+    },
+    {
+      "zh": "书包",
+      "py": "",
+      "en": "schoolbag",
+      "lesson": "Lesson 4"
+    },
+    {
+      "zh": "过去",
+      "py": "",
+      "en": "pass (by); go over",
+      "lesson": "Lesson 4"
+    },
+    {
+      "zh": "绿色",
+      "py": "",
+      "en": "green",
+      "lesson": "Lesson 4"
+    },
+    {
+      "zh": "黑色",
+      "py": "",
+      "en": "black",
+      "lesson": "Lesson 4"
+    },
+    {
+      "zh": "更",
+      "py": "",
+      "en": "more; still/even more",
+      "lesson": "Lesson 4"
+    },
+    {
+      "zh": "颜色",
+      "py": "",
+      "en": "color",
+      "lesson": "Lesson 4"
+    },
+    {
+      "zh": "快",
+      "py": "",
+      "en": "hurry up; fast",
+      "lesson": "Lesson 5"
+    },
+    {
+      "zh": "下来",
+      "py": "",
+      "en": "come down",
+      "lesson": "Lesson 5"
+    },
+    {
+      "zh": "上来",
+      "py": "",
+      "en": "come up",
+      "lesson": "Lesson 5"
+    },
+    {
+      "zh": "上去",
+      "py": "",
+      "en": "go up",
+      "lesson": "Lesson 5"
+    },
+    {
+      "zh": "下面",
+      "py": "",
+      "en": "downstairs",
+      "lesson": "Lesson 5"
+    },
+    {
+      "zh": "等",
+      "py": "",
+      "en": "wait for",
+      "lesson": "Lesson 5"
+    },
+    {
+      "zh": "一会儿",
+      "py": "",
+      "en": "soon",
+      "lesson": "Lesson 5"
+    },
+    {
+      "zh": "下去",
+      "py": "",
+      "en": "go down",
+      "lesson": "Lesson 5"
+    },
+    {
+      "zh": "进来",
+      "py": "",
+      "en": "come/get in",
+      "lesson": "Lesson 5"
+    },
+    {
+      "zh": "爷爷",
+      "py": "",
+      "en": "grandfather",
+      "lesson": "Lesson 5"
+    },
+    {
+      "zh": "奶奶",
+      "py": "",
+      "en": "grandmother",
+      "lesson": "Lesson 5"
+    },
+    {
+      "zh": "礼物",
+      "py": "",
+      "en": "gift; present",
+      "lesson": "Lesson 5"
+    },
+    {
+      "zh": "准备",
+      "py": "",
+      "en": "prepare",
+      "lesson": "Lesson 5"
+    },
+    {
+      "zh": "奶茶",
+      "py": "",
+      "en": "bubble tea",
+      "lesson": "Lesson 5"
+    },
+    {
+      "zh": "跟",
+      "py": "",
+      "en": "with; and",
+      "lesson": "Lesson 5"
+    },
+    {
+      "zh": "走",
+      "py": "",
+      "en": "walk; go",
+      "lesson": "Lesson 5"
+    },
+    {
+      "zh": "酒店",
+      "py": "",
+      "en": "hotel",
+      "lesson": "Lesson 5"
+    },
+    {
+      "zh": "生日",
+      "py": "",
+      "en": "birthday",
+      "lesson": "Lesson 6"
+    },
+    {
+      "zh": "忘",
+      "py": "",
+      "en": "forget",
+      "lesson": "Lesson 6"
+    },
+    {
+      "zh": "画",
+      "py": "",
+      "en": "draw; painting",
+      "lesson": "Lesson 6"
+    },
+    {
+      "zh": "画笔",
+      "py": "",
+      "en": "color pen; paintbrush",
+      "lesson": "Lesson 6"
+    },
+    {
+      "zh": "蛋糕",
+      "py": "",
+      "en": "cake",
+      "lesson": "Lesson 6"
+    },
+    {
+      "zh": "快乐",
+      "py": "",
+      "en": "happy",
+      "lesson": "Lesson 6"
+    },
+    {
+      "zh": "打开",
+      "py": "",
+      "en": "open",
+      "lesson": "Lesson 6"
+    },
+    {
+      "zh": "长",
+      "py": "",
+      "en": "long",
+      "lesson": "Lesson 6"
+    },
+    {
+      "zh": "鱼",
+      "py": "",
+      "en": "fish",
+      "lesson": "Lesson 6"
+    },
+    {
+      "zh": "肉",
+      "py": "",
+      "en": "meat",
+      "lesson": "Lesson 6"
+    },
+    {
+      "zh": "过",
+      "py": "",
+      "en": "spend time",
+      "lesson": "Lesson 6"
+    },
+    {
+      "zh": "地",
+      "py": "",
+      "en": "used with an adverb or adverbial phrase",
+      "lesson": "Lesson 6"
+    },
+    {
+      "zh": "床",
+      "py": "",
+      "en": "bed",
+      "lesson": "Lesson 6"
+    },
+    {
+      "zh": "舒服",
+      "py": "",
+      "en": "comfortable",
+      "lesson": "Lesson 6"
+    },
+    {
+      "zh": "从",
+      "py": "",
+      "en": "from",
+      "lesson": "Lesson 7"
+    },
+    {
+      "zh": "往",
+      "py": "",
+      "en": "towards; go",
+      "lesson": "Lesson 7"
+    },
+    {
+      "zh": "跑",
+      "py": "",
+      "en": "run; go to",
+      "lesson": "Lesson 7"
+    },
+    {
+      "zh": "打",
+      "py": "",
+      "en": "play (games); hit",
+      "lesson": "Lesson 7"
+    },
+    {
+      "zh": "篮球",
+      "py": "",
+      "en": "basketball",
+      "lesson": "Lesson 7"
+    },
+    {
+      "zh": "运动",
+      "py": "",
+      "en": "sports; exercise",
+      "lesson": "Lesson 7"
+    },
+    {
+      "zh": "踢",
+      "py": "",
+      "en": "kick",
+      "lesson": "Lesson 7"
+    },
+    {
+      "zh": "足球",
+      "py": "",
+      "en": "soccer; football",
+      "lesson": "Lesson 7"
+    },
+    {
+      "zh": "球",
+      "py": "",
+      "en": "ball",
+      "lesson": "Lesson 7"
+    },
+    {
+      "zh": "得",
+      "py": "",
+      "en": "used between a verb or an adjective and its complement to indicate the result or degree",
+      "lesson": "Lesson 7"
+    },
+    {
+      "zh": "跑步",
+      "py": "",
+      "en": "run",
+      "lesson": "Lesson 7"
+    },
+    {
+      "zh": "游泳",
+      "py": "",
+      "en": "swim",
+      "lesson": "Lesson 7"
+    },
+    {
+      "zh": "游",
+      "py": "",
+      "en": "swim",
+      "lesson": "Lesson 7"
+    },
+    {
+      "zh": "爱好",
+      "py": "",
+      "en": "hobby; be fond of",
+      "lesson": "Lesson 7"
+    },
+    {
+      "zh": "开始",
+      "py": "",
+      "en": "start; beginning",
+      "lesson": "Lesson 7"
+    },
+    {
+      "zh": "手表",
+      "py": "",
+      "en": "(wrist) watch",
+      "lesson": "Lesson 8"
+    },
+    {
+      "zh": "左边",
+      "py": "",
+      "en": "left; left side",
+      "lesson": "Lesson 8"
+    },
+    {
+      "zh": "左",
+      "py": "",
+      "en": "left",
+      "lesson": "Lesson 8"
+    },
+    {
+      "zh": "比",
+      "py": "",
+      "en": "than; compare",
+      "lesson": "Lesson 8"
+    },
+    {
+      "zh": "右边",
+      "py": "",
+      "en": "right; right side",
+      "lesson": "Lesson 8"
+    },
+    {
+      "zh": "右",
+      "py": "",
+      "en": "right",
+      "lesson": "Lesson 8"
+    },
+    {
+      "zh": "记得",
+      "py": "",
+      "en": "remember",
+      "lesson": "Lesson 8"
+    },
+    {
+      "zh": "爱情片",
+      "py": "",
+      "en": "romantic movie",
+      "lesson": "Lesson 8"
+    },
+    {
+      "zh": "有意思",
+      "py": "",
+      "en": "interesting",
+      "lesson": "Lesson 8"
+    },
+    {
+      "zh": "点",
+      "py": "",
+      "en": "select",
+      "lesson": "Lesson 8"
+    },
+    {
+      "zh": "虽然",
+      "py": "",
+      "en": "though; although",
+      "lesson": "Lesson 8"
+    },
+    {
+      "zh": "但是",
+      "py": "",
+      "en": "but; yet",
+      "lesson": "Lesson 8"
+    },
+    {
+      "zh": "花",
+      "py": "",
+      "en": "spend",
+      "lesson": "Lesson 8"
+    },
+    {
+      "zh": "妻子",
+      "py": "",
+      "en": "wife",
+      "lesson": "Lesson 8"
+    },
+    {
+      "zh": "丈夫",
+      "py": "",
+      "en": "husband",
+      "lesson": "Lesson 8"
+    },
+    {
+      "zh": "饭馆",
+      "py": "",
+      "en": "restaurant",
+      "lesson": "Lesson 8"
+    },
+    {
+      "zh": "坏",
+      "py": "",
+      "en": "bad; ruined",
+      "lesson": "Lesson 9"
+    },
+    {
+      "zh": "旁边",
+      "py": "",
+      "en": "side; adjacent place",
+      "lesson": "Lesson 9"
+    },
+    {
+      "zh": "男孩儿",
+      "py": "",
+      "en": "boy",
+      "lesson": "Lesson 9"
+    },
+    {
+      "zh": "这样",
+      "py": "",
+      "en": "this; so",
+      "lesson": "Lesson 9"
+    },
+    {
+      "zh": "个子",
+      "py": "",
+      "en": "height",
+      "lesson": "Lesson 9"
+    },
+    {
+      "zh": "那么",
+      "py": "",
+      "en": "like that",
+      "lesson": "Lesson 9"
+    },
+    {
+      "zh": "高",
+      "py": "",
+      "en": "tall; high",
+      "lesson": "Lesson 9"
+    },
+    {
+      "zh": "门口",
+      "py": "",
+      "en": "doorway; entrance",
+      "lesson": "Lesson 9"
+    },
+    {
+      "zh": "咖啡",
+      "py": "",
+      "en": "coffee",
+      "lesson": "Lesson 9"
+    },
+    {
+      "zh": "离",
+      "py": "",
+      "en": "be apart/away from",
+      "lesson": "Lesson 9"
+    },
+    {
+      "zh": "近",
+      "py": "",
+      "en": "close; nearby",
+      "lesson": "Lesson 9"
+    },
+    {
+      "zh": "走路",
+      "py": "",
+      "en": "walk",
+      "lesson": "Lesson 9"
+    },
+    {
+      "zh": "周",
+      "py": "",
+      "en": "week",
+      "lesson": "Lesson 9"
+    },
+    {
+      "zh": "开学",
+      "py": "",
+      "en": "(of a school) begin",
+      "lesson": "Lesson 10"
+    },
+    {
+      "zh": "门",
+      "py": "",
+      "en": "door",
+      "lesson": "Lesson 10"
+    },
+    {
+      "zh": "后面",
+      "py": "",
+      "en": "back",
+      "lesson": "Lesson 10"
+    },
+    {
+      "zh": "笔",
+      "py": "",
+      "en": "pen; pencil",
+      "lesson": "Lesson 10"
+    },
+    {
+      "zh": "帮",
+      "py": "",
+      "en": "help",
+      "lesson": "Lesson 10"
+    },
+    {
+      "zh": "考试",
+      "py": "",
+      "en": "examination",
+      "lesson": "Lesson 10"
+    },
+    {
+      "zh": "词",
+      "py": "",
+      "en": "word",
+      "lesson": "Lesson 10"
+    },
+    {
+      "zh": "本子",
+      "py": "",
+      "en": "notebook",
+      "lesson": "Lesson 10"
+    },
+    {
+      "zh": "错",
+      "py": "",
+      "en": "wrong; mistaken",
+      "lesson": "Lesson 10"
+    },
+    {
+      "zh": "题",
+      "py": "",
+      "en": "question; problem",
+      "lesson": "Lesson 10"
+    },
+    {
+      "zh": "还是",
+      "py": "",
+      "en": "or",
+      "lesson": "Lesson 10"
+    },
+    {
+      "zh": "考",
+      "py": "",
+      "en": "take an examination",
+      "lesson": "Lesson 10"
+    },
+    {
+      "zh": "快要",
+      "py": "",
+      "en": "on the verge of; about to",
+      "lesson": "Lesson 10"
+    },
+    {
+      "zh": "笑",
+      "py": "",
+      "en": "smile; laugh",
+      "lesson": "Lesson 10"
+    },
+    {
+      "zh": "头",
+      "py": "",
+      "en": "head",
+      "lesson": "Lesson 11"
+    },
+    {
+      "zh": "疼",
+      "py": "",
+      "en": "hurt",
+      "lesson": "Lesson 11"
+    },
+    {
+      "zh": "经常",
+      "py": "",
+      "en": "frequently; often",
+      "lesson": "Lesson 11"
+    },
+    {
+      "zh": "动",
+      "py": "",
+      "en": "move",
+      "lesson": "Lesson 11"
+    },
+    {
+      "zh": "着",
+      "py": "",
+      "en": "used after a verb or an adjective to indicate the continuation of an action or a state",
+      "lesson": "Lesson 11"
+    },
+    {
+      "zh": "路上",
+      "py": "",
+      "en": "road; trip",
+      "lesson": "Lesson 11"
+    },
+    {
+      "zh": "慢",
+      "py": "",
+      "en": "slow",
+      "lesson": "Lesson 11"
+    },
+    {
+      "zh": "进",
+      "py": "",
+      "en": "come into",
+      "lesson": "Lesson 11"
+    },
+    {
+      "zh": "药",
+      "py": "",
+      "en": "medicine",
+      "lesson": "Lesson 11"
+    },
+    {
+      "zh": "身体",
+      "py": "",
+      "en": "body; health",
+      "lesson": "Lesson 11"
+    },
+    {
+      "zh": "时",
+      "py": "",
+      "en": "a period of time",
+      "lesson": "Lesson 11"
+    },
+    {
+      "zh": "最",
+      "py": "",
+      "en": "most",
+      "lesson": "Lesson 11"
+    },
+    {
+      "zh": "药店",
+      "py": "",
+      "en": "pharmacy",
+      "lesson": "Lesson 11"
+    },
+    {
+      "zh": "事情",
+      "py": "",
+      "en": "affair; matter",
+      "lesson": "Lesson 12"
+    },
+    {
+      "zh": "晴",
+      "py": "",
+      "en": "sunny",
+      "lesson": "Lesson 12"
+    },
+    {
+      "zh": "正",
+      "py": "",
+      "en": "indicating an action just happening or a state just continuing",
+      "lesson": "Lesson 12"
+    },
+    {
+      "zh": "外面",
+      "py": "",
+      "en": "outside",
+      "lesson": "Lesson 12"
+    },
+    {
+      "zh": "阴",
+      "py": "",
+      "en": "cloudy",
+      "lesson": "Lesson 12"
+    },
+    {
+      "zh": "从小",
+      "py": "",
+      "en": "since childhood",
+      "lesson": "Lesson 12"
+    },
+    {
+      "zh": "地铁",
+      "py": "",
+      "en": "subway",
+      "lesson": "Lesson 12"
+    },
+    {
+      "zh": "楼",
+      "py": "",
+      "en": "building",
+      "lesson": "Lesson 12"
+    },
+    {
+      "zh": "站",
+      "py": "",
+      "en": "stop; station",
+      "lesson": "Lesson 12"
+    },
+    {
+      "zh": "小时候",
+      "py": "",
+      "en": "childhood",
+      "lesson": "Lesson 12"
+    },
+    {
+      "zh": "好",
+      "py": "",
+      "en": "very; quite",
+      "lesson": "Lesson 12"
+    },
+    {
+      "zh": "新年",
+      "py": "",
+      "en": "New Year",
+      "lesson": "Lesson 13"
+    },
+    {
+      "zh": "教",
+      "py": "",
+      "en": "teach",
+      "lesson": "Lesson 13"
+    },
+    {
+      "zh": "花",
+      "py": "",
+      "en": "flower",
+      "lesson": "Lesson 13"
+    },
+    {
+      "zh": "希望",
+      "py": "",
+      "en": "hope; wish",
+      "lesson": "Lesson 13"
+    },
+    {
+      "zh": "上面",
+      "py": "",
+      "en": "surface of an object",
+      "lesson": "Lesson 13"
+    },
+    {
+      "zh": "洗手间",
+      "py": "",
+      "en": "washroom; restroom",
+      "lesson": "Lesson 13"
+    },
+    {
+      "zh": "里面",
+      "py": "",
+      "en": "inside",
+      "lesson": "Lesson 13"
+    },
+    {
+      "zh": "笔",
+      "py": "",
+      "en": "stroke",
+      "lesson": "Lesson 13"
+    },
+    {
+      "zh": "可能",
+      "py": "",
+      "en": "probably; can",
+      "lesson": "Lesson 13"
+    },
+    {
+      "zh": "上网",
+      "py": "",
+      "en": "go online",
+      "lesson": "Lesson 13"
+    },
+    {
+      "zh": "那样",
+      "py": "",
+      "en": "so that",
+      "lesson": "Lesson 13"
+    },
+    {
+      "zh": "告诉",
+      "py": "",
+      "en": "tell",
+      "lesson": "Lesson 13"
+    },
+    {
+      "zh": "班",
+      "py": "",
+      "en": "class",
+      "lesson": "Lesson 13"
+    },
+    {
+      "zh": "站",
+      "py": "",
+      "en": "stand",
+      "lesson": "Lesson 14"
+    },
+    {
+      "zh": "包",
+      "py": "",
+      "en": "bag; wrap; bundle",
+      "lesson": "Lesson 14"
+    },
+    {
+      "zh": "过年",
+      "py": "",
+      "en": "celebrate the Spring Festival",
+      "lesson": "Lesson 14"
+    },
+    {
+      "zh": "没意思",
+      "py": "",
+      "en": "boring",
+      "lesson": "Lesson 14"
+    },
+    {
+      "zh": "位",
+      "py": "",
+      "en": "used in deferential reference to people",
+      "lesson": "Lesson 14"
+    },
+    {
+      "zh": "前面",
+      "py": "",
+      "en": "front",
+      "lesson": "Lesson 14"
+    },
+    {
+      "zh": "房子",
+      "py": "",
+      "en": "house",
+      "lesson": "Lesson 14"
+    },
+    {
+      "zh": "小孩儿",
+      "py": "",
+      "en": "child; kid",
+      "lesson": "Lesson 14"
+    },
+    {
+      "zh": "女孩儿",
+      "py": "",
+      "en": "girl",
+      "lesson": "Lesson 14"
+    },
+    {
+      "zh": "姓",
+      "py": "",
+      "en": "be surnamed",
+      "lesson": "Lesson 14"
+    },
+    {
+      "zh": "眼睛",
+      "py": "",
+      "en": "eye",
+      "lesson": "Lesson 14"
+    },
+    {
+      "zh": "跳舞",
+      "py": "",
+      "en": "dance",
+      "lesson": "Lesson 14"
+    },
+    {
+      "zh": "姓名",
+      "py": "",
+      "en": "name",
+      "lesson": "Lesson 15"
+    },
+    {
+      "zh": "出国",
+      "py": "",
+      "en": "go abroad",
+      "lesson": "Lesson 15"
+    },
+    {
+      "zh": "门票",
+      "py": "",
+      "en": "entrance ticket",
+      "lesson": "Lesson 15"
+    },
+    {
+      "zh": "高中",
+      "py": "",
+      "en": "high school",
+      "lesson": "Lesson 15"
+    },
+    {
+      "zh": "出门",
+      "py": "",
+      "en": "leave home",
+      "lesson": "Lesson 15"
+    },
+    {
+      "zh": "路",
+      "py": "",
+      "en": "road; way",
+      "lesson": "Lesson 15"
+    },
+    {
+      "zh": "机场",
+      "py": "",
+      "en": "airport",
+      "lesson": "Lesson 15"
+    },
+    {
+      "zh": "机票",
+      "py": "",
+      "en": "air ticket",
+      "lesson": "Lesson 15"
+    },
+    {
+      "zh": "飞",
+      "py": "",
+      "en": "fly",
+      "lesson": "Lesson 15"
+    }
+  ]
+}

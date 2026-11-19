@@ -1,0 +1,828 @@
+{
+  "title": "estcV2-1",
+  "level": "estcV2-1",
+  "words": [
+    {
+      "zh": "人",
+      "py": "",
+      "en": "person",
+      "lesson": "Lesson 1"
+    },
+    {
+      "zh": "口",
+      "py": "",
+      "en": "mouth",
+      "lesson": "Lesson 1"
+    },
+    {
+      "zh": "一",
+      "py": "",
+      "en": "one",
+      "lesson": "Lesson 1"
+    },
+    {
+      "zh": "二",
+      "py": "",
+      "en": "two",
+      "lesson": "Lesson 1"
+    },
+    {
+      "zh": "三",
+      "py": "",
+      "en": "three",
+      "lesson": "Lesson 1"
+    },
+    {
+      "zh": "四",
+      "py": "",
+      "en": "four",
+      "lesson": "Lesson 1"
+    },
+    {
+      "zh": "五",
+      "py": "",
+      "en": "five",
+      "lesson": "Lesson 1"
+    },
+    {
+      "zh": "六",
+      "py": "",
+      "en": "six",
+      "lesson": "Lesson 1"
+    },
+    {
+      "zh": "七",
+      "py": "",
+      "en": "seven",
+      "lesson": "Lesson 1"
+    },
+    {
+      "zh": "八",
+      "py": "",
+      "en": "eight",
+      "lesson": "Lesson 1"
+    },
+    {
+      "zh": "九",
+      "py": "",
+      "en": "nine",
+      "lesson": "Lesson 1"
+    },
+    {
+      "zh": "十",
+      "py": "",
+      "en": "ten",
+      "lesson": "Lesson 1"
+    },
+    {
+      "zh": "小",
+      "py": "",
+      "en": "small",
+      "lesson": "Lesson 2"
+    },
+    {
+      "zh": "大",
+      "py": "",
+      "en": "big",
+      "lesson": "Lesson 2"
+    },
+    {
+      "zh": "十一",
+      "py": "",
+      "en": "eleven",
+      "lesson": "Lesson 2"
+    },
+    {
+      "zh": "十二",
+      "py": "",
+      "en": "twelve",
+      "lesson": "Lesson 2"
+    },
+    {
+      "zh": "十三",
+      "py": "",
+      "en": "thirteen",
+      "lesson": "Lesson 2"
+    },
+    {
+      "zh": "十四",
+      "py": "",
+      "en": "fourteen",
+      "lesson": "Lesson 2"
+    },
+    {
+      "zh": "十五",
+      "py": "",
+      "en": "fifteen",
+      "lesson": "Lesson 2"
+    },
+    {
+      "zh": "十六",
+      "py": "",
+      "en": "sixteen",
+      "lesson": "Lesson 2"
+    },
+    {
+      "zh": "十七",
+      "py": "",
+      "en": "seventeen",
+      "lesson": "Lesson 2"
+    },
+    {
+      "zh": "十八",
+      "py": "",
+      "en": "eighteen",
+      "lesson": "Lesson 2"
+    },
+    {
+      "zh": "十九",
+      "py": "",
+      "en": "nineteen",
+      "lesson": "Lesson 2"
+    },
+    {
+      "zh": "二十",
+      "py": "",
+      "en": "twenty",
+      "lesson": "Lesson 2"
+    },
+    {
+      "zh": "日",
+      "py": "",
+      "en": "sun",
+      "lesson": "Lesson 3"
+    },
+    {
+      "zh": "月",
+      "py": "",
+      "en": "moon; month",
+      "lesson": "Lesson 3"
+    },
+    {
+      "zh": "几点",
+      "py": "",
+      "en": "what o'clock / how many o'clock",
+      "lesson": "Lesson 3"
+    },
+    {
+      "zh": "现在",
+      "py": "",
+      "en": "now",
+      "lesson": "Lesson 3"
+    },
+    {
+      "zh": "一点",
+      "py": "",
+      "en": "one o'clock",
+      "lesson": "Lesson 3"
+    },
+    {
+      "zh": "两点",
+      "py": "",
+      "en": "two o'clock",
+      "lesson": "Lesson 3"
+    },
+    {
+      "zh": "三点",
+      "py": "",
+      "en": "three o'clock",
+      "lesson": "Lesson 3"
+    },
+    {
+      "zh": "四点",
+      "py": "",
+      "en": "four o'clock",
+      "lesson": "Lesson 3"
+    },
+    {
+      "zh": "五点",
+      "py": "",
+      "en": "five o'clock",
+      "lesson": "Lesson 3"
+    },
+    {
+      "zh": "六点",
+      "py": "",
+      "en": "six o'clock",
+      "lesson": "Lesson 3"
+    },
+    {
+      "zh": "七点",
+      "py": "",
+      "en": "seven o'clock",
+      "lesson": "Lesson 3"
+    },
+    {
+      "zh": "八点",
+      "py": "",
+      "en": "eight o'clock",
+      "lesson": "Lesson 3"
+    },
+    {
+      "zh": "九点",
+      "py": "",
+      "en": "nine o'clock",
+      "lesson": "Lesson 3"
+    },
+    {
+      "zh": "十点",
+      "py": "",
+      "en": "ten o'clock",
+      "lesson": "Lesson 3"
+    },
+    {
+      "zh": "十一点",
+      "py": "",
+      "en": "eleven o'clock",
+      "lesson": "Lesson 3"
+    },
+    {
+      "zh": "十二点",
+      "py": "",
+      "en": "twelve o'clock",
+      "lesson": "Lesson 3"
+    },
+    {
+      "zh": "王",
+      "py": "",
+      "en": "king",
+      "lesson": "Lesson 4"
+    },
+    {
+      "zh": "天",
+      "py": "",
+      "en": "sky; day",
+      "lesson": "Lesson 4"
+    },
+    {
+      "zh": "什么",
+      "py": "",
+      "en": "what",
+      "lesson": "Lesson 4"
+    },
+    {
+      "zh": "名字",
+      "py": "",
+      "en": "name",
+      "lesson": "Lesson 4"
+    },
+    {
+      "zh": "我",
+      "py": "",
+      "en": "I; me",
+      "lesson": "Lesson 4"
+    },
+    {
+      "zh": "岁",
+      "py": "",
+      "en": "year (of age)",
+      "lesson": "Lesson 4"
+    },
+    {
+      "zh": "木",
+      "py": "",
+      "en": "wood",
+      "lesson": "Lesson 5"
+    },
+    {
+      "zh": "禾",
+      "py": "",
+      "en": "crop",
+      "lesson": "Lesson 5"
+    },
+    {
+      "zh": "哥哥",
+      "py": "",
+      "en": "older brother",
+      "lesson": "Lesson 5"
+    },
+    {
+      "zh": "弟弟",
+      "py": "",
+      "en": "younger brother",
+      "lesson": "Lesson 5"
+    },
+    {
+      "zh": "姐姐",
+      "py": "",
+      "en": "older sister",
+      "lesson": "Lesson 5"
+    },
+    {
+      "zh": "妹妹",
+      "py": "",
+      "en": "younger sister",
+      "lesson": "Lesson 5"
+    },
+    {
+      "zh": "有",
+      "py": "",
+      "en": "have",
+      "lesson": "Lesson 5"
+    },
+    {
+      "zh": "吗",
+      "py": "",
+      "en": "a particle",
+      "lesson": "Lesson 5"
+    },
+    {
+      "zh": "和",
+      "py": "",
+      "en": "and",
+      "lesson": "Lesson 5"
+    },
+    {
+      "zh": "没有",
+      "py": "",
+      "en": "not have",
+      "lesson": "Lesson 5"
+    },
+    {
+      "zh": "上",
+      "py": "",
+      "en": "above; upper",
+      "lesson": "Lesson 6"
+    },
+    {
+      "zh": "中",
+      "py": "",
+      "en": "middle; centre",
+      "lesson": "Lesson 6"
+    },
+    {
+      "zh": "下",
+      "py": "",
+      "en": "below; under",
+      "lesson": "Lesson 6"
+    },
+    {
+      "zh": "爸爸",
+      "py": "",
+      "en": "dad",
+      "lesson": "Lesson 6"
+    },
+    {
+      "zh": "妈妈",
+      "py": "",
+      "en": "mum",
+      "lesson": "Lesson 6"
+    },
+    {
+      "zh": "家",
+      "py": "",
+      "en": "family; home",
+      "lesson": "Lesson 6"
+    },
+    {
+      "zh": "几口人",
+      "py": "",
+      "en": "how many family members",
+      "lesson": "Lesson 6"
+    },
+    {
+      "zh": "谁",
+      "py": "",
+      "en": "who",
+      "lesson": "Lesson 6"
+    },
+    {
+      "zh": "爱",
+      "py": "",
+      "en": "love",
+      "lesson": "Lesson 6"
+    },
+    {
+      "zh": "的",
+      "py": "",
+      "en": "'s; of",
+      "lesson": "Lesson 6"
+    },
+    {
+      "zh": "心",
+      "py": "",
+      "en": "heart",
+      "lesson": "Lesson 7"
+    },
+    {
+      "zh": "巾",
+      "py": "",
+      "en": "towel",
+      "lesson": "Lesson 7"
+    },
+    {
+      "zh": "早",
+      "py": "",
+      "en": "early",
+      "lesson": "Lesson 7"
+    },
+    {
+      "zh": "早上好",
+      "py": "",
+      "en": "good morning",
+      "lesson": "Lesson 7"
+    },
+    {
+      "zh": "好",
+      "py": "",
+      "en": "good",
+      "lesson": "Lesson 7"
+    },
+    {
+      "zh": "老师",
+      "py": "",
+      "en": "teacher",
+      "lesson": "Lesson 7"
+    },
+    {
+      "zh": "您",
+      "py": "",
+      "en": "you (respectful)",
+      "lesson": "Lesson 7"
+    },
+    {
+      "zh": "再见",
+      "py": "",
+      "en": "good-bye",
+      "lesson": "Lesson 7"
+    },
+    {
+      "zh": "寸",
+      "py": "",
+      "en": "cun, a unit of length",
+      "lesson": "Lesson 8"
+    },
+    {
+      "zh": "米",
+      "py": "",
+      "en": "rice",
+      "lesson": "Lesson 8"
+    },
+    {
+      "zh": "谢谢(你)",
+      "py": "",
+      "en": "Thank you!",
+      "lesson": "Lesson 8"
+    },
+    {
+      "zh": "不用谢",
+      "py": "",
+      "en": "You're welcome.",
+      "lesson": "Lesson 8"
+    },
+    {
+      "zh": "对不起",
+      "py": "",
+      "en": "I'm sorry.",
+      "lesson": "Lesson 8"
+    },
+    {
+      "zh": "没关系",
+      "py": "",
+      "en": "Never mind.",
+      "lesson": "Lesson 8"
+    },
+    {
+      "zh": "来",
+      "py": "",
+      "en": "come",
+      "lesson": "Lesson 9"
+    },
+    {
+      "zh": "去",
+      "py": "",
+      "en": "go",
+      "lesson": "Lesson 9"
+    },
+    {
+      "zh": "去上学",
+      "py": "",
+      "en": "go to school",
+      "lesson": "Lesson 9"
+    },
+    {
+      "zh": "放学",
+      "py": "",
+      "en": "school is over",
+      "lesson": "Lesson 9"
+    },
+    {
+      "zh": "回家",
+      "py": "",
+      "en": "go home",
+      "lesson": "Lesson 9"
+    },
+    {
+      "zh": "水",
+      "py": "",
+      "en": "water",
+      "lesson": "Lesson 10"
+    },
+    {
+      "zh": "目",
+      "py": "",
+      "en": "eye",
+      "lesson": "Lesson 10"
+    },
+    {
+      "zh": "他",
+      "py": "",
+      "en": "he; him",
+      "lesson": "Lesson 10"
+    },
+    {
+      "zh": "她",
+      "py": "",
+      "en": "she; her",
+      "lesson": "Lesson 10"
+    },
+    {
+      "zh": "每天",
+      "py": "",
+      "en": "every day",
+      "lesson": "Lesson 10"
+    },
+    {
+      "zh": "吃",
+      "py": "",
+      "en": "eat",
+      "lesson": "Lesson 10"
+    },
+    {
+      "zh": "水果",
+      "py": "",
+      "en": "fruit",
+      "lesson": "Lesson 10"
+    },
+    {
+      "zh": "面包",
+      "py": "",
+      "en": "bread",
+      "lesson": "Lesson 10"
+    },
+    {
+      "zh": "米饭",
+      "py": "",
+      "en": "cooked rice",
+      "lesson": "Lesson 10"
+    },
+    {
+      "zh": "牛",
+      "py": "",
+      "en": "cow",
+      "lesson": "Lesson 11"
+    },
+    {
+      "zh": "羊",
+      "py": "",
+      "en": "sheep",
+      "lesson": "Lesson 11"
+    },
+    {
+      "zh": "蓝色",
+      "py": "",
+      "en": "blue",
+      "lesson": "Lesson 11"
+    },
+    {
+      "zh": "红色",
+      "py": "",
+      "en": "red",
+      "lesson": "Lesson 11"
+    },
+    {
+      "zh": "黄色",
+      "py": "",
+      "en": "yellow",
+      "lesson": "Lesson 11"
+    },
+    {
+      "zh": "绿色",
+      "py": "",
+      "en": "green",
+      "lesson": "Lesson 11"
+    },
+    {
+      "zh": "白色",
+      "py": "",
+      "en": "white",
+      "lesson": "Lesson 11"
+    },
+    {
+      "zh": "黑色",
+      "py": "",
+      "en": "black",
+      "lesson": "Lesson 11"
+    },
+    {
+      "zh": "喜欢",
+      "py": "",
+      "en": "like",
+      "lesson": "Lesson 11"
+    },
+    {
+      "zh": "毛",
+      "py": "",
+      "en": "wool",
+      "lesson": "Lesson 12"
+    },
+    {
+      "zh": "衣",
+      "py": "",
+      "en": "clothes",
+      "lesson": "Lesson 12"
+    },
+    {
+      "zh": "校服",
+      "py": "",
+      "en": "school uniform",
+      "lesson": "Lesson 12"
+    },
+    {
+      "zh": "衬衫",
+      "py": "",
+      "en": "shirt",
+      "lesson": "Lesson 12"
+    },
+    {
+      "zh": "毛衣",
+      "py": "",
+      "en": "sweater",
+      "lesson": "Lesson 12"
+    },
+    {
+      "zh": "T恤",
+      "py": "",
+      "en": "T-shirt",
+      "lesson": "Lesson 12"
+    },
+    {
+      "zh": "长裤",
+      "py": "",
+      "en": "pants",
+      "lesson": "Lesson 12"
+    },
+    {
+      "zh": "牛仔裤",
+      "py": "",
+      "en": "jeans",
+      "lesson": "Lesson 12"
+    },
+    {
+      "zh": "门",
+      "py": "",
+      "en": "door",
+      "lesson": "Lesson 13"
+    },
+    {
+      "zh": "书",
+      "py": "",
+      "en": "book",
+      "lesson": "Lesson 13"
+    },
+    {
+      "zh": "房间",
+      "py": "",
+      "en": "room",
+      "lesson": "Lesson 13"
+    },
+    {
+      "zh": "书桌",
+      "py": "",
+      "en": "desk",
+      "lesson": "Lesson 13"
+    },
+    {
+      "zh": "椅子",
+      "py": "",
+      "en": "chair",
+      "lesson": "Lesson 13"
+    },
+    {
+      "zh": "床",
+      "py": "",
+      "en": "bed",
+      "lesson": "Lesson 13"
+    },
+    {
+      "zh": "衣柜",
+      "py": "",
+      "en": "wardrobe",
+      "lesson": "Lesson 13"
+    },
+    {
+      "zh": "里",
+      "py": "",
+      "en": "inside",
+      "lesson": "Lesson 13"
+    },
+    {
+      "zh": "手",
+      "py": "",
+      "en": "hand",
+      "lesson": "Lesson 14"
+    },
+    {
+      "zh": "头",
+      "py": "",
+      "en": "head",
+      "lesson": "Lesson 14"
+    },
+    {
+      "zh": "狗",
+      "py": "",
+      "en": "dog",
+      "lesson": "Lesson 14"
+    },
+    {
+      "zh": "眼睛",
+      "py": "",
+      "en": "eye",
+      "lesson": "Lesson 14"
+    },
+    {
+      "zh": "鼻子",
+      "py": "",
+      "en": "nose",
+      "lesson": "Lesson 14"
+    },
+    {
+      "zh": "嘴巴",
+      "py": "",
+      "en": "mouth",
+      "lesson": "Lesson 14"
+    },
+    {
+      "zh": "耳朵",
+      "py": "",
+      "en": "ear",
+      "lesson": "Lesson 14"
+    },
+    {
+      "zh": "它",
+      "py": "",
+      "en": "it",
+      "lesson": "Lesson 14"
+    },
+    {
+      "zh": "很",
+      "py": "",
+      "en": "very",
+      "lesson": "Lesson 14"
+    },
+    {
+      "zh": "刀",
+      "py": "",
+      "en": "knife",
+      "lesson": "Lesson 15"
+    },
+    {
+      "zh": "尺",
+      "py": "",
+      "en": "ruler",
+      "lesson": "Lesson 15"
+    },
+    {
+      "zh": "书包",
+      "py": "",
+      "en": "schoolbag",
+      "lesson": "Lesson 15"
+    },
+    {
+      "zh": "中文书",
+      "py": "",
+      "en": "Chinese textbook",
+      "lesson": "Lesson 15"
+    },
+    {
+      "zh": "本子",
+      "py": "",
+      "en": "exercise book",
+      "lesson": "Lesson 15"
+    },
+    {
+      "zh": "笔盒",
+      "py": "",
+      "en": "pencil case",
+      "lesson": "Lesson 15"
+    },
+    {
+      "zh": "彩笔",
+      "py": "",
+      "en": "coloured pencil",
+      "lesson": "Lesson 15"
+    },
+    {
+      "zh": "尺子",
+      "py": "",
+      "en": "ruler",
+      "lesson": "Lesson 15"
+    },
+    {
+      "zh": "剪刀",
+      "py": "",
+      "en": "scissors",
+      "lesson": "Lesson 15"
+    }
+  ]
+}

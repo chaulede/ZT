@@ -1,0 +1,894 @@
+{
+  "title": "estcV2-3",
+  "level": "estcV2-3",
+  "words": [
+    {
+      "zh": "昨天",
+      "py": "",
+      "en": "yesterday",
+      "lesson": "Lesson 1"
+    },
+    {
+      "zh": "明天",
+      "py": "",
+      "en": "tomorrow",
+      "lesson": "Lesson 1"
+    },
+    {
+      "zh": "对",
+      "py": "",
+      "en": "correct",
+      "lesson": "Lesson 1"
+    },
+    {
+      "zh": "太阳",
+      "py": "",
+      "en": "the sun",
+      "lesson": "Lesson 1"
+    },
+    {
+      "zh": "星星",
+      "py": "",
+      "en": "stars",
+      "lesson": "Lesson 1"
+    },
+    {
+      "zh": "月亮",
+      "py": "",
+      "en": "the moon",
+      "lesson": "Lesson 1"
+    },
+    {
+      "zh": "绿树",
+      "py": "",
+      "en": "green tree",
+      "lesson": "Lesson 1"
+    },
+    {
+      "zh": "红花",
+      "py": "",
+      "en": "red flower",
+      "lesson": "Lesson 1"
+    },
+    {
+      "zh": "小草",
+      "py": "",
+      "en": "grass",
+      "lesson": "Lesson 1"
+    },
+    {
+      "zh": "蛋糕",
+      "py": "",
+      "en": "cake",
+      "lesson": "Lesson 2"
+    },
+    {
+      "zh": "收到",
+      "py": "",
+      "en": "receive",
+      "lesson": "Lesson 2"
+    },
+    {
+      "zh": "礼物",
+      "py": "",
+      "en": "present",
+      "lesson": "Lesson 2"
+    },
+    {
+      "zh": "长寿面",
+      "py": "",
+      "en": "long noodles for longevity",
+      "lesson": "Lesson 2"
+    },
+    {
+      "zh": "西瓜",
+      "py": "",
+      "en": "watermelon",
+      "lesson": "Lesson 2"
+    },
+    {
+      "zh": "苹果汁",
+      "py": "",
+      "en": "apple juice",
+      "lesson": "Lesson 2"
+    },
+    {
+      "zh": "早上",
+      "py": "",
+      "en": "early morning (5:00-9:00)",
+      "lesson": "Lesson 3"
+    },
+    {
+      "zh": "上午",
+      "py": "",
+      "en": "late morning (9:00-12:00)",
+      "lesson": "Lesson 3"
+    },
+    {
+      "zh": "中午",
+      "py": "",
+      "en": "noon (12:00-13:00)",
+      "lesson": "Lesson 3"
+    },
+    {
+      "zh": "下午",
+      "py": "",
+      "en": "afternoon (13:00-18:00)",
+      "lesson": "Lesson 3"
+    },
+    {
+      "zh": "晚上",
+      "py": "",
+      "en": "evening; night (18:00-24:00)",
+      "lesson": "Lesson 3"
+    },
+    {
+      "zh": "早饭",
+      "py": "",
+      "en": "breakfast",
+      "lesson": "Lesson 3"
+    },
+    {
+      "zh": "午饭",
+      "py": "",
+      "en": "lunch",
+      "lesson": "Lesson 3"
+    },
+    {
+      "zh": "晚饭",
+      "py": "",
+      "en": "dinner",
+      "lesson": "Lesson 3"
+    },
+    {
+      "zh": "属",
+      "py": "",
+      "en": "be born in the year of (one of the twelve animals)",
+      "lesson": "Lesson 4"
+    },
+    {
+      "zh": "蛇",
+      "py": "",
+      "en": "snake",
+      "lesson": "Lesson 4"
+    },
+    {
+      "zh": "鸡",
+      "py": "",
+      "en": "chicken; rooster",
+      "lesson": "Lesson 4"
+    },
+    {
+      "zh": "兔",
+      "py": "",
+      "en": "rabbit",
+      "lesson": "Lesson 4"
+    },
+    {
+      "zh": "鼠",
+      "py": "",
+      "en": "rat",
+      "lesson": "Lesson 4"
+    },
+    {
+      "zh": "牛",
+      "py": "",
+      "en": "cow",
+      "lesson": "Lesson 4"
+    },
+    {
+      "zh": "虎",
+      "py": "",
+      "en": "tiger",
+      "lesson": "Lesson 4"
+    },
+    {
+      "zh": "龙",
+      "py": "",
+      "en": "dragon",
+      "lesson": "Lesson 4"
+    },
+    {
+      "zh": "马",
+      "py": "",
+      "en": "horse",
+      "lesson": "Lesson 4"
+    },
+    {
+      "zh": "羊",
+      "py": "",
+      "en": "sheep",
+      "lesson": "Lesson 4"
+    },
+    {
+      "zh": "猴",
+      "py": "",
+      "en": "monkey",
+      "lesson": "Lesson 4"
+    },
+    {
+      "zh": "狗",
+      "py": "",
+      "en": "dog",
+      "lesson": "Lesson 4"
+    },
+    {
+      "zh": "猪",
+      "py": "",
+      "en": "pig",
+      "lesson": "Lesson 4"
+    },
+    {
+      "zh": "语言",
+      "py": "",
+      "en": "language",
+      "lesson": "Lesson 5"
+    },
+    {
+      "zh": "英语",
+      "py": "",
+      "en": "English (language)",
+      "lesson": "Lesson 5"
+    },
+    {
+      "zh": "想",
+      "py": "",
+      "en": "want",
+      "lesson": "Lesson 5"
+    },
+    {
+      "zh": "学",
+      "py": "",
+      "en": "study",
+      "lesson": "Lesson 5"
+    },
+    {
+      "zh": "会",
+      "py": "",
+      "en": "can",
+      "lesson": "Lesson 5"
+    },
+    {
+      "zh": "说",
+      "py": "",
+      "en": "speak",
+      "lesson": "Lesson 5"
+    },
+    {
+      "zh": "中国人",
+      "py": "",
+      "en": "Chinese (people)",
+      "lesson": "Lesson 5"
+    },
+    {
+      "zh": "中文",
+      "py": "",
+      "en": "Chinese (language)",
+      "lesson": "Lesson 5"
+    },
+    {
+      "zh": "英国人",
+      "py": "",
+      "en": "British (people)",
+      "lesson": "Lesson 5"
+    },
+    {
+      "zh": "法语",
+      "py": "",
+      "en": "French (language)",
+      "lesson": "Lesson 5"
+    },
+    {
+      "zh": "法国人",
+      "py": "",
+      "en": "French (people)",
+      "lesson": "Lesson 5"
+    },
+    {
+      "zh": "德语",
+      "py": "",
+      "en": "German (language)",
+      "lesson": "Lesson 5"
+    },
+    {
+      "zh": "德国人",
+      "py": "",
+      "en": "German (people)",
+      "lesson": "Lesson 5"
+    },
+    {
+      "zh": "阿拉伯语",
+      "py": "",
+      "en": "Arabic (language)",
+      "lesson": "Lesson 5"
+    },
+    {
+      "zh": "沙特阿拉伯人",
+      "py": "",
+      "en": "Saudi Arabian (people)",
+      "lesson": "Lesson 5"
+    },
+    {
+      "zh": "商人",
+      "py": "",
+      "en": "businessman",
+      "lesson": "Lesson 6"
+    },
+    {
+      "zh": "公司",
+      "py": "",
+      "en": "company",
+      "lesson": "Lesson 6"
+    },
+    {
+      "zh": "医生",
+      "py": "",
+      "en": "doctor",
+      "lesson": "Lesson 6"
+    },
+    {
+      "zh": "医院",
+      "py": "",
+      "en": "hospital",
+      "lesson": "Lesson 6"
+    },
+    {
+      "zh": "忙",
+      "py": "",
+      "en": "busy",
+      "lesson": "Lesson 6"
+    },
+    {
+      "zh": "工作",
+      "py": "",
+      "en": "work",
+      "lesson": "Lesson 6"
+    },
+    {
+      "zh": "服务员",
+      "py": "",
+      "en": "waiter; waitress",
+      "lesson": "Lesson 6"
+    },
+    {
+      "zh": "杯",
+      "py": "",
+      "en": "cup",
+      "lesson": "Lesson 6"
+    },
+    {
+      "zh": "等一下",
+      "py": "",
+      "en": "wait",
+      "lesson": "Lesson 6"
+    },
+    {
+      "zh": "太太",
+      "py": "",
+      "en": "Mrs; wife",
+      "lesson": "Lesson 6"
+    },
+    {
+      "zh": "先生",
+      "py": "",
+      "en": "Mr; husband",
+      "lesson": "Lesson 6"
+    },
+    {
+      "zh": "护士",
+      "py": "",
+      "en": "nurse",
+      "lesson": "Lesson 6"
+    },
+    {
+      "zh": "起床",
+      "py": "",
+      "en": "get up",
+      "lesson": "Lesson 7"
+    },
+    {
+      "zh": "上课",
+      "py": "",
+      "en": "attend class",
+      "lesson": "Lesson 7"
+    },
+    {
+      "zh": "课外活动",
+      "py": "",
+      "en": "extracurricular activity",
+      "lesson": "Lesson 7"
+    },
+    {
+      "zh": "做作业",
+      "py": "",
+      "en": "do homework",
+      "lesson": "Lesson 7"
+    },
+    {
+      "zh": "睡觉",
+      "py": "",
+      "en": "sleep",
+      "lesson": "Lesson 7"
+    },
+    {
+      "zh": "刷牙",
+      "py": "",
+      "en": "brush one's teeth",
+      "lesson": "Lesson 7"
+    },
+    {
+      "zh": "洗脸",
+      "py": "",
+      "en": "wash one's face",
+      "lesson": "Lesson 7"
+    },
+    {
+      "zh": "洗澡",
+      "py": "",
+      "en": "have a bath",
+      "lesson": "Lesson 7"
+    },
+    {
+      "zh": "身体",
+      "py": "",
+      "en": "health",
+      "lesson": "Lesson 7"
+    },
+    {
+      "zh": "运动",
+      "py": "",
+      "en": "sports; exercise",
+      "lesson": "Lesson 8"
+    },
+    {
+      "zh": "跑步",
+      "py": "",
+      "en": "run",
+      "lesson": "Lesson 8"
+    },
+    {
+      "zh": "游泳",
+      "py": "",
+      "en": "swim",
+      "lesson": "Lesson 8"
+    },
+    {
+      "zh": "游泳池",
+      "py": "",
+      "en": "swimming pool",
+      "lesson": "Lesson 8"
+    },
+    {
+      "zh": "踢足球",
+      "py": "",
+      "en": "play football",
+      "lesson": "Lesson 8"
+    },
+    {
+      "zh": "打羽毛球",
+      "py": "",
+      "en": "play badminton",
+      "lesson": "Lesson 8"
+    },
+    {
+      "zh": "渴",
+      "py": "",
+      "en": "thirsty",
+      "lesson": "Lesson 9"
+    },
+    {
+      "zh": "饿",
+      "py": "",
+      "en": "hungry",
+      "lesson": "Lesson 9"
+    },
+    {
+      "zh": "饱",
+      "py": "",
+      "en": "full",
+      "lesson": "Lesson 9"
+    },
+    {
+      "zh": "厕所",
+      "py": "",
+      "en": "toilet",
+      "lesson": "Lesson 9"
+    },
+    {
+      "zh": "可以",
+      "py": "",
+      "en": "can; may",
+      "lesson": "Lesson 9"
+    },
+    {
+      "zh": "行",
+      "py": "",
+      "en": "OK",
+      "lesson": "Lesson 9"
+    },
+    {
+      "zh": "不行",
+      "py": "",
+      "en": "cannot; may not",
+      "lesson": "Lesson 9"
+    },
+    {
+      "zh": "看书",
+      "py": "",
+      "en": "read a book",
+      "lesson": "Lesson 10"
+    },
+    {
+      "zh": "画画",
+      "py": "",
+      "en": "paint/draw a picture",
+      "lesson": "Lesson 10"
+    },
+    {
+      "zh": "弹钢琴",
+      "py": "",
+      "en": "play the piano",
+      "lesson": "Lesson 10"
+    },
+    {
+      "zh": "看动画片",
+      "py": "",
+      "en": "watch cartoons",
+      "lesson": "Lesson 10"
+    },
+    {
+      "zh": "玩游戏",
+      "py": "",
+      "en": "play games",
+      "lesson": "Lesson 10"
+    },
+    {
+      "zh": "看电视",
+      "py": "",
+      "en": "watch TV",
+      "lesson": "Lesson 10"
+    },
+    {
+      "zh": "看电影",
+      "py": "",
+      "en": "watch a movie",
+      "lesson": "Lesson 10"
+    },
+    {
+      "zh": "写毛笔字",
+      "py": "",
+      "en": "write with a brush",
+      "lesson": "Lesson 10"
+    },
+    {
+      "zh": "画国画",
+      "py": "",
+      "en": "Chinese painting",
+      "lesson": "Lesson 10"
+    },
+    {
+      "zh": "做饭",
+      "py": "",
+      "en": "cook a meal",
+      "lesson": "Lesson 11"
+    },
+    {
+      "zh": "中餐",
+      "py": "",
+      "en": "Chinese food",
+      "lesson": "Lesson 11"
+    },
+    {
+      "zh": "炒饭",
+      "py": "",
+      "en": "fried rice",
+      "lesson": "Lesson 11"
+    },
+    {
+      "zh": "炒面",
+      "py": "",
+      "en": "fried noodles",
+      "lesson": "Lesson 11"
+    },
+    {
+      "zh": "鸡蛋",
+      "py": "",
+      "en": "egg",
+      "lesson": "Lesson 11"
+    },
+    {
+      "zh": "蒸鱼",
+      "py": "",
+      "en": "steamed fish",
+      "lesson": "Lesson 11"
+    },
+    {
+      "zh": "包子",
+      "py": "",
+      "en": "steamed stuffed bun",
+      "lesson": "Lesson 11"
+    },
+    {
+      "zh": "饺子",
+      "py": "",
+      "en": "dumpling",
+      "lesson": "Lesson 11"
+    },
+    {
+      "zh": "西餐",
+      "py": "",
+      "en": "Western food",
+      "lesson": "Lesson 11"
+    },
+    {
+      "zh": "薯条",
+      "py": "",
+      "en": "French fries",
+      "lesson": "Lesson 11"
+    },
+    {
+      "zh": "热狗",
+      "py": "",
+      "en": "hot dog",
+      "lesson": "Lesson 11"
+    },
+    {
+      "zh": "比萨饼",
+      "py": "",
+      "en": "pizza",
+      "lesson": "Lesson 11"
+    },
+    {
+      "zh": "可乐",
+      "py": "",
+      "en": "coke",
+      "lesson": "Lesson 11"
+    },
+    {
+      "zh": "三明治",
+      "py": "",
+      "en": "sandwich",
+      "lesson": "Lesson 11"
+    },
+    {
+      "zh": "冷",
+      "py": "",
+      "en": "cold",
+      "lesson": "Lesson 12"
+    },
+    {
+      "zh": "鞋",
+      "py": "",
+      "en": "shoes",
+      "lesson": "Lesson 12"
+    },
+    {
+      "zh": "羽绒服",
+      "py": "",
+      "en": "down-filled coat",
+      "lesson": "Lesson 12"
+    },
+    {
+      "zh": "帽子",
+      "py": "",
+      "en": "hat",
+      "lesson": "Lesson 12"
+    },
+    {
+      "zh": "围巾",
+      "py": "",
+      "en": "scarf",
+      "lesson": "Lesson 12"
+    },
+    {
+      "zh": "手套",
+      "py": "",
+      "en": "gloves",
+      "lesson": "Lesson 12"
+    },
+    {
+      "zh": "靴子",
+      "py": "",
+      "en": "boots",
+      "lesson": "Lesson 12"
+    },
+    {
+      "zh": "短裤",
+      "py": "",
+      "en": "shorts",
+      "lesson": "Lesson 12"
+    },
+    {
+      "zh": "雨衣",
+      "py": "",
+      "en": "raincoat",
+      "lesson": "Lesson 12"
+    },
+    {
+      "zh": "雨鞋",
+      "py": "",
+      "en": "rainshoes",
+      "lesson": "Lesson 12"
+    },
+    {
+      "zh": "泳裤",
+      "py": "",
+      "en": "swimming trunks",
+      "lesson": "Lesson 12"
+    },
+    {
+      "zh": "泳衣",
+      "py": "",
+      "en": "swimsuit",
+      "lesson": "Lesson 12"
+    },
+    {
+      "zh": "房子",
+      "py": "",
+      "en": "house",
+      "lesson": "Lesson 13"
+    },
+    {
+      "zh": "客厅",
+      "py": "",
+      "en": "living room",
+      "lesson": "Lesson 13"
+    },
+    {
+      "zh": "厨房",
+      "py": "",
+      "en": "kitchen",
+      "lesson": "Lesson 13"
+    },
+    {
+      "zh": "卧室",
+      "py": "",
+      "en": "bedroom",
+      "lesson": "Lesson 13"
+    },
+    {
+      "zh": "卫生间",
+      "py": "",
+      "en": "bathroom",
+      "lesson": "Lesson 13"
+    },
+    {
+      "zh": "书架",
+      "py": "",
+      "en": "bookshelf",
+      "lesson": "Lesson 13"
+    },
+    {
+      "zh": "沙发",
+      "py": "",
+      "en": "sofa",
+      "lesson": "Lesson 13"
+    },
+    {
+      "zh": "书柜",
+      "py": "",
+      "en": "bookcase",
+      "lesson": "Lesson 13"
+    },
+    {
+      "zh": "冰箱",
+      "py": "",
+      "en": "refrigerator",
+      "lesson": "Lesson 13"
+    },
+    {
+      "zh": "空调",
+      "py": "",
+      "en": "air conditioner",
+      "lesson": "Lesson 13"
+    },
+    {
+      "zh": "洗衣机",
+      "py": "",
+      "en": "washing machine",
+      "lesson": "Lesson 13"
+    },
+    {
+      "zh": "暖气",
+      "py": "",
+      "en": "heating radiator",
+      "lesson": "Lesson 13"
+    },
+    {
+      "zh": "动物",
+      "py": "",
+      "en": "animal",
+      "lesson": "Lesson 14"
+    },
+    {
+      "zh": "它们",
+      "py": "",
+      "en": "they; them",
+      "lesson": "Lesson 14"
+    },
+    {
+      "zh": "猫",
+      "py": "",
+      "en": "cat",
+      "lesson": "Lesson 14"
+    },
+    {
+      "zh": "金鱼",
+      "py": "",
+      "en": "goldfish",
+      "lesson": "Lesson 14"
+    },
+    {
+      "zh": "乌龟",
+      "py": "",
+      "en": "turtle",
+      "lesson": "Lesson 14"
+    },
+    {
+      "zh": "圆",
+      "py": "",
+      "en": "round",
+      "lesson": "Lesson 14"
+    },
+    {
+      "zh": "火车",
+      "py": "",
+      "en": "train",
+      "lesson": "Lesson 15"
+    },
+    {
+      "zh": "公共汽车",
+      "py": "",
+      "en": "bus",
+      "lesson": "Lesson 15"
+    },
+    {
+      "zh": "出租车",
+      "py": "",
+      "en": "taxi",
+      "lesson": "Lesson 15"
+    },
+    {
+      "zh": "飞机",
+      "py": "",
+      "en": "plane",
+      "lesson": "Lesson 15"
+    },
+    {
+      "zh": "骑",
+      "py": "",
+      "en": "ride",
+      "lesson": "Lesson 15"
+    },
+    {
+      "zh": "自行车",
+      "py": "",
+      "en": "bicycle",
+      "lesson": "Lesson 15"
+    },
+    {
+      "zh": "高铁",
+      "py": "",
+      "en": "high-speed rail",
+      "lesson": "Lesson 15"
+    },
+    {
+      "zh": "电车",
+      "py": "",
+      "en": "tram",
+      "lesson": "Lesson 15"
+    },
+    {
+      "zh": "救护车",
+      "py": "",
+      "en": "ambulance",
+      "lesson": "Lesson 15"
+    },
+    {
+      "zh": "消防车",
+      "py": "",
+      "en": "fire engine",
+      "lesson": "Lesson 15"
+    }
+  ]
+}

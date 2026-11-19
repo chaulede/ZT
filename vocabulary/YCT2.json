@@ -1,0 +1,498 @@
+{
+  "title": "YCT2",
+  "level": "YCT2",
+  "words": [
+    {
+      "zh": "可以",
+      "py": "",
+      "en": "may",
+      "lesson": "Lesson 1"
+    },
+    {
+      "zh": "坐",
+      "py": "",
+      "en": "sit",
+      "lesson": "Lesson 1"
+    },
+    {
+      "zh": "请",
+      "py": "",
+      "en": "please",
+      "lesson": "Lesson 1"
+    },
+    {
+      "zh": "不客气",
+      "py": "",
+      "en": "You're welcome.",
+      "lesson": "Lesson 1"
+    },
+    {
+      "zh": "不要",
+      "py": "",
+      "en": "don't",
+      "lesson": "Lesson 1"
+    },
+    {
+      "zh": "说话",
+      "py": "",
+      "en": "to talk, to speak",
+      "lesson": "Lesson 1"
+    },
+    {
+      "zh": "对不起",
+      "py": "",
+      "en": "I'm sorry.",
+      "lesson": "Lesson 1"
+    },
+    {
+      "zh": "没关系",
+      "py": "",
+      "en": "Never mind.",
+      "lesson": "Lesson 1"
+    },
+    {
+      "zh": "起床",
+      "py": "",
+      "en": "get up",
+      "lesson": "Lesson 2"
+    },
+    {
+      "zh": "睡觉",
+      "py": "",
+      "en": "sleep, go to bed",
+      "lesson": "Lesson 2"
+    },
+    {
+      "zh": "到",
+      "py": "",
+      "en": "up to, until",
+      "lesson": "Lesson 2"
+    },
+    {
+      "zh": "呢",
+      "py": "",
+      "en": "(a modal particle)",
+      "lesson": "Lesson 2"
+    },
+    {
+      "zh": "要",
+      "py": "",
+      "en": "to want, would like",
+      "lesson": "Lesson 2"
+    },
+    {
+      "zh": "早上",
+      "py": "",
+      "en": "morning",
+      "lesson": "Lesson 2"
+    },
+    {
+      "zh": "晚上",
+      "py": "",
+      "en": "night, evening",
+      "lesson": "Lesson 2"
+    },
+    {
+      "zh": "床",
+      "py": "",
+      "en": "bed",
+      "lesson": "Lesson 3"
+    },
+    {
+      "zh": "桌子",
+      "py": "",
+      "en": "table",
+      "lesson": "Lesson 3"
+    },
+    {
+      "zh": "铅笔",
+      "py": "",
+      "en": "pencil",
+      "lesson": "Lesson 3"
+    },
+    {
+      "zh": "房间",
+      "py": "",
+      "en": "room",
+      "lesson": "Lesson 3"
+    },
+    {
+      "zh": "里",
+      "py": "",
+      "en": "in, inside",
+      "lesson": "Lesson 3"
+    },
+    {
+      "zh": "上",
+      "py": "",
+      "en": "on",
+      "lesson": "Lesson 3"
+    },
+    {
+      "zh": "电视",
+      "py": "",
+      "en": "television",
+      "lesson": "Lesson 3"
+    },
+    {
+      "zh": "椅子",
+      "py": "",
+      "en": "chair",
+      "lesson": "Lesson 3"
+    },
+    {
+      "zh": "书包",
+      "py": "",
+      "en": "schoolbag",
+      "lesson": "Lesson 3"
+    },
+    {
+      "zh": "红色",
+      "py": "",
+      "en": "red",
+      "lesson": "Lesson 4"
+    },
+    {
+      "zh": "黄色",
+      "py": "",
+      "en": "yellow",
+      "lesson": "Lesson 4"
+    },
+    {
+      "zh": "只",
+      "py": "",
+      "en": "(a measure word for some animals and some body parts)",
+      "lesson": "Lesson 4"
+    },
+    {
+      "zh": "名字",
+      "py": "",
+      "en": "name",
+      "lesson": "Lesson 4"
+    },
+    {
+      "zh": "漂亮",
+      "py": "",
+      "en": "beautiful",
+      "lesson": "Lesson 4"
+    },
+    {
+      "zh": "颜色",
+      "py": "",
+      "en": "color",
+      "lesson": "Lesson 4"
+    },
+    {
+      "zh": "两",
+      "py": "",
+      "en": "two",
+      "lesson": "Lesson 4"
+    },
+    {
+      "zh": "本",
+      "py": "",
+      "en": "(a measure word for books)",
+      "lesson": "Lesson 4"
+    },
+    {
+      "zh": "绿色",
+      "py": "",
+      "en": "green",
+      "lesson": "Lesson 4"
+    },
+    {
+      "zh": "包子",
+      "py": "",
+      "en": "baozi",
+      "lesson": "Lesson 5"
+    },
+    {
+      "zh": "医生",
+      "py": "",
+      "en": "doctor",
+      "lesson": "Lesson 5"
+    },
+    {
+      "zh": "厨师",
+      "py": "",
+      "en": "chef, cook",
+      "lesson": "Lesson 5"
+    },
+    {
+      "zh": "会",
+      "py": "",
+      "en": "can",
+      "lesson": "Lesson 5"
+    },
+    {
+      "zh": "做",
+      "py": "",
+      "en": "to do",
+      "lesson": "Lesson 5"
+    },
+    {
+      "zh": "真",
+      "py": "",
+      "en": "really, real",
+      "lesson": "Lesson 5"
+    },
+    {
+      "zh": "好吃",
+      "py": "",
+      "en": "delicious",
+      "lesson": "Lesson 5"
+    },
+    {
+      "zh": "钱",
+      "py": "",
+      "en": "money",
+      "lesson": "Lesson 6"
+    },
+    {
+      "zh": "茶",
+      "py": "",
+      "en": "tea",
+      "lesson": "Lesson 6"
+    },
+    {
+      "zh": "买",
+      "py": "",
+      "en": "to buy",
+      "lesson": "Lesson 6"
+    },
+    {
+      "zh": "多少",
+      "py": "",
+      "en": "how much, how many",
+      "lesson": "Lesson 6"
+    },
+    {
+      "zh": "块",
+      "py": "",
+      "en": "kuai (a unit for RMB)",
+      "lesson": "Lesson 6"
+    },
+    {
+      "zh": "杯",
+      "py": "",
+      "en": "cup (a measure word for drinks)",
+      "lesson": "Lesson 6"
+    },
+    {
+      "zh": "太贵了!",
+      "py": "",
+      "en": "It's too expensive!",
+      "lesson": "Lesson 6"
+    },
+    {
+      "zh": "冷",
+      "py": "",
+      "en": "cold",
+      "lesson": "Lesson 7"
+    },
+    {
+      "zh": "热",
+      "py": "",
+      "en": "hot",
+      "lesson": "Lesson 7"
+    },
+    {
+      "zh": "北京",
+      "py": "",
+      "en": "Beijing",
+      "lesson": "Lesson 7"
+    },
+    {
+      "zh": "天气",
+      "py": "",
+      "en": "weather",
+      "lesson": "Lesson 7"
+    },
+    {
+      "zh": "怎么样",
+      "py": "",
+      "en": "how",
+      "lesson": "Lesson 7"
+    },
+    {
+      "zh": "比",
+      "py": "",
+      "en": "than",
+      "lesson": "Lesson 7"
+    },
+    {
+      "zh": "昨天",
+      "py": "",
+      "en": "yesterday",
+      "lesson": "Lesson 7"
+    },
+    {
+      "zh": "觉得",
+      "py": "",
+      "en": "to feel, to think",
+      "lesson": "Lesson 7"
+    },
+    {
+      "zh": "好喝",
+      "py": "",
+      "en": "good to drink, drinkable",
+      "lesson": "Lesson 7"
+    },
+    {
+      "zh": "弟弟",
+      "py": "",
+      "en": "little brother",
+      "lesson": "Lesson 8"
+    },
+    {
+      "zh": "妹妹",
+      "py": "",
+      "en": "litter sister",
+      "lesson": "Lesson 8"
+    },
+    {
+      "zh": "朋友",
+      "py": "",
+      "en": "friend",
+      "lesson": "Lesson 8"
+    },
+    {
+      "zh": "同学",
+      "py": "",
+      "en": "classmate",
+      "lesson": "Lesson 8"
+    },
+    {
+      "zh": "也",
+      "py": "",
+      "en": "also, too",
+      "lesson": "Lesson 8"
+    },
+    {
+      "zh": "学生",
+      "py": "",
+      "en": "student",
+      "lesson": "Lesson 8"
+    },
+    {
+      "zh": "香蕉",
+      "py": "",
+      "en": "banana",
+      "lesson": "Lesson 9"
+    },
+    {
+      "zh": "熊猫",
+      "py": "",
+      "en": "panda",
+      "lesson": "Lesson 9"
+    },
+    {
+      "zh": "水果",
+      "py": "",
+      "en": "fruit",
+      "lesson": "Lesson 9"
+    },
+    {
+      "zh": "了",
+      "py": "",
+      "en": "(perfective particle)",
+      "lesson": "Lesson 9"
+    },
+    {
+      "zh": "画",
+      "py": "",
+      "en": "to draw, to paint; picture, drawing",
+      "lesson": "Lesson 9"
+    },
+    {
+      "zh": "没",
+      "py": "",
+      "en": "didn't (do), haven't (done)",
+      "lesson": "Lesson 9"
+    },
+    {
+      "zh": "脚",
+      "py": "",
+      "en": "foot",
+      "lesson": "Lesson 10"
+    },
+    {
+      "zh": "医院",
+      "py": "",
+      "en": "hospital",
+      "lesson": "Lesson 10"
+    },
+    {
+      "zh": "怎么了",
+      "py": "",
+      "en": "what's wrong with...",
+      "lesson": "Lesson 10"
+    },
+    {
+      "zh": "疼",
+      "py": "",
+      "en": "painful",
+      "lesson": "Lesson 10"
+    },
+    {
+      "zh": "零",
+      "py": "",
+      "en": "zero",
+      "lesson": "Lesson 11"
+    },
+    {
+      "zh": "玩",
+      "py": "",
+      "en": "play",
+      "lesson": "Lesson 11"
+    },
+    {
+      "zh": "分钟",
+      "py": "",
+      "en": "minute",
+      "lesson": "Lesson 11"
+    },
+    {
+      "zh": "来",
+      "py": "",
+      "en": "come",
+      "lesson": "Lesson 11"
+    },
+    {
+      "zh": "年",
+      "py": "",
+      "en": "year",
+      "lesson": "Lesson 11"
+    },
+    {
+      "zh": "学习",
+      "py": "",
+      "en": "study",
+      "lesson": "Lesson 11"
+    },
+    {
+      "zh": "汉语",
+      "py": "",
+      "en": "Chinese language",
+      "lesson": "Lesson 11"
+    },
+    {
+      "zh": "用",
+      "py": "",
+      "en": "use",
+      "lesson": "Lesson 11"
+    },
+    {
+      "zh": "打电话",
+      "py": "",
+      "en": "make a phone call",
+      "lesson": "Lesson 11"
+    },
+    {
+      "zh": "以前",
+      "py": "",
+      "en": "before",
+      "lesson": "Lesson 11"
+    }
+  ]
+}

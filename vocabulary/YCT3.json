@@ -1,0 +1,462 @@
+{
+  "title": "YCT3",
+  "level": "YCT3",
+  "words": [
+    {
+      "zh": "年级",
+      "py": "",
+      "en": "grade",
+      "lesson": "Lesson 1"
+    },
+    {
+      "zh": "课",
+      "py": "",
+      "en": "class, lesson",
+      "lesson": "Lesson 1"
+    },
+    {
+      "zh": "都",
+      "py": "",
+      "en": "both, all",
+      "lesson": "Lesson 1"
+    },
+    {
+      "zh": "班",
+      "py": "",
+      "en": "class",
+      "lesson": "Lesson 1"
+    },
+    {
+      "zh": "张",
+      "py": "",
+      "en": "Zhang (a Chinese surname)",
+      "lesson": "Lesson 1"
+    },
+    {
+      "zh": "还",
+      "py": "",
+      "en": "also, too",
+      "lesson": "Lesson 1"
+    },
+    {
+      "zh": "新",
+      "py": "",
+      "en": "new",
+      "lesson": "Lesson 1"
+    },
+    {
+      "zh": "男",
+      "py": "",
+      "en": "male",
+      "lesson": "Lesson 1"
+    },
+    {
+      "zh": "女",
+      "py": "",
+      "en": "female",
+      "lesson": "Lesson 1"
+    },
+    {
+      "zh": "游泳",
+      "py": "",
+      "en": "swim",
+      "lesson": "Lesson 2"
+    },
+    {
+      "zh": "太",
+      "py": "",
+      "en": "too, extremely",
+      "lesson": "Lesson 2"
+    },
+    {
+      "zh": "每",
+      "py": "",
+      "en": "every, each",
+      "lesson": "Lesson 2"
+    },
+    {
+      "zh": "一起",
+      "py": "",
+      "en": "together",
+      "lesson": "Lesson 2"
+    },
+    {
+      "zh": "运动",
+      "py": "",
+      "en": "sports",
+      "lesson": "Lesson 2"
+    },
+    {
+      "zh": "打篮球",
+      "py": "",
+      "en": "play basketball",
+      "lesson": "Lesson 2"
+    },
+    {
+      "zh": "欢迎",
+      "py": "",
+      "en": "to welcome",
+      "lesson": "Lesson 2"
+    },
+    {
+      "zh": "踢足球",
+      "py": "",
+      "en": "play soccer / play football",
+      "lesson": "Lesson 2"
+    },
+    {
+      "zh": "太阳",
+      "py": "",
+      "en": "sun",
+      "lesson": "Lesson 3"
+    },
+    {
+      "zh": "月亮",
+      "py": "",
+      "en": "moon",
+      "lesson": "Lesson 3"
+    },
+    {
+      "zh": "跑步",
+      "py": "",
+      "en": "run, jog",
+      "lesson": "Lesson 3"
+    },
+    {
+      "zh": "奶奶",
+      "py": "",
+      "en": "grandmother",
+      "lesson": "Lesson 3"
+    },
+    {
+      "zh": "唱歌",
+      "py": "",
+      "en": "sing",
+      "lesson": "Lesson 3"
+    },
+    {
+      "zh": "跳舞",
+      "py": "",
+      "en": "dance",
+      "lesson": "Lesson 3"
+    },
+    {
+      "zh": "让",
+      "py": "",
+      "en": "to let, to allow or to make (somebody do something)",
+      "lesson": "Lesson 3"
+    },
+    {
+      "zh": "喂",
+      "py": "",
+      "en": "Hello! (on the telephone)",
+      "lesson": "Lesson 4"
+    },
+    {
+      "zh": "您",
+      "py": "",
+      "en": "you (polite)",
+      "lesson": "Lesson 4"
+    },
+    {
+      "zh": "找",
+      "py": "",
+      "en": "to look for",
+      "lesson": "Lesson 4"
+    },
+    {
+      "zh": "回",
+      "py": "",
+      "en": "to return, to go back",
+      "lesson": "Lesson 4"
+    },
+    {
+      "zh": "问题",
+      "py": "",
+      "en": "question",
+      "lesson": "Lesson 4"
+    },
+    {
+      "zh": "问",
+      "py": "",
+      "en": "to ask",
+      "lesson": "Lesson 4"
+    },
+    {
+      "zh": "饿",
+      "py": "",
+      "en": "hungry",
+      "lesson": "Lesson 5"
+    },
+    {
+      "zh": "想",
+      "py": "",
+      "en": "to think",
+      "lesson": "Lesson 5"
+    },
+    {
+      "zh": "最",
+      "py": "",
+      "en": "best",
+      "lesson": "Lesson 5"
+    },
+    {
+      "zh": "给",
+      "py": "",
+      "en": "to give",
+      "lesson": "Lesson 5"
+    },
+    {
+      "zh": "再",
+      "py": "",
+      "en": "again",
+      "lesson": "Lesson 5"
+    },
+    {
+      "zh": "饱",
+      "py": "",
+      "en": "full (after eating)",
+      "lesson": "Lesson 5"
+    },
+    {
+      "zh": "面条儿",
+      "py": "",
+      "en": "noodles",
+      "lesson": "Lesson 5"
+    },
+    {
+      "zh": "饺子",
+      "py": "",
+      "en": "Chinese dumplings",
+      "lesson": "Lesson 5"
+    },
+    {
+      "zh": "帮(助)",
+      "py": "",
+      "en": "to help",
+      "lesson": "Lesson 6"
+    },
+    {
+      "zh": "穿",
+      "py": "",
+      "en": "to wear, to put on",
+      "lesson": "Lesson 6"
+    },
+    {
+      "zh": "能",
+      "py": "",
+      "en": "can",
+      "lesson": "Lesson 6"
+    },
+    {
+      "zh": "自己",
+      "py": "",
+      "en": "oneself",
+      "lesson": "Lesson 6"
+    },
+    {
+      "zh": "衣服",
+      "py": "",
+      "en": "clothes",
+      "lesson": "Lesson 6"
+    },
+    {
+      "zh": "鞋",
+      "py": "",
+      "en": "shoes",
+      "lesson": "Lesson 6"
+    },
+    {
+      "zh": "生日",
+      "py": "",
+      "en": "birthday",
+      "lesson": "Lesson 7"
+    },
+    {
+      "zh": "送",
+      "py": "",
+      "en": "to give (a gift)",
+      "lesson": "Lesson 7"
+    },
+    {
+      "zh": "吧",
+      "py": "",
+      "en": "(used at the end of a sentence to indicate a mild suggestion)",
+      "lesson": "Lesson 7"
+    },
+    {
+      "zh": "但是",
+      "py": "",
+      "en": "but, however",
+      "lesson": "Lesson 7"
+    },
+    {
+      "zh": "快乐",
+      "py": "",
+      "en": "happy",
+      "lesson": "Lesson 7"
+    },
+    {
+      "zh": "礼物",
+      "py": "",
+      "en": "gift, present",
+      "lesson": "Lesson 7"
+    },
+    {
+      "zh": "花",
+      "py": "",
+      "en": "flower",
+      "lesson": "Lesson 7"
+    },
+    {
+      "zh": "蛋糕",
+      "py": "",
+      "en": "cake",
+      "lesson": "Lesson 7"
+    },
+    {
+      "zh": "下雨",
+      "py": "",
+      "en": "to rain",
+      "lesson": "Lesson 8"
+    },
+    {
+      "zh": "下雪",
+      "py": "",
+      "en": "to snow",
+      "lesson": "Lesson 8"
+    },
+    {
+      "zh": "听",
+      "py": "",
+      "en": "to listen",
+      "lesson": "Lesson 8"
+    },
+    {
+      "zh": "外面",
+      "py": "",
+      "en": "outside",
+      "lesson": "Lesson 8"
+    },
+    {
+      "zh": "出",
+      "py": "",
+      "en": "to go/come out",
+      "lesson": "Lesson 8"
+    },
+    {
+      "zh": "别",
+      "py": "",
+      "en": "don't",
+      "lesson": "Lesson 8"
+    },
+    {
+      "zh": "作业",
+      "py": "",
+      "en": "homework",
+      "lesson": "Lesson 8"
+    },
+    {
+      "zh": "哭",
+      "py": "",
+      "en": "to cry",
+      "lesson": "Lesson 9"
+    },
+    {
+      "zh": "笑",
+      "py": "",
+      "en": "to smile",
+      "lesson": "Lesson 9"
+    },
+    {
+      "zh": "东西",
+      "py": "",
+      "en": "thing",
+      "lesson": "Lesson 9"
+    },
+    {
+      "zh": "丢",
+      "py": "",
+      "en": "to lose",
+      "lesson": "Lesson 9"
+    },
+    {
+      "zh": "到",
+      "py": "",
+      "en": "(used after verb to indicate result)",
+      "lesson": "Lesson 9"
+    },
+    {
+      "zh": "老虎",
+      "py": "",
+      "en": "tiger",
+      "lesson": "Lesson 10"
+    },
+    {
+      "zh": "第一",
+      "py": "",
+      "en": "the first",
+      "lesson": "Lesson 10"
+    },
+    {
+      "zh": "胖",
+      "py": "",
+      "en": "fat",
+      "lesson": "Lesson 10"
+    },
+    {
+      "zh": "瘦",
+      "py": "",
+      "en": "thin",
+      "lesson": "Lesson 10"
+    },
+    {
+      "zh": "得",
+      "py": "",
+      "en": "(a structural particle)",
+      "lesson": "Lesson 10"
+    },
+    {
+      "zh": "快",
+      "py": "",
+      "en": "fast",
+      "lesson": "Lesson 10"
+    },
+    {
+      "zh": "知道",
+      "py": "",
+      "en": "to know",
+      "lesson": "Lesson 10"
+    },
+    {
+      "zh": "水果",
+      "py": "",
+      "en": "fruit",
+      "lesson": "Lesson 11"
+    },
+    {
+      "zh": "糖",
+      "py": "",
+      "en": "candy",
+      "lesson": "Lesson 11"
+    },
+    {
+      "zh": "把",
+      "py": "",
+      "en": "(indicating a thing is disposed of)",
+      "lesson": "Lesson 11"
+    },
+    {
+      "zh": "西瓜",
+      "py": "",
+      "en": "watermelon",
+      "lesson": "Lesson 11"
+    },
+    {
+      "zh": "鸡蛋",
+      "py": "",
+      "en": "egg",
+      "lesson": "Lesson 11"
+    }
+  ]
+}
